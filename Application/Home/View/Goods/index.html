@@ -1,0 +1,106 @@
+<include file="Public/header" />   
+<div class="forth-div">
+    <div>
+        <a><{:L('首页')}></a>
+        <span>·</span>
+        <a><{:L('媒体中心')}></a>
+        <span>·</span>
+        <a><{:L('视频广告')}></a>
+    </div>
+</div>
+<style>
+    .second-li-selected{background-color: red;}
+    .second-a-selected{color: #fff;}
+</style>
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_main_content">
+    	<div id="templatemo_sidebar">
+            <div class="sidebar_content_box" style="height:100px;">
+                <h3 style="text-align:center;margin:25px 0 0 0;color:red;font-weight:bold;"><{:L('业务产品')}></h3>
+                <h5 style="text-align:center;color:#35bf35;">MEDIA CENTER</h5>
+            </div>
+            <div class="sidebar_content_box" style="background:#fff;padding:0;">
+                <ul  style="padding:0;">
+                    <li class="mouseover-li left-sub-menu" style="margin: 10px auto;"><a class="left-sub-menu-a" href="<{:U('Range/index')}>" ><{:L('业务范围')}></a></li>
+                    <li style="height: 1px;background-color: #9FA0A1;"></li>
+                    <li class="mouseover-li left-sub-menu" style="margin-bottom: 10px;margin-top: 10px;"><a class="left-sub-menu-a" href="<{:U('Goods/index')}>" style="color: red;"><{:L('产品展示')}></a></li>
+
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('衣帽')}></a></li>-->
+                    <!--<li class="second-li second-li-selected"><a href="#" style="color: #fff;"><{:L('鞋靴')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('防弹产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('装具')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('警用产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('车辆及装备')}></a></li>-->
+
+                    <volist name="category" id="cItem">
+                        <if condition="$thisCpid eq $cItem['category_id']">
+                            <li class="second-li second-li-selected"><a class="" href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>" style="color: #fff;"><{:L($cItem['category_name'])}></a></li>
+                        <else/>
+                            <li class="second-li"><a class="" href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>" ><{:L($cItem['category_name'])}></a></li>
+                        </if>
+                    </volist>
+                </ul>
+            </div>
+
+        </div>
+
+        <style>
+            .products-middle-image-div{height: 30px;border-bottom: 1px solid #9d9e9f;}
+            .products-middle-image-div-img{float: left;margin-left: 5px;border-radius: 20px;margin-top: 5px;}
+            .products-middle-image-div-span1{float: left;margin-top: 7px;margin-left: 10px;font-size: 12px;}
+            .products-middle-image-div-span2{float: right;margin-top: 7px;margin-right: 10px;font-size: 12px;}
+
+            .goods-container{width:220px;float: left;margin:20px 4px 20px 20px;border:1px solid #fff;}
+            .goods-container:hover{border:1px solid #9d9e9f;}
+            .goods-img{width: 220px;height: 240px;}
+            .border-width{border-width:2px;}
+            .goods_search{margin-top: 30px;margin-left: 20px;border-bottom: 1px solid #9FA0A1;width: 715px;}
+            .search-botton{background-color: red;  color: #fff;  float: left;  height: 35px;  border: none;  width: 140px;  margin-left: 15px;font-size: 16px;}
+        </style>
+
+
+        <div id="templatemo_content" style="border:none;">
+     
+            <div class="sidebar_content_box" style="height:100px;background-image: url(__PUBLIC__/images/goods-xiexue.png);">
+                <div style="margin-top: 35px;margin-left: 50px;">
+                    <div style="width: 25px;height: 25px;background-color: red;float: left;"></div>
+                    <h3 style="float: left;color: red;margin-left: 20px;"><{:L($_list[0]["category_pname"])}></h3>
+                </div>
+            </div>
+            <!--<div class="goods_search">-->
+                <!--<input type="text" style="width: 540px;height: 30px;float: left;padding-left: 10px;" placeholder="请输入要搜索产品的关键字">-->
+                <!--<button class="search-botton" >搜索</button>-->
+                <!--<div style="clear: both;"></div>-->
+                <!--<h4 style=" font-size: 14px;color: gray;margin-left: 35px;">搜索到与 "关键字" 相关的产品有 37 个</h4>-->
+            <!--</div>-->
+            <div class="news_container" style="padding: 0;">
+
+                <volist name="_list" id="list">
+                    <div class="goods-container">
+                        <a href="<{:U('Goods/detail',array('id'=>$list['goods_id']))}>">
+                        <img class="goods-img" src="<{$list.goods_img0}>" alt="">
+                        <div class="products-middle-image-div" style="line-height: 25px;height: 25px;"><{$list.goods_code}></div>
+                        <div class="products-middle-image-div border-width" >
+                            <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
+                            <span class="products-middle-image-div-span1" ><{$list.goods_weight}></span>
+                            <span class="products-middle-image-div-span2" ><{$list.goods_size}></span>
+                        </div>
+                        </a>
+                    </div>
+                </volist>
+                <div style="clear: both;"></div>
+                <div id="page">
+                    <{$page}>
+                </div>
+
+            </div>
+
+
+        </div>	
+        <div class="clear"></div>
+    </div> <!-- END of templatemo_main_content -->
+
+</div> <!-- END of templatemo_wrapper -->
+
+<include file="Public/footer" />

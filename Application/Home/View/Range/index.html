@@ -1,0 +1,101 @@
+<include file="Public/header" />   
+<div class="forth-div">
+    <div>
+        <a><{:L('首页')}></a>
+        <span>·</span>
+        <a><{:L('媒体中心')}></a>
+        <span>·</span>
+        <a><{:L('视频广告')}></a>
+    </div>
+</div>
+
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_main_content">
+    	<div id="templatemo_sidebar">
+            <div class="sidebar_content_box" style="height:100px;">
+                <h3 style="text-align:center;margin-top:20px;color:red;font-weight:bold;"><{:L('业务产品')}></h3>
+                <h5 style="text-align:center;margin-top:10px;color:#35bf35;">MEDIA CENTER</h5>
+            </div>
+            <div class="sidebar_content_box" style="background:#fff;padding:0;">
+                <ul  style="padding:0;">
+                    <li class="mouseover-li left-sub-menu-hover" style="margin: 10px auto;"><a class="left-sub-menu-a-hover" href="<{:U('Range/index')}>" ><{:L('业务范围')}></a></li>
+                    <li style="height: 1px;background-color: #9FA0A1;"></li>
+                    <li class="mouseover-li left-sub-menu" style="margin-bottom: 10px;margin-top: 10px;"><a class="left-sub-menu-a" href="<{:U('Goods/index')}>" ><{:L('产品展示')}></a></li>
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('衣帽')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('鞋靴')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('防弹产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('装具')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('警用产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('车辆及装备')}></a></li>-->
+
+                    <volist name="category" id="cItem">
+                        <li class="second-li"><a class="" href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>" ><{:L($cItem['category_name'])}></a></li>
+                    </volist>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+
+        <div id="templatemo_content">
+
+            <div class="sidebar_content_boxx" style="height:100px;">
+                <h3 class="h3-content"><{:L('业务范围')}></h3>
+            </div>
+            <div class="news_container" style="position: relative;overflow: hidden;">
+
+                <div style="margin-top: 20px;margin-bottom: 20px;" id="show_imageflow_name">
+                    <div style="height: 2px;background:#9FA0A1;float: left;width: 130px;margin-top: 14px;"></div>
+                    <img onclick="prevImg()" style="float: left;margin-left: 20px;height: 30px;cursor: pointer;" src="__PUBLIC__/images/zuo.png" alt="">
+
+                    <div style="background: #D7D7D8;width:200px;text-align: center;margin: 0 auto;font-size: 16px;line-height: 30px;float: left;margin-left: 40px;">
+                        <div style="width: 10px;height: 30px;background: red;float: left;"></div>
+                        <span class="top-show-name"><{$info[0]['range_title']}></span>
+                        <div style="width: 10px;height: 30px;background: red;float: right;"></div>
+                    </div>
+                    <img onclick="nextImg()" style="float: left;margin-left: 40px;height: 30px;cursor: pointer;" src="__PUBLIC__/images/you.png" alt="">
+
+                    <div style="height: 2px;background:#9FA0A1;float: right;width: 130px;margin-top: 14px;"></div>
+                    <div style="clear: both;"></div>
+                </div>
+                
+                <div class="area_img">
+                    <foreach name="info" item="item">
+                        <img src="<{$item.range_img}>" width="700" height="360" title="<{$item.range_title}>" <if condition="$key neq 0">style="display:none;"</if>>
+                    </foreach>
+                </div>
+
+                <p style="text-align: center;margin-top: 20px;font-size: 16px;color: gray;">中国新兴进出口总公司业务范围，遍及全世界100多个国家</p>
+
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+    </div> <!-- END of templatemo_main_content -->
+
+</div> <!-- END of templatemo_wrapper -->
+<script>
+    var cShow = 0;
+    function prevImg(){
+        var len = $('.area_img img').length;
+        $('.area_img img').hide();
+        cShow = cShow <= 0 ? len-1 : cShow-1;
+        $('.area_img img').eq(cShow).show();
+        $('.top-show-name').text($('.area_img img').eq(cShow).attr('title'));
+    }
+
+    function nextImg(){
+        var len = $('.area_img img').length;
+        $('.area_img img').hide();
+        cShow = cShow >= len-1 ? 0 : cShow+1;
+//        alert(cShow + "__" + len);
+        $('.area_img img').eq(cShow).show();
+        $('.top-show-name').text($('.area_img img').eq(cShow).attr('title'));
+    }
+</script>
+
+
+<include file="Public/footer" />

@@ -1,0 +1,63 @@
+<include file="Public/header" />   
+<div class="forth-div">
+    <div>
+        <a><{:L('首页')}></a>
+        <span>·</span>
+        <a><{:L('媒体中心')}></a>
+        <span>·</span>
+        <a><{:L('视频广告')}></a>
+    </div>
+</div>
+
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_main_content">
+    	<div id="templatemo_sidebar">
+            <div class="sidebar_content_box" style="height:100px;">
+                <h3 style="text-align:center;margin-top:20px;color:red;font-weight:bold;"><{:L('媒体中心')}></h3>
+                <h5 style="text-align:center;margin-top:10px;color:#35bf35;">MEDIA CENTER</h5>
+            </div>
+            <div class="sidebar_content_box" style="background:#fff;padding:0;">
+                <ul  style="padding:0;">
+                    <li class="mouseover-li left-sub-menu-hover"><a class="left-sub-menu-a-hover" href="<{:U('Video/index')}>" ><{:L('视频广告')}></a></li>
+                    <!--<li class="mouseover-li left-sub-menu"><a class="left-sub-menu-a" href="#" >公司简介</a></li>-->
+                    <!--<li class="mouseover-li left-sub-menu"><a class="left-sub-menu-a" href="#" >企业荣誉</a></li>-->
+                </ul>
+            </div>
+
+        </div>
+
+
+
+        <div id="templatemo_content">
+     
+            <div class="sidebar_content_boxx" style="height:100px;">
+                <h3 class="h3-content"><{:L('视频广告')}></h3>
+            </div>
+
+            <div class="news_container">
+                <foreach name="_list" item="item">
+                    <div class="" style="margin-bottom: 40px;">
+                        <div class="" style="background-color: #EEEFF0;">
+                            <div style="width:20px;background: red;height: 35px;float: left;"></div>
+                            <span class="news-title-text" style="font-size: 16px;"><{$item.video_title}></span>
+                            <span class="news-title-text" style="font-size: 16px;float: right;margin-right: 20px;"> <{$item.create_time|date="Y/m/d",###}></span>
+                        </div>
+
+                        <embed style="width:100%;height: 350px;margin-top: 15px;" class="img_border img_border_b"  src="<{$item.video_link}>" allowScriptAccess="always" allowFullScreen="true" mode="transparent" type="application/x-shockwave-flash"></embed>
+                        <div class="clear"></div>
+                    </div>
+                </foreach>
+                <div id="page">
+                    <{$page}>
+                </div>
+            </div>
+
+
+        </div>	
+        <div class="clear"></div>
+    </div> <!-- END of templatemo_main_content -->
+
+</div> <!-- END of templatemo_wrapper -->
+
+<include file="Public/footer" />

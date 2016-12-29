@@ -1,0 +1,18 @@
+<script>
+    //每页显示多少条数据
+    function changePagesNum(_this){
+        var size = $(_this).val();
+        var url =  location.href.replace(/\?size[\S]*|&p[\S]*|&search[\S]*/,'');
+        location.href = url+"?size="+size;
+    }
+</script>
+
+
+<!-- head的闭合 -->
+</div>
+</div>
+</div>
+<!-- head的闭合 -->
+
+</body>
+</html>

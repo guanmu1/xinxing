@@ -1,0 +1,1056 @@
+<include file="Public/head" />
+<style>
+    .checkbox-inline input{
+        margin-top: 2px;
+    }
+    .upbtn{
+        position: absolute;
+        left: 65px;
+        top: 60px;
+    }
+    .img_zhezhao{
+        position: absolute;top:0;width: 150px;text-align: right;padding-top: 2px;padding-right: 2px;display: none;
+    }
+    .img_zhezhao img{cursor: pointer;border-radius: 50%;opacity: 0.3;}
+    .img_zhezhao img:hover{opacity: 1;}
+</style>
+
+<!--引入CSS-->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/webuploader.css">
+
+<!--引入JS-->
+<script type="text/javascript" src="__PUBLIC__/js/webuploader.min.js"></script>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12  ">
+            <div class="ibox float-e-margins">
+                <div class="ibox-form[0][title]">
+                    <h5>编辑商品</h5>
+                </div>
+                <volist name="rInfo" id="item" key="kkey">
+                    <form class="form-horizontal m-t content-form"  method="post" <if condition="$item.goods_name eq ''">style="display:none;"</if>>
+                    <input type="hidden" name="form[<{$key}>][show_home]" value="<{$item.show_home}>">
+                    <div class="ibox-content">
+                        <div class="form-group">
+                            <label style="float: left;color:red;">第<{$key+1}>组</label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品名称：</label>
+                            <div class="col-sm-4">
+                                <input name="form[<{$key}>][goods_name]" class="form-control input-title" type="text" value="<{$item.goods_name}>">
+                            </div>
+                            <label class="col-sm-2 control-label">商品型号：</label>
+                            <div class="col-sm-3">
+                                <input name="form[<{$key}>][goods_code]" class="form-control input-title" type="text" value="<{$item.goods_code}>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品重量：</label>
+                            <div class="col-sm-4">
+                                <input name="form[<{$key}>][goods_weight]" class="form-control input-title" type="text" value="<{$item.goods_weight}>">
+                            </div>
+                            <label class="col-sm-2 control-label">商品规格：</label>
+                            <div class="col-sm-3">
+                                <input name="form[<{$key}>][goods_size]" class="form-control input-title" type="text" value="<{$item.goods_size}>">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品分类：</label>
+                            <div class="col-sm-9">
+                                <select name="form[<{$key}>][category_pid]" class="form-control cat" style="width: 48%;display: inline;">
+                                    <option value="0">一级分类</option>
+                                    <foreach name="category" item="_category" key="ck">
+                                        <option value="<{$_category.category_id}>" <if condition="$_category.category_id eq $item.category_pid "> selected="selected" </if>><{$_category.category_name}></option>
+                                    </foreach>
+                                </select>
+                                <select name="form[0][category_id]" class="form-control" style="width: 50%;display: inline;">
+                                    <option value="0">二级分类</option>
+                                    <foreach name="item.sec_cate" item="_cate" key="key2">
+                                        <if condition="$item['category_id'] eq $_cate['category_id']">
+                                            <option value="<{$_cate.category_id}>" selected="selected"><{$_cate.category_name}></option>
+                                            <else/>
+                                            <option value="<{$_cate.category_id}>"><{$_cate.category_name}></option>
+                                        </if>
+                                    </foreach>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">上传商品图片：</label>
+                            <div class="col-sm-10" style="margin-bottom: 3px;">
+                                <input type="file" id="upload_img_<{$key}>" name="res" multiple />
+                                <div id="content_picts_preview_<{$key}>">
+                                    <foreach name="item.ad_content_urls" item="_ad_content_urls" key="key1">
+                                        <if condition="$_ad_content_urls">
+                                            <div style="position: relative;width:200px;float: left;margin-left: 30px;">
+                                                <div class="show_<{$key}>" style="text-align:right;width:100%;position:absolute;top:0;float: right;height: 30px;border:1px solid red;color:red;" onclick="del_0(this)">X</div>
+                                                <img src="<{$_ad_content_urls}>" alt="" width="200" height="200" style="margin-right: 10px;margin-bottom: 10px;">
+                                                <input type="hidden" name="form[<{$key}>][ad_content_urls][]" value="<{$_ad_content_urls}>" />
+                                            </div>
+                                        </if>
+                                    </foreach>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品介绍：</label>
+                            <div class="col-sm-9">
+                                <script id="editor_<{$key}>_0" type="text/plain"  name="form[<{$key}>][goods_intro]" style="height:200px;"></script>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">商品详情：</label>
+                            <div class="col-sm-9">
+                                <script id="editor_<{$key}>_1" type="text/plain"  name="form[<{$key}>][goods_description]" style="height:200px;"></script>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">发布到：</label>
+
+                            <div class="col-sm-10">
+                                <foreach name="item.language" item="lItem" key="k">
+                                    <switch name="lItem.state" >
+                                        <case value="2">
+                                            <label class="checkbox-inline"><input type="checkbox" checked name="form[<{$key}>][language][]" value="<{$lItem.value}>" ><{$lItem.name}></label>
+                                        </case>
+                                        <case value="1">
+                                            <label class="checkbox-inline"><input type="checkbox" name="form[<{$key}>][language][]" value="<{$lItem.value}>" ><{$lItem.name}></label>
+                                        </case>
+                                        <default />
+                                        <label class="checkbox-inline" style="display: none;"><input type="checkbox" disabled name="form[<{$key}>][language][]" value="<{$lItem.value}>" ><{$lItem.name}></label>
+                                    </switch>
+                                </foreach>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </volist>
+
+
+
+
+                <div style="margin-top: 10px;" class="form-group">
+                    <div class="col-sm-3 " style="float: right;">
+                        <button onclick="editSubmit(<{$Think.get.groupId}>)" class="btn btn-primary ajax-post" type="submit">提交</button>
+                        <a class="btn btn-primary" href="<{:U('Goods/index')}>">取消</a>
+                    </div>
+                </div>
+                <a id="add-btn" href="javascript:addOne(this)" class="btn btn-primary btn-outline">向下添加一种语言</a>
+                <a id="del-btn" href="javascript:delOne(this)" class="btn btn-primary btn-outline">移除上一种语言</a>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- head的闭合 -->
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        // 第一组上传图片
+        var str = '{$phpsessid}';
+        $('#upload_img_0').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_0").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                console.log(data);
+                var flag_id = "show_0";
+                addPictsAndThumbnail(data,"#content_picts_preview_0","form[0][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //第二组上传图片
+        $('#upload_img_1').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_1").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                console.log(data);
+                var flag_id = "show_1";
+                addPictsAndThumbnail(data,"#content_picts_preview_1","form[1][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //第三组
+        $('#upload_img_2').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_2").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                console.log(data);
+                var flag_id = "show_2";
+                addPictsAndThumbnail(data,"#content_picts_preview_2","form[2][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //第四组
+        $('#upload_img_3').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_3").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                console.log(data);
+                var flag_id = "show_3";
+                addPictsAndThumbnail(data,"#content_picts_preview_3","form[3][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //第五组
+        $('#upload_img_4').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_4").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                console.log(data);
+                var flag_id = "show_4";
+                addPictsAndThumbnail(data,"#content_picts_preview_4","form[4][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //第六组
+        $('#upload_img_5').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_5").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                console.log(data);
+                var flag_id = "show_5";
+                addPictsAndThumbnail(data,"#content_picts_preview_5","form[5][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //第七组
+        $('#upload_img_6').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择图片',
+            'swf'           : '__JS__/uploadify/uploadify.swf',
+            'uploader'      : '<{:U("Goods/uploadPic")}>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.jpg;*.jpeg;*.png;',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_6").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+//                console.log(data);
+                var flag_id = "show_6";
+                addPictsAndThumbnail(data,"#content_picts_preview_6","form[6][ad_content_urls][]", flag_id);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            // 返回一个错误，选择文件的时候触发
+            'onSelectError':function(file, errorCode, errorMsg){
+                console.log(errorCode);
+                switch(errorCode) {
+                    case -100:
+                        alert("文件 数量 超出系统限制，最多6张！");
+                        break;
+                    case -110:
+                        alert("文件 ["+file.name+"] 大小超出系统限制的大小！");
+                        break;
+                    case -120:
+                        alert("文件 ["+file.name+"] 大小异常！");
+                        break;
+                    case -130:
+                        alert("文件 ["+file.name+"] 类型不正确！");
+                        break;
+                }
+            },
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+    })
+
+    // 增加上传的图片和预览用的缩略图
+    function addPictsAndThumbnail(data,previewContainer,inputName,flag_id){
+        data = $.parseJSON(data);
+        console.log(data);
+//        var strFile = '<input type="hidden" name='+inputName+' class="'+pictsID+'" value="'+data.pictURL+'" />';
+        var str = '<div style="position: relative;width:200px;float: left;margin-left: 30px;">' +
+                '<div class="'+flag_id+'" style="text-align:right;width:100%;position:absolute;top:0;float: right;height: 30px;border:1px solid red;color:red;" onclick="del_0(this)">X</div> ' +
+                '<img src="'+data.pictURL+'" alt="" width="200" height="200" style="margin-right: 10px;margin-bottom: 10px;"> ' +
+                '<input type="hidden" name="'+inputName+'" value="'+data.pictURL+'" /></div>';
+//        $(previewContainer).before(strFile).append(str);
+        $(previewContainer).append(str);
+    }
+    function del_0(_this){
+        $(_this).parent().remove();
+    }
+
+
+</script>
+
+<!-- head的闭合 -->
+<script type="text/javascript">
+    $(function () {
+        /**
+         * 复选框添加点击事件，同时对七组的语言复选框生效
+         * 可以防止同一种语言重复的问题
+         */
+        $('input:checkbox').click(function(){
+            var thisCheck = this.checked;
+            var thisVal = $(this).val();
+            if (thisCheck) {
+                $('input:checkbox[value="'+thisVal+'"]').attr('disabled','disabled').parent().hide();//先将所有的禁用并隐藏
+                $(this).removeAttr('disabled').parent().show();//再将当前这个复选框解除禁用并显示
+            } else {
+                $('input:checkbox[value="'+thisVal+'"]').removeAttr('disabled').parent().show();//显示所有的语言复选框
+            }
+        });
+
+        //产品分类变化
+        $(".cat").change(function(){
+            var obj = $(this);
+            var val = $(this).val();
+            $.ajax({
+                url:"<{:U('Goods/getCategory')}>",
+                dataType:'json',
+                type:'post',
+                data:{pid:val},
+                success:function(data){
+                    if(data.status == 1){
+                        var str = '<option value="0">二级分类</option>';
+                        $.each(data.msg, function(i,e){
+                            str += '<option value="'+e.category_id+'">'+e.category_name+'</option>';
+                        })
+                        $(obj).next().empty().append(str);
+                    }else{
+                        var str = '<option value="0">二级分类</option>';
+                        $(obj).next().empty().append(str);
+                        bootbox.alert({
+                            message: data.msg,
+                            buttons: {
+                                ok: {
+                                    label: " 确 定 ",
+                                    className: "btn-primary btn-sm",
+                                }
+                            }
+                        });
+//                        $(obj).next().attr('disabled','disabled');
+//                        $(obj).next().css('background-color', '#dddddd');
+                    }
+                }
+            });
+        })
+    });
+
+
+
+    var ue_cn_0 = UE.getEditor('editor_0_0');
+    var ue_cn_1 = UE.getEditor('editor_0_1');
+    var ue_en_0 = UE.getEditor('editor_1_0');
+    var ue_en_1 = UE.getEditor('editor_1_1');
+    var ue_fr_0 = UE.getEditor('editor_2_0');
+    var ue_fr_1 = UE.getEditor('editor_2_1');
+    var ue_es_0 = UE.getEditor('editor_3_0');
+    var ue_es_1 = UE.getEditor('editor_3_1');
+    var ue_pt_0 = UE.getEditor('editor_4_0');
+    var ue_pt_1 = UE.getEditor('editor_4_1');
+    var ue_ru_0 = UE.getEditor('editor_5_0');
+    var ue_ru_1 = UE.getEditor('editor_5_1');
+    var ue_ar_0 = UE.getEditor('editor_6_0');
+    var ue_ar_1 = UE.getEditor('editor_6_1');
+
+    ue_cn_0.ready(function() {
+        ue_cn_0.setContent('<{$rInfo[0]["goods_intro"]}>');
+    });
+    ue_cn_1.ready(function() {
+        ue_cn_1.setContent('<{$rInfo[0]["goods_description"]}>');
+    });
+
+    ue_en_0.ready(function() {
+        ue_en_0.setContent('<{$rInfo[1]["goods_intro"]}>');
+    });
+    ue_en_1.ready(function() {
+        ue_en_1.setContent('<{$rInfo[1]["goods_description"]}>');
+    });
+
+    ue_fr_0.ready(function() {
+        ue_fr_0.setContent('<{$rInfo[2]["goods_intro"]}>');
+    });
+    ue_fr_1.ready(function() {
+        ue_fr_1.setContent('<{$rInfo[2]["goods_description"]}>');
+    });
+
+    ue_es_0.ready(function() {
+        ue_es_0.setContent('<{$rInfo[3]["goods_intro"]}>');
+    });
+    ue_es_1.ready(function() {
+        ue_es_1.setContent('<{$rInfo[3]["goods_description"]}>');
+    });
+
+    ue_pt_0.ready(function() {
+        ue_pt_0.setContent('<{$rInfo[4]["goods_intro"]}>');
+    });
+    ue_pt_1.ready(function() {
+        ue_pt_1.setContent('<{$rInfo[4]["goods_description"]}>');
+    });
+
+    ue_ru_0.ready(function() {
+        ue_ru_0.setContent('<{$rInfo[5]["goods_intro"]}>');
+    });
+    ue_ru_1.ready(function() {
+        ue_ru_1.setContent('<{$rInfo[5]["goods_description"]}>');
+    });
+
+    ue_ar_0.ready(function() {
+        ue_ar_0.setContent('<{$rInfo[6]["goods_intro"]}>');
+    });
+    ue_ar_1.ready(function() {
+        ue_ar_1.setContent('<{$rInfo[6]["goods_description"]}>');
+    });
+
+
+    var curr = 1;
+    function addOne(_this){
+        //如果已经选择了七种语言，则不让继续添加
+        if ($('input:checkbox:checked').length >= 7) {
+            bootbox.alert({
+                message: '您已选择了7种语言',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
+            return;
+        }
+        //已经有7组处于显示状态则不让继续添加
+        if (curr >= 7) {
+            bootbox.alert({
+                message: '您已经添加了7组输入框',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
+            return;
+        }
+        $('.content-form').eq(curr).show();
+        curr++;
+    }
+    function delOne(_this){
+        if (curr <= 1) {
+            bootbox.alert({
+                message: '只剩一组输入框，禁止删除',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
+            return;
+        }
+        $('.content-form').eq(curr-1).hide();
+        $('.content-form').eq(curr-1).find('input:checkbox').each(function(i,e){//如果当前删除的表单中含有复选框处于选中状态，则移除选中状态
+            var eCheck = e.checked;
+            var eValue = e.value;
+            if (eCheck) {
+                $('input:checkbox[value="'+eValue+'"]').removeAttr('disabled').parent().show();
+            }
+        });
+        curr--;
+    }
+
+
+    function editSubmit(groupId){
+        var postData = '';
+        var flag = false;//是否继续执行该方法的标识，如果下列循环中有一种不符合条件，则不提交后台
+        $('.content-form:visible').each(function(i,e){//只获取处于显示状态的form表单
+            var langVal = $(e).find("input:checkbox:checked").length;//当前这个form表单选择发布语言的数量
+            var titleVal = $(e).find(".input-title").val();//当前这个form表单的标题值
+            if (!titleVal) {
+                bootbox.alert({
+                    message: '第'+(i+1)+'组标题为空，请填写后再提交',
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+                flag = true;
+                return false;
+            }
+            if (langVal == 0) {
+                bootbox.alert({
+                    message: '第'+(i+1)+'组未选择语言，请选择后再提交',
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+                flag = true;
+                return false;
+            }
+            postData += $(e).serialize() + "&";//将序列化后的值拼到一起
+        });
+
+        if (flag) {
+            return;
+        }
+        postData += "&groupId="+groupId;
+
+        $.post('<{:U("Goods/edit")}>',postData,function(result){
+//            console.log(result);
+//            alert(result.info);
+            location.href = result.url;
+        });
+    }
+
+
+    //上传图片
+//    function clickInputFile(_this) {
+//        $(_this).nextAll('input:file').trigger('click');
+//    }
+//
+//    function uploadFile(_this){
+//        var eleId = $(_this).attr('id');
+//        var imgObj = $(_this).siblings('img');
+//        var inputHidden = $(_this).siblings('input:hidden');
+//        $.ajaxFileUpload(
+//                {
+//                    url:'<{:U("Goods/uploadPic")}>', //你处理上传文件的服务端
+//                    secureuri:false,
+//                    fileElementId:eleId,
+//                    dataType: 'text',
+//                    success: function (data){
+////                        console.log(data);
+////                        imgObj.attr('src',data);
+////                        inputHidden.val(data);
+//                        addPic(data, imgObj, inputHidden);
+//                    }
+//                }
+//        )
+//    }
+//    //追加上传图片
+//    function addPic(data, imgObj, inputObj){
+//        $.each(imgObj, function(i,e){
+//            if($(this).attr('src') == ''){
+//                $(this).css('display','');
+//                imgObj.attr('src',data);
+//                return;
+//            }
+//        })
+//    }
+
+</script>
+
+</body>
+
+</html>

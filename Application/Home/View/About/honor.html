@@ -1,0 +1,99 @@
+<include file="Public/header" />
+<div class="forth-div">
+    <div>
+        <a><{:L('首页')}></a>
+        <span>·</span>
+        <a><{:L('关于我们')}></a>
+        <span>·</span>
+        <a><{:L('企业荣誉')}></a>
+    </div>
+</div>
+
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_main_content">
+    	<div id="templatemo_sidebar">
+            <div class="sidebar_content_box" style="height:100px;">
+                <h3 style="text-align:center;margin-top:20px;color:red;font-weight:bold;"><{:L('关于我们')}></h3>
+                <h5 style="text-align:center;margin-top:10px;color:#35bf35;">ABOUT US</h5>
+            </div>
+            <div class="sidebar_content_box" style="background:#fff;padding:0;">
+                <ul  style="padding:0;">
+                    <li class="mouseover-li left-sub-menu"><a class="left-sub-menu-a"  href="<{:U('About/index')}>"><{:L('历史沿革')}></a></li>
+                    <li class="mouseover-li left-sub-menu"><a class="left-sub-menu-a"  href="<{:U('About/intro')}>"><{:L('公司简介')}></a></li>
+                    <li class="mouseover-li left-sub-menu-hover"><a class="left-sub-menu-a-hover"  href="<{:U('About/honor')}>"><{:L('企业荣誉')}></a></li>
+                </ul>
+            </div>
+        </div>
+
+
+
+        <div id="templatemo_content">
+     
+            <div class="sidebar_content_boxx" style="height:100px;">
+                <h3 class="h3-content"><{:L('企业荣誉')}></h3>
+            </div>
+            <div class="news_container" style="position: relative;overflow: hidden;">
+
+                <div style="margin-top: 40px;" id="show_imageflow_name">
+                    <div style="height: 2px;background:gray;float: left;width: 150px;margin-top: 14px;margin-left: 64px;"></div>
+                    <div style="background: #D7D7D8;width:200px;text-align: center;margin: 0 auto;font-size: 16px;line-height: 30px;">
+                        <div style="width: 10px;height: 30px;background: red;float: left;"></div>
+                        <span class="top-show-name"> </span>
+                        <div style="width: 10px;height: 30px;background: red;float: right;"></div>
+                    </div>
+                    <div style="height: 2px;background:gray;float: right;width: 150px;margin-top: -14px;margin-right: 64px;"></div>
+                </div>
+
+                <div id="imageFlow">
+                    <div class="bank">
+                        <foreach name="info" item="item">
+                            <a rel="<{$item.honor_img}>" title="<{$item.honor_title}>"><{$item.honor_title}></a>
+                        </foreach>
+                    </div>
+                    <div class="text">
+                        <div class="title">Loading</div>
+                        <div class="legend">Please wait...</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>	
+        <div class="clear"></div>
+    </div> <!-- END of templatemo_main_content -->
+
+</div> <!-- END of templatemo_wrapper -->
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/css/imageflow/imageflow.css" />
+<script type="text/javascript" src="__PUBLIC__/js/imageflow/imageflow.js"></script>
+<script>
+
+    $(function(){
+        imf.create("imageFlow", 0.1, 1, 0.5);//div ID, size, zoom, border
+
+        // $('#ceshi').trigger('click');
+        setTimeout(function(){
+            $('.diapo').css('max-height','350px');
+            $('canvas').css('max-height','100px');
+            $('.diapo').click(function(i,e){
+                var nThisIndex = $('.diapo').index($(this));//获取点击的第几个diapo
+                var aText = $('#imageFlow .bank a').eq(nThisIndex).text();
+                $('.top-show-name').text(aText);
+            });
+
+
+            var num = $('#imageFlow .bank a').length;
+            var numeq =  Math.floor((num-1)/2);
+            $('.diapo').eq(numeq).trigger("click");//模拟执行id=a的事件
+        },500);
+
+
+
+
+    });
+
+</script>
+
+
+<include file="Public/footer" />

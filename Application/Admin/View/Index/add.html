@@ -1,0 +1,183 @@
+<include file="Public/head" />
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>新增家庭</h2>
+        <ol class="breadcrumb">
+            <li><a href="<{:U('Index/index')}>">主页</a></li>
+            <li><a href="<{:U('FamilyInfo/index')}>">家庭列表</a></li>
+            <li><strong>新增家庭</strong></li>
+        </ol>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+ <div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12  ">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>新增家庭</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="form-horizontal m-t" id="signupForm" action="<{:U('Admin/Index/add')}>" method="post">
+                        <div class="form-group">
+                            <span style="font-weight:700" class="col-sm-2 control-label">选择所在地：</span>
+                            <div class="col-sm-9">
+                              <!--社区管理员添加页面 隐藏区域-->
+                                <if condition="session('user_auth.role_type') neq '1'">
+                                    <div style="display:none;">
+                                        <select class="province form-control m-b" id="province_id" onchange="getNextLevel('province')" style="width:90%;display:inline;">
+                                            <option value="please">请选择</option>
+                                            <foreach name="rtopInfo" item="rv">
+                                                <if condition="$list['province']['region_id'] eq $rv['region_id']">
+                                                    <option value="<{$rv.region_id}>" selected="selected"><{$rv.region_name}></option>
+                                                <else/>
+                                                    <option value="<{$rv.region_id}>"><{$rv.region_name}></option>
+                                                </if>
+                                            </foreach>
+                                        </select><span>省</span>
+                                        <select class="city form-control m-b" id="city_id" onchange="getNextLevel('city')" style="width:90%;display:inline;">
+                                            <{$list['city']}>
+                                        </select><span>市</span>
+                                        <select class="county form-control m-b" id="county_id" onchange="getNextLevel('county')" style="width:90%;display:inline;">
+                                            <{$list['county']}>
+                                        </select><span>区/县</span>
+                                        <select class="street form-control m-b" id="street_id" onchange="getCommunityByStreetid(this)" style="width:90%;display:inline;">
+                                            <{$list['street']}>
+                                        </select><span>街道</span>
+                                        <select class="community form-control m-b" id="community_id" onchange="getVillageByCommunityid(this)" style="width:90%;display:inline;">
+                                            <option value="<{$community_id}>"><{$Think.session.current_community_name}></option>
+                                        </select><span>社区</span>
+                                    </div>  <!--社区管理员添加页面 隐藏区域end-->
+
+                                <else/>
+
+                                    <select class="province form-control m-b" id="province_id" onchange="getNextLevel('province')" style="width:90%;display:inline;">
+                                        <option value="please">请选择</option>
+                                        <foreach name="rtopInfo" item="rv">
+                                            <option value="<{$rv.region_id}>"><{$rv.region_name}></option>
+                                        </foreach>
+                                    </select><span>省</span>
+                                    <select class="city form-control m-b" id="city_id" onchange="getNextLevel('city')" style="width:90%;display:inline;">
+                                        <option value="please">请选择</option>
+                                    </select><span>市</span>
+                                    <select class="county form-control m-b" id="county_id" onchange="getNextLevel('county')" style="width:90%;display:inline;">
+                                        <option value="please">请选择</option>
+                                    </select><span>区/县</span>
+                                    <select class="street form-control m-b" id="street_id" onchange="getCommunityByStreetid(this)" style="width:90%;display:inline;">
+                                        <option value="please">请选择</option>
+                                    </select><span>街道</span>
+                                    <select class="community form-control m-b" id="community_id" onchange="getVillageByCommunityid(this)" style="width:90%;display:inline;">
+                                        <option value="please">请选择</option>
+                                    </select><span>社区</span>
+
+                                </if>
+
+                                <select class="village form-control" id="village_id" name="village_id" style="width:90%;display:inline;">
+                                    <option value="please">请选择</option>
+                                    <{$village}>
+                                </select><span>小区</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">家庭名：</label>
+                            <div class="col-sm-9">
+                                <input id="family_name" name="family_name" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">家庭签名：</label>
+                            <div class="col-sm-9">
+                                <input id="family_sign" name="family_sign" class="form-control" type="text" >
+                            </div>
+                        </div>
+						           <!--  <div class="form-group">
+                            <label class="col-sm-2 control-label">家庭编码：</label>
+                            <div class="col-sm-9">
+                                <input id="family_code" name="family_code" class="form-control" type="text"  >
+                            </div>
+                        </div> -->
+                       <!--  <div class="form-group">
+                            <label class="col-sm-2 control-label">家庭成员数量：</label>
+                            <div class="col-sm-9">
+                                <input id="person_total" name="person_total" class="form-control" type="text" >
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">楼号：</label>
+                            <div class="col-sm-9">
+                                <input id="build_number" name="build_number" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">单元：</label>
+                            <div class="col-sm-9">
+                                <input id="unit_number" name="unit_number" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">门牌号：</label>
+                            <div class="col-sm-9">
+                                <input id="room_number" name="room_number" class="form-control" type="text" >
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">详细地址：</label>
+                            <div class="col-sm-9">
+                                <input id="address" name="address" class="form-control" type="text" >
+                            </div>
+                        </div>
+                        
+                        
+
+                        <div class="for_group">
+ 							<label class="col-sm-2 control-label">描述：</label>
+                            <div class="col-sm-9">
+                                <textarea id="description" name="description" class="form-control" type="text" value="<{$list.description}>"></textarea>
+                            </div>
+                        </div>
+
+                         <div class="form-group">
+                            <label class="col-sm-2 control-label">描述：</label>
+                            <div class="col-sm-9">
+                                <input id="description" name="description" class="form-control" type="text" value="<{$list.description}>">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                        	<label class="col-sm-2 control-label">描述：</label>
+
+                        	<div class="col-sm-9">
+							    <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
+							</div>
+
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <button  class="btn btn-primary ajax-post" type="submit">提交</button>
+                                <a class="btn btn-primary" href="<{:U('FamilyInfo/index')}>">取消</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- head的闭合 -->
+</div>
+</div>
+</div>
+<!-- head的闭合 -->
+<script type="text/javascript">
+  var ue = UE.getEditor('editor');
+</script>
+
+</body>
+
+</html>

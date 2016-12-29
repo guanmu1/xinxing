@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* 2014.11.7  */
+/* 公共 */
+body{
+    margin:0;
+    padding:0;
+    font-size:-1px;
+    color:#000;
+    line-height:180%;
+    /*font-family:"微软雅黑", "微软雅黑";*/
+    font-weight:bold;
+    background:#000 url('../images/jwdt.jpg') no-repeat top center;}
+html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, select, button, textarea, iframe, table, th, td {margin: 0; padding:0; }
+img{border:0 none; vertical-align:top;}
+ul, li{list-style-type:none;}
+a, a:link{color: #fff; text-decoration:none;}
+a:focus {outline:none;}
+.clear{clear:both;}
+
+
+
+
+.topbg{ width:100%; margin:0 auto }
+.top{
+    /*width:320px;*/
+    height:460px;
+    color:#fff;
+    /*font-family: "微软雅黑";*/
+    padding-top:30px;
+    font-size:12px;
+    text-align:center;
+    margin-top: 20%;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+.shijian{
+    width:280px;
+    height:60px;
+    line-height:60px;
+    text-align: center;
+    text-indent: 50px;
+}
+.daohang{
+    /*width:160px;*/
+    height:340px;
+    /*margin-left:80px;*/
+    background-position: center;
+}
+.daohang ul li{
+    line-height:28px;
+    text-align:left;
+    text-indent:10px;
+    font-weight:bold;
+    background-position: center;
+    margin-top: 10px;
+}
+.daohang ul li a{
+    width:160px;
+    height:28px;
+    display:block;
+    background-position: center;
+    text-align: center;
+    background: #9a9696;
+}
+.daohang ul li a:link,.daohang ul li a:visited{ color:#f00;}
+.daohang ul li a:hover{ width:160px; height:28px; display:block; background:#9a0000; color:#fff;}
+
+
+.fenxiang{ width:160px; height:60px;margin:0 auto; }
+.fenxiang_a{width:36px; height:32px; background:url('../images/jwdt.jpg') no-repeat -0px -0; float:left; margin-right:10px; display:inline; }
+.fenxiang_b{width:36px; height:32px; background:url('../images/jwdt.jpg') no-repeat  -41px -0;float:left;margin-right:10px;display:inline; }
+.fenxiang_c{width:36px; height:32px; background:url('../images/jwdt.jpg') no-repeat -82px -0;float:left; }
+.fenxiang a{ display:block;width:32px; height:32px;}
+.fenxiang a span{ display:none;}
+
+.index_banner{ height:400px;margin:0 auto;}
+/* footter */
+.footer_bg1{ background: #000 url('../images/jwdt.jpg') no-repeat center;height:237px;border-bottom:1px solid #CCC;}
+.footer_list{
+    height:260px;
+    background-color: #000;
+    background-image: url('../images/jwdt.jpg');
+    background-repeat: repeat-x;
+    background-position: center top;
+    width: auto;
+}
+.footer_dl{
+    width:1024px;
+    overflow:hidden;
+    color:#fff;
+    margin-top: 0;
+    margin-right: auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+.search_a{width:220px; height:50px; float:left; margin-right:180px;}
+.footer_dl a:link,.footer_dl a:visited{color:#999999;}
+.footer_dl a:hover{color:#999999;}
+.about,.sveaver,.focus,.contect{float:left;margin-left:60px;margin-top:25px;}
+.contect{width:230px;}
+.focus{
+    width:80px;
+    line-height: 30px;
+}
+.focus #xl,.focus #wx,.focus #tx{
+    margin-left:0;
+    font-size:10px;
+}
+.focus #xl{ display:block; width:120px; height:22px; text-indent:30px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 0;}
+.focus #wx{ display:block; width:120px; height:22px; text-indent:30px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 -28px;}
+.focus #tx{ display:block; width:120px; height:22px; text-indent:30px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 -55px;}
+.contect_a{display:block;height:30px; text-indent:40px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 -4px;}
+.contect_b{display:block;height:30px; text-indent:40px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 -30px;}
+.contect_c{display:block;height:30px; width:150px; text-indent:40px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 -60px; overflow:hidden;}
+.contect_d{
+    display:block;
+    height:30px;
+    width:250px;
+    text-indent:40px;
+    text-indent:40px;
+    line-height:30px;
+    overflow:hidden;
+    background-image: url('../images/jwdt.jpg');
+    background-repeat: no-repeat;
+    background-position: 0 -82px;
+}
+.contect_e{display:block;height:60px; text-indent:40px; line-height:30px; background:url('../images/jwdt.jpg') no-repeat 0 -110px;}
+
+.about dt,.sveaver dt,.focus dt,.contect dt,.footer_weixin dt{font-size:12px;font-weight:lighter;margin-bottom:10px;}
+.about dd,.sveaver dd,.focus dd,.contect dd,.footer_weixin dd{
+    margin-bottom:0px;
+    font-size:10px;
+    color:#999999;
+    font-weight: lighter;
+}
+
+.footer_weixin{float:left;margin-left:12px;margin-top:25px;}
+.search_2{width:220px;height:30px; background:url('../images/jwdt.jpg') no-repeat left center;margin-top:30px; float:left;}
+#search2_text{width:136px;height:30px;overflow:hidden;float:left;background:0;border:0;display:block;}
+.search2_submit{float:left;width:40px;height:30px;background:0;border:0;display:block;}
+
+.Copyrigh{
+    text-align:left;
+    margin-top:28px;
+    font-size:10px;
+    color:#7d7c7c;
+    margin-bottom:25px;
+    font-weight: lighter;
+}
+
+
+/*banner按钮控制*/
+.sjs{width:100%; height:400px; text-align:center;}
+.sjs1{width:100%; height:400px; text-align:center; position:absolute; left:0; top:0px; z-index:0;}
+.sjs3{width:100%; height:auto; position:relative;}
+
+#flash {width:1024px; height:400px; overflow:hidden; margin:0 auto; clear:both; position:relative;/*--*/ padding:0px 10px; }
+#flash a {width:1024px; height:400px; display:none;}
+#flash images {width:1024px; height:400px;/* display:none;*/}
+.flash_bar{z-index:69; height:30px; overflow:hidden; position:absolute;padding-top:13px !important; bottom:0px; right:50%; text-align:center;}
+.flash_bar .no { display:block; float:left; width:0px; height:0px; font-size:0; margin:5px 5px; /* background: url(../images/tg_flash_p.png) no-repeat 0px 0px;*/ cursor:pointer;background: #000; }
+.flash_bar .dq { display:block; float:left; width:0px; height:0px; font-size:0; margin:5px 5px; /* background: url(../images/tg_flash_p.png) no-repeat 0px 0px;*/ cursor:pointer;background: #F00; }
+/*banner按钮控制*/
+
+
+.w100{display:block;width:100%;clear:both;margin:0 auto;}
+/*友情链接*/
+.flink{width:988px; padding:10px 0;color:#787878;border:1px solid #757575;padding:5px;line-height:18px;color:#757575;clear:both; margin:0 auto;height:auto;overflow:auto;clear:both; font-size:8px;}
+.flink a{margin-right:5px;color:#757575;}
+
+

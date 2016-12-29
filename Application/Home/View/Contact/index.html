@@ -1,0 +1,79 @@
+<include file="Public/header" /> 
+
+
+<div class="forth-div">
+    <div>
+        <a><{:L('首页')}></a>
+        <span>·</span>
+        <a><{:L('联系我们')}></a>
+    </div>
+</div>
+
+
+<div id="templatemo_wrapper">
+
+    <div id="templatemo_main_content">
+    	<div id="templatemo_sidebar">
+            <div class="sidebar_content_box" style="height:100px;">
+                <h3 style="text-align:center;margin-top:20px;color:red;font-weight:bold;"><{:L('联系我们')}></h3>
+                <h5 style="text-align:center;margin-top:10px;color:#35bf35;">CONTACT US</h5>
+            </div>
+            <div class="sidebar_content_box" style="background:#fff;padding:0;">
+                <ul  style="padding:0;">
+                    <li class="mouseover-li left-sub-menu-hover"><a class="left-sub-menu-a-hover" href="#" ><{:L('联系我们')}></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <style>
+            .video-div-3{padding-top: 7px;width: 440px;margin: 15px auto;}
+            .video-div-3 h4{color:#fff;text-align: center;background: red;border-radius: 10px;height: 30px;line-height: 26px;}
+        </style>
+
+        <div id="templatemo_content">
+     
+            <div class="sidebar_content_boxx" style="height:100px;">
+                <h3 class="h3-content"><{:L('联系我们')}></h3>
+            </div>
+            <div class="news_container">
+               <div class="post">
+                    <div class="" style="background-color: #EEEFF0;">
+                        <div style="width:20px;background: red;height: 35px;float: left;"></div>
+                        <span class="news-title-text" style="font-size: 16px;"><{$info.contact_title}></span>
+                    </div>
+
+                    <div class="video-div-3" >
+                        <h4 ><{$info.contact_address}></h4>
+                    </div>
+
+                    <img class="img_border img_border_b" src="<{$info.contact_img}>" alt="Post Image 3"  height="400" style="width: 100%"/>
+
+                   <div class="foot-div-row-b" style="margin-top: 20px;">
+                       <img  src="__PUBLIC__/images/dianhua.png" alt="" style="margin-left: 5px;">
+                       <p style="font-size: 14px;line-height: 20px;">
+                           T: <{$info.phone1}><br/>
+                           F: <{$info.phone2}>
+                       </p>
+                   </div>
+
+                   <div class="foot-div-row-c" style="float: right;">
+                       <img  src="__PUBLIC__/images/youjian.png" alt="">
+                       <p style="width: 220px;font-size: 14px;line-height: 20px;">
+                           <{:L('邮箱')}><br/>
+                           <{$info.email}>
+                       </p>
+                   </div>
+
+                    <div class="clear"></div>
+                </div>
+
+               
+            </div>
+
+
+        </div>	
+        <div class="clear"></div>
+    </div> <!-- END of templatemo_main_content -->
+</div>
+<include file="Public/footer" />

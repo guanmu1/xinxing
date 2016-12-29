@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="renderer" content="webkit">
+
+    <title></title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+
+    <link href="__CSS__/bootstrap.min.css" rel="stylesheet">
+    <link href="__PUBLIC__/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="__CSS__/animate.css" rel="stylesheet">
+    <!-- Data Tables -->
+    <link href="__CSS__/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="__CSS__/style.css" rel="stylesheet">
+    <link href="__CSS__/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+    <!-- 单选框的样式 -->
+    <!-- <link href="__CSS__/plugins/iCheck/custom.css" rel="stylesheet"> -->
+    
+
+    <!-- Mainly scripts -->
+    <script src="__JS__/jquery-2.1.1.min.js"></script>
+    <script src="__JS__/bootstrap.min.js"></script>
+    <script src="__JS__/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="__JS__/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="__JS__/hplus.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="__JS__/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- 就地编辑(Edit in Place)文本信息的 jQuery 插件 
+    <script src="__JS__/plugins/jeditable/jquery.jeditable.js"></script> -->
+
+    <!-- Data Tables -->
+    <script src="__JS__/plugins/dataTables/jquery.dataTables.min.js"></script>
+     <script src="__JS__/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <!--提示插件-->
+    <script src="__JS__/plugins/toastr/toastr.min.js"></script>
+    <!-- Chosen  -->
+    <link href="__CSS__/plugins/chosen/chosen.css" rel="stylesheet"> 
+    <script src="__JS__/plugins/chosen/chosen.jquery.js"></script>
+
+    <!-- Nestable List 可移动的树型结构-->
+    <script src="__JS__/plugins/nestable/jquery.nestable.js"></script>
+
+    <!-- <script src="__JS__/plugins/validate/jquery.validate.min.js"></script> -->
+    <script src="__JS__/uploadify/jquery.uploadify.min.js"></script>
+    <link href="__JS__/uploadify/uploadify.css" rel="stylesheet">
+
+    <!-- <script src="__JS__/plugins/echarts/echarts-all.js"></script>
+    <script src="__JS__/echarts.count.js"></script> -->
+    <script src="__JS__/ueditor.config.js"></script>
+    <script src="__JS__/ueditor.all.min.js"></script>
+    <script src="__JS__/ajaxfileupload.js"></script>
+
+
+    <script src="__JS__/bootbox.js"></script>
+
+
+</head>
+
+<body>
+<!-- 加载图标开始 -->
+<div id="loading_gif" style="display:none;">
+    <div style="background:#fff;opacity:0.5;position:fixed;top:0;left:0;bottom:0;right:0;z-index:9990;"></div>
+    <div style="width:100%;height:100%;position:fixed;top:200px;left:50%;bottom:0;right:0;z-index:9999;">
+        <img src="__PUBLIC__/images/loading.gif"  width="340" alt="" style="margin-left:-170px;">
+    </div>
+</div>
+<!-- 加载图标结束 -->
+<div id="wrapper">
+        <nav class="navbar-default navbar-static-side" role="navigation" style="min-height:1400px; position: fixed;top: 0;left: 0;bottom: 0;">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+
+                    <li class="nav-header" style="margin-bottom: 15px;">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <img alt="image" src="__PUBLIC__/images/xinxinglogo1.png" width="150"/>
+                            </span>
+                        </div>
+                        <div class="logo-element">
+                            CXXC
+                        </div>
+                    </li>
+
+
+                    <li <if condition="CONTROLLER_NAME eq 'Range' or CONTROLLER_NAME eq 'Goods'  or CONTROLLER_NAME eq 'Category'">class="active"</if>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">产品管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <if condition="CONTROLLER_NAME eq 'Range'">class="active"</if>><a href="<{:U('Range/index')}>">业务范围</a></li>
+                            <li <if condition="CONTROLLER_NAME eq 'Goods'">class="active"</if>><a href="<{:U('Goods/index')}>">产品展示</a></li>
+                            <li <if condition="CONTROLLER_NAME eq 'Category'">class="active"</if>><a href="<{:U('Category/index')}>">产品分类</a></li>
+                        </ul>
+                    </li>
+
+                    <li <if condition="CONTROLLER_NAME eq 'ImageHome' or CONTROLLER_NAME eq 'ImageOther'">class="active"</if>>
+                    <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li <if condition="CONTROLLER_NAME eq 'ImageHome'">class="active"</if>><a href="<{:U('ImageHome/index')}>">首页轮播</a></li>
+                        <li <if condition="CONTROLLER_NAME eq 'ImageOther'">class="active"</if>><a href="<{:U('ImageOther/index')}>">其他页轮播</a></li>
+                        <li <if condition="CONTROLLER_NAME eq 'Coop'">class="active"</if>><a href="<{:U('Coop/index')}>">合作伙伴管理</a></li>
+                    </ul>
+                    </li>
+
+                    <li <if condition="CONTROLLER_NAME eq 'News' or CONTROLLER_NAME eq 'Honor'">class="active"</if>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">关于我们</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <if condition="CONTROLLER_NAME eq 'News'">class="active"</if>><a href="<{:U('News/index')}>">历史沿革</a></li>
+                            <li <if condition="CONTROLLER_NAME eq 'News'">class="active"</if>><a href="<{:U('News/editIntro')}>">公司简介</a></li>
+                            <li <if condition="CONTROLLER_NAME eq 'Honor'">class="active"</if>><a href="<{:U('Honor/index')}>">企业荣誉</a></li>
+                        </ul>
+                    </li>
+
+                    <li <if condition="CONTROLLER_NAME eq 'Video'">class="active"</if>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <if condition="CONTROLLER_NAME eq 'Video'">class="active"</if>><a href="<{:U('Video/index')}>">媒体中心</a></li>
+                        </ul>
+                    </li>
+
+                    <li <if condition="CONTROLLER_NAME eq 'Recruit'">class="active"</if>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <if condition="CONTROLLER_NAME eq 'Recruit'">class="active"</if>><a href="<{:U('Recruit/index')}>">人才引进</a></li>
+                        </ul>
+                    </li>
+
+                    <li <if condition="CONTROLLER_NAME eq 'Contact' or CONTROLLER_NAME eq 'ContactRight'">class="active"</if>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li ><a href="<{:U('Contact/index')}>">联系信息</a></li>
+                        </ul>
+
+                    </li>
+                    <li <if condition="CONTROLLER_NAME eq 'Suggest'">class="active"</if>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li ><a href="<{:U('Suggest/index')}>">投诉建议信息</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " ><i class="fa fa-bars"></i> </a>
+                        <!-- <form role="search" class="navbar-form-custom" method="post" action="search_results.html"> -->
+                            <!-- <div class="form-group">
+                                <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
+                            </div> -->
+                        <!-- </form> -->
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message"><i class="fa fa-home"></i>&nbsp;&nbsp;欢迎使用管理后台</span>
+                        </li>
+
+
+                        <li>
+                            <a data-toggle="dropdown" class="dropdown-toggle text-center" >
+                                <strong class="font-bold" ><i class="fa fa-user"></i><{$loginName}><b class="caret"></b></strong>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="<{:U('User/updatePassword')}>"><i class="fa fa-asterisk"></i>&nbsp;&nbsp;&nbsp;&nbsp;修改密码</a></li>
+                                <li class="divider"></li>
+                                <li><a href="<{:U('Admin/Index/logout')}>"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;&nbsp;&nbsp;安全退出</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+

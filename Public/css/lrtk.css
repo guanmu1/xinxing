@@ -1,0 +1,45 @@
+*{ margin:0; padding:0;}.w980{ width:980px;}.center{ margin:0 auto;}.main{ background:#dcdddd;}ul{ list-style:none;}
+.fix{*zoom:1;}.fix:after{display:block; content:"clear"; height:0; clear:both; overflow:hidden; visibility:hidden;}
+a{ text-decoration:none;}
+img{ border:none;}
+.power{ text-align:center; line-height:30px;}
+
+/*以上是基本参数 可不复制  以下是必须*/
+/*部分开始-----------------------------------------------------*/
+/*banner*/
+.none{ display:none;}
+.banner{ min-width:980px;height:579px; position:relative; margin:0 auto; overflow:hidden; z-index:1;}
+.banner_show{ width:100%; text-align:center; height:579px; overflow:hidden; position:relative;}
+.bannger_inbox{ position:absolute; left:50%; top:0;}
+
+/*翻页*/
+.banner_pre_next{position:relative;z-index:105;top:230px;width:980px;left:50%; height:37px;margin-left:-480px;*left:240px;}
+.banner_pre_next a{ width:55px; height:55px; background:url(../images/btn.png) no-repeat; text-indent:-999em;}
+.banner_pre_next .banner_btn_left{position:absolute;left:-55px; background-position:0px 0px;}
+.banner_pre_next .banner_btn_right{position:absolute;right:-55px; background-position:-55px 0px;}
+
+
+/*圆点*/
+.yq_banner_list{ width:200px; height:25px;position:absolute; top:485px; text-align:right; z-index:100; left:120px; padding-right:12px;}
+.yq_banner_list a{
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin-right:10px;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+.yq_banner_list a.hover{
+    background-image: none;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+/*文字*/
+.banner_mag{width:345px;height:520px;position:absolute; overflow:hidden;left:50%;top:0px;margin-left:-500px;text-align:left;z-index:99;font-family:"Microsoft YaHei";}
+.banner_magbox{height:520px;background:url(../images/ico3.png) repeat;text-align:left;padding:80px 30px 35px;}
+.banner_magbox .focus-img{ text-align:right; margin-bottom:40px;}
+.banner_magbox h4{font-size:18px; font-weight:normal;color:#fff; margin-bottom:10px; }
+.banner_magbox h4 a{}
+.banner_magbox p{font-size:14px;color:#fff;font-weight:normal;line-height:22px;}
+

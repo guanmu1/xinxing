@@ -1,0 +1,220 @@
+<include file="Public/head" />
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12  ">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>编辑其他页面轮播图</h5>
+                </div>
+                <volist name="rInfo" id="item" key="kkey">
+                    <form class="form-horizontal m-t content-form"  method="post" <if condition="$item.honor_title eq ''">style="display:none;"</if> >
+                    <div class="ibox-content">
+                        <div class="form-group">
+                            <label style="float: left;color:red;">第<{$key+1}>组</label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">名称：</label>
+                            <div class="col-sm-9">
+                                <input name="form[<{$key}>][title]" class="form-control input-title" type="text" value="<{$item.honor_title}>">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">图片：</label>
+                            <div class="col-sm-9">
+
+                                <img id="course_image_6" src="<{$item.honor_img}>" alt="" width="100%" height="200">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
+                                <input type="hidden" name="form[<{$key}>][img]" value="<{$item.honor_img}>">
+                                <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_6_file" onchange="uploadFile(this)"/>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">发布到：</label>
+                            <div class="col-sm-10">
+                                <foreach name="item.language" item="lItem" key="k">
+                                    <switch name="lItem.state" >
+                                        <case value="2">
+                                            <label class="checkbox-inline"><input type="checkbox" checked name="form[<{$key}>][language][]" value="<{$lItem.value}>" ><{$lItem.name}></label>
+                                        </case>
+                                        <case value="1">
+                                            <label class="checkbox-inline"><input type="checkbox" name="form[<{$key}>][language][]" value="<{$lItem.value}>" ><{$lItem.name}></label>
+                                        </case>
+                                        <default />
+                                        <label class="checkbox-inline" style="display: none;"><input type="checkbox" disabled name="form[<{$key}>][language][]" value="<{$lItem.value}>" ><{$lItem.name}></label>
+                                    </switch>
+                                </foreach>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </volist>
+
+                <div style="margin-top: 10px;" class="form-group">
+                    <div class="col-sm-3 " style="float: right;">
+                        <button onclick="editSubmit(<{$Think.get.groupId}>)" class="btn btn-primary ajax-post" type="submit">提交</button>
+                        <a class="btn btn-primary" href="<{:U('Honor/index')}>">取消</a>
+                    </div>
+                </div>
+                <a id="add-btn" href="javascript:addOne(this)" class="btn btn-primary btn-outline">向下添加一种语言</a>
+                <a id="del-btn" href="javascript:delOne(this)" class="btn btn-primary btn-outline">移除上一种语言</a>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- head的闭合 -->
+</div>
+</div>
+</div>
+<!-- head的闭合 -->
+<script type="text/javascript">
+    function clickInputFile(_this) {
+        $(_this).nextAll('input:file').trigger('click');
+    }
+
+    function uploadFile(_this){
+        var eleId = $(_this).attr('id');
+        var imgObj = $(_this).siblings('img');
+        var inputHidden = $(_this).siblings('input:hidden');
+        $.ajaxFileUpload(
+                {
+                    url:'<{:U("Image/uploadPic")}>', //你处理上传文件的服务端
+                    secureuri:false,
+                    fileElementId:eleId,
+                    dataType: 'text',
+                    success: function (data){
+                        imgObj.attr('src',data);
+                        inputHidden.val(data);
+                    }
+                }
+        )
+    }
+</script>
+
+<!-- head的闭合 -->
+<script type="text/javascript">
+    $(function () {
+        /**
+         * 复选框添加点击事件，同时对七组的语言复选框生效
+         * 可以防止同一种语言重复的问题
+         */
+        $('input:checkbox').click(function(){
+            var thisCheck = this.checked;
+            var thisVal = $(this).val();
+            if (thisCheck) {
+                $('input:checkbox[value="'+thisVal+'"]').attr('disabled','disabled').parent().hide();//先将所有的禁用并隐藏
+                $(this).removeAttr('disabled').parent().show();//再将当前这个复选框解除禁用并显示
+            } else {
+                $('input:checkbox[value="'+thisVal+'"]').removeAttr('disabled').parent().show();//显示所有的语言复选框
+            }
+        });
+    });
+
+    var curr = 1;
+    function addOne(_this){
+        //如果已经选择了七种语言，则不让继续添加
+        if ($('input:checkbox:checked').length >= 7) {
+            bootbox.alert({
+                message: '您已选择了7种语言',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
+            return;
+        }
+        //已经有7组处于显示状态则不让继续添加
+        if (curr >= 7) {
+            bootbox.alert({
+                message: '您已经添加了7组输入框',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
+            return;
+        }
+        $('.content-form').eq(curr).show();
+        curr++;
+    }
+    function delOne(_this){
+        if (curr <= 1) {
+            bootbox.alert({
+                message: '只剩一组输入框，禁止删除',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
+            return;
+        }
+        $('.content-form').eq(curr-1).hide();
+        curr--;
+    }
+
+
+    function editSubmit(groupId){
+        var postData = '';
+        var flag = false;//是否继续执行该方法的标识，如果下列循环中有一种不符合条件，则不提交后台
+        $('.content-form:visible').each(function(i,e){//只获取处于显示状态的form表单
+            var langVal = $(e).find("input:checkbox:checked").length;//当前这个form表单选择发布语言的数量
+            var titleVal = $(e).find(".input-title").val();//当前这个form表单的标题值
+            if (!titleVal) {
+                bootbox.alert({
+                    message: '第'+(i+1)+'组标题为空，请填写后再提交',
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+                flag = true;
+                return false;
+            }
+            if (langVal == 0) {
+                bootbox.alert({
+                    message: '第'+(i+1)+'组未选择语言，请选择后再提交',
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+                flag = true;
+                return false;
+            }
+            postData += $(e).serialize() + "&";//将序列化后的值拼到一起
+        });
+
+        if (flag) {
+            return;
+        }
+        postData += "&groupId="+groupId;
+
+        $.post('<{:U("Honor/edit")}>',postData,function(result){
+//            console.log(result);
+//            alert(result.info);
+            location.href = result.url;
+        });
+    }
+
+</script>
+
+</body>
+
+</html>
