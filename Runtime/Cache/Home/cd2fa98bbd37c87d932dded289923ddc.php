@@ -73,14 +73,16 @@
         .news-image{float:left;}
         .news-content{float:left;width:500px;margin-left:2px;}
         .news-title{height:35px;padding-left: 15px;}
-        .news-title-year{color:red;line-height:40px;font-size:18px;}
-        .news-title-text{color:gray;line-height:35px;font-size:18px;margin-left:30px;}
+        .news-title-year{color:red;line-height:40px;font-size:14px;}
+        .news-title-text{color:gray;line-height:35px;font-size:14px;margin-left:30px;}
         .new-line-gray{height: 1px;background-color: gray;width:400px;float: left}
         .new-line-red{height: 1px;background-color: red;width:100px;float: left;}
-        .news-content-text{height:74px;font-size:16px;word-spacing:8px; letter-spacing: 2px;text-indent:2em;line-height:24px;padding: 10px;}
+        .news-content-text{height:74px;font-size:14px;word-spacing:8px; letter-spacing: 2px;text-indent:2em;line-height:24px;padding: 10px;}
 
-        .second-li{height: 28px;padding-left: 75px;line-height: 30px;}
+        .second-li{height: 28px;padding-left: 75px;line-height: 30px; max-width: 130px; overflow: hidden;}
         .second-li a{text-decoration:none;color:#98999A;}
+
+        .maxaul>li>a {max-width: 105px;overflow: hidden;}
     </style>
 
     <script>
@@ -120,8 +122,11 @@
                 <select name="" id="select-lang">
                     <option <?php if(cookie('lang_value') == 'cn'): ?>selected<?php endif; ?> value="cn">中文</option>
                     <option <?php if(cookie('lang_value') == 'en'): ?>selected<?php endif; ?> value="en">EngLish</option>
-                    <option value="">EngLish</option>
-                    <option value="">EngLish</option>
+                    <option <?php if(cookie('lang_value') == 'fr'): ?>selected<?php endif; ?> value="fr">Français</option>
+                    <option <?php if(cookie('lang_value') == 'es'): ?>selected<?php endif; ?> value="es">Español</option>
+                    <option <?php if(cookie('lang_value') == 'pt'): ?>selected<?php endif; ?> value="pt">Português</option>
+                    <option <?php if(cookie('lang_value') == 'ru'): ?>selected<?php endif; ?> value="ru">EngLish</option>
+                    <option <?php if(cookie('lang_value') == 'ar'): ?>selected<?php endif; ?> value="ar">العربية</option>
                 </select>
             </div>
         </div>
@@ -131,7 +136,7 @@
             <img onclick="turnToHome()" src="/xinxing/Public/images/xinxinglogo.png" alt="" width="300"/>
               
             <div class="ddsmoothmenu" style="color:gray;float:right;" id="templatemo_menu">
-                <ul>
+                <ul class="maxaul">
                     <li><a href="<?php echo U('About/index');?>" <?php if(CONTROLLER_NAME == 'About' ): ?>class="selected"<?php endif; ?> style="padding-left: 10px;"><span></span><?php echo L('关于我们');?></a>
                         <ul>
                             <li><a href="<?php echo U('About/index');?>"><?php echo L('历史沿革');?></a></li>
@@ -141,7 +146,7 @@
                     </li>
 
                     <li><a href="<?php echo U('Video/index');?>" <?php if(CONTROLLER_NAME == 'Video' ): ?>class="selected"<?php endif; ?>  ><span class="span-dian">·</span><?php echo L('媒体中心');?></a></li>
-                    <li><a href="<?php echo U('Goods/index');?>" <?php if(CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Range' ): ?>class="selected"<?php endif; ?> ><span class="span-dian">·</span><?php echo L('业务产品');?></a>
+                    <li><a href="<?php echo U('Goods/index');?>" <?php if(CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Range' ): ?>class="selected"<?php endif; ?> ><span class="span-dian">·</span><?php echo L('产品展示');?></a>
                         <ul>
                             <li><a href="<?php echo U('Range/index');?>"><?php echo L('业务范围');?></a></li>
                             <li><a href="<?php echo U('Goods/index');?>"><?php echo L('产品展示');?></a></li>
@@ -160,7 +165,7 @@
             
             <div class="div-second-menu" id="templatemo_menu_goods">
                 <ul>
-                    <?php if(is_array($category)): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cItem): $mod = ($i % 2 );++$i;?><li><a href="<?php echo U('Goods/index',array('cpid'=>$cItem['category_id']));?>"><span></span><?php echo L($cItem['category_name']);?></a>
+                    <?php if(is_array($category)): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cItem): $mod = ($i % 2 );++$i;?><li><a style="max-width: 70px;overflow: hidden;" href="<?php echo U('Goods/index',array('cpid'=>$cItem['category_id']));?>"><span></span><?php echo L($cItem['category_name']);?></a>
 
                             <?php if($cItem['children']): ?><ul>
                                     <?php if(is_array($cItem["children"])): foreach($cItem["children"] as $key=>$ccItem): ?><li><a href="<?php echo U('Goods/index',array('cid'=>$ccItem['category_id']));?>"><?php echo ($ccItem["category_name"]); ?></a></li><?php endforeach; endif; ?>
@@ -297,8 +302,11 @@
                         <?php if(is_array($info)): foreach($info as $key=>$item): ?><a rel="<?php echo ($item["honor_img"]); ?>" title="<?php echo ($item["honor_title"]); ?>"><?php echo ($item["honor_title"]); ?></a><?php endforeach; endif; ?>
                     </div>
                     <div class="text">
-                        <div class="title">Loading</div>
-                        <div class="legend">Please wait...</div>
+                        <img class="arrow-left" style="left: 250px;" width="20" src="/xinxing/Public/images/prev.png" alt="">
+                        <div class="title" style="margin: 0 auto;width: 200px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Loading</div>
+                        <img class="arrow-right" src="/xinxing/Public/images/next.png"  width="20" style="margin-top: -15px;right: 250px;" alt="">
+
+                        <div class="legend" style="display: none;">Please wait...</div>
                     </div>
                 </div>
 
@@ -315,12 +323,14 @@
 <script>
 
     $(function(){
-        imf.create("imageFlow", 0.1, 1, 0.5);//div ID, size, zoom, border
+        imf.create("imageFlow", 0.3, 1, 5);//div ID, size, zoom, border
 
         // $('#ceshi').trigger('click');
         setTimeout(function(){
-            $('.diapo').css('max-height','350px');
+//            $('.diapo').css('max-height','345px');
+//            $('.diapo').css('max-width','255px');
             $('canvas').css('max-height','100px');
+//            $('canvas').css('max-width','255px');
             $('.diapo').click(function(i,e){
                 var nThisIndex = $('.diapo').index($(this));//获取点击的第几个diapo
                 var aText = $('#imageFlow .bank a').eq(nThisIndex).text();
@@ -329,7 +339,7 @@
 
 
             var num = $('#imageFlow .bank a').length;
-            var numeq =  Math.floor((num-1)/2);
+            var numeq =  Math.floor(num-4);
             $('.diapo').eq(numeq).trigger("click");//模拟执行id=a的事件
         },500);
 
@@ -345,14 +355,14 @@
     .foot-div{height:300px;min-width:1000px;background-image: url(/xinxing/Public/images/tb1.png);background-size:cover;padding-top: 80px;color:#FFF;}
     .foot-div-row{width: 980px;margin: 0 auto;}
     .foot-div-row>div{width: 300px;height: 75px;border:1px solid white;border-radius: 15px;float: left;margin-left: 20px;}
-    .foot-div-row-a{text-align: center;}
+    .foot-div-row-a{text-align: center;cursor: pointer;}
     .foot-div-row-a>p{font-size: 40px;font-weight: bold;margin-top: 20px;color:red;}
     .foot-div-row-a>h5{font-size: 10px;margin-top: 13px;letter-spacing:-1px;color:#fff;}
 
-    .foot-div-row-b{}
+    .foot-div-row-b{cursor: pointer;}
     .foot-div-row-b>img{float: left;width: 45px;height: 45px;margin-left: 55px;margin-top: 15px;}
     .foot-div-row-b>p{float: left;margin-left: 25px;margin-top: 20px;}
-    .foot-div-row-c{}
+    .foot-div-row-c{cursor: pointer;}
     .foot-div-row-c>img{float: left;width: 45px;height: 45px;margin-left: 55px;margin-top: 15px;}
     .foot-div-row-c>p{float: left;margin-left: 10px;margin-top: 20px;width: 135px;}
 
@@ -369,18 +379,18 @@
 
 <div class="foot-div">
     <div class="foot-div-row">
-        <div class="foot-div-row-a">
+        <div class="foot-div-row-a" onclick="location.href='<?php echo U('About/intro');?>'">
             <p >C X X C</p>
             <h5 >CHINA STATE OWNED MILITARY CORPORATION</h5>
         </div>
-        <div class="foot-div-row-b">
+        <div class="foot-div-row-b" onclick="location.href='<?php echo U('Contact/index');?>'">
             <img  src="/xinxing/Public/images/call43.png" alt="">
             <p >
                 T: <?php echo ($contactInfo["phone1"]); ?><br/>
                 F: <?php echo ($contactInfo["phone2"]); ?>
             </p>
         </div>
-        <div class="foot-div-row-c">
+        <div class="foot-div-row-c" onclick="location.href='<?php echo U('Contact/index');?>'">
             <img  src="/xinxing/Public/images/pointer10.png" alt="">
             <p >
                 <?php echo ($contactInfo["contact_address"]); ?>
@@ -391,49 +401,49 @@
 
     <div class="foot-div-row2">
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('关于我们');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('About/index');?>" style="color:#fff;"><?php echo L('关于我们');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('历史沿革');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('公司简介');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('企业荣誉');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/index');?>" style="color:#fff;"><?php echo L('历史沿革');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/intro');?>" style="color:#fff;"><?php echo L('公司简介');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/honor');?>" style="color:#fff;"><?php echo L('企业荣誉');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('媒体中心');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Video/index');?>" style="color:#fff;"><?php echo L('媒体中心');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('视频广告');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Video/index');?>" style="color:#fff;"><?php echo L('视频广告');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('业务产品');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Goods/index');?>" style="color:#fff;"><?php echo L('产品展示');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('业务范围');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('产品展示');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Range/index');?>" style="color:#fff;"><?php echo L('业务范围');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Goods/index');?>" style="color:#fff;"><?php echo L('产品展示');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('人才引进');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Recruit/index');?>" style="color:#fff;"><?php echo L('人才引进');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('招贤纳士');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Recruit/index');?>" style="color:#fff;"><?php echo L('招贤纳士');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('联系我们');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('联系我们');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('地理位置');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('办公电话');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('邮箱');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('地理位置');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('办公电话');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('邮箱');?></a></p>
         </div>
     </div>
 </div>

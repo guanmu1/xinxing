@@ -8,57 +8,57 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link href="/xinxing28/xinxing/Public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/css/animate.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/xinxing/Public/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/animate.css" rel="stylesheet">
     <!-- Data Tables -->
-    <link href="/xinxing28/xinxing/Public/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
-    <link href="/xinxing28/xinxing/Public/css/style.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/style.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- 单选框的样式 -->
-    <!-- <link href="/xinxing28/xinxing/Public/css/plugins/iCheck/custom.css" rel="stylesheet"> -->
+    <!-- <link href="/xinxing/Public/css/plugins/iCheck/custom.css" rel="stylesheet"> -->
     
 
     <!-- Mainly scripts -->
-    <script src="/xinxing28/xinxing/Public/js/jquery-2.1.1.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/bootstrap.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/xinxing/Public/js/jquery-2.1.1.min.js"></script>
+    <script src="/xinxing/Public/js/bootstrap.min.js"></script>
+    <script src="/xinxing/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/xinxing/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="/xinxing28/xinxing/Public/js/hplus.js"></script>
+    <script src="/xinxing/Public/js/hplus.js"></script>
 
     <!-- jQuery UI -->
-    <script src="/xinxing28/xinxing/Public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/xinxing/Public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- 就地编辑(Edit in Place)文本信息的 jQuery 插件 
-    <script src="/xinxing28/xinxing/Public/js/plugins/jeditable/jquery.jeditable.js"></script> -->
+    <script src="/xinxing/Public/js/plugins/jeditable/jquery.jeditable.js"></script> -->
 
     <!-- Data Tables -->
-    <script src="/xinxing28/xinxing/Public/js/plugins/dataTables/jquery.dataTables.min.js"></script>
-     <script src="/xinxing28/xinxing/Public/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="/xinxing/Public/js/plugins/dataTables/jquery.dataTables.min.js"></script>
+     <script src="/xinxing/Public/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <!--提示插件-->
-    <script src="/xinxing28/xinxing/Public/js/plugins/toastr/toastr.min.js"></script>
+    <script src="/xinxing/Public/js/plugins/toastr/toastr.min.js"></script>
     <!-- Chosen  -->
-    <link href="/xinxing28/xinxing/Public/css/plugins/chosen/chosen.css" rel="stylesheet"> 
-    <script src="/xinxing28/xinxing/Public/js/plugins/chosen/chosen.jquery.js"></script>
+    <link href="/xinxing/Public/css/plugins/chosen/chosen.css" rel="stylesheet"> 
+    <script src="/xinxing/Public/js/plugins/chosen/chosen.jquery.js"></script>
 
     <!-- Nestable List 可移动的树型结构-->
-    <script src="/xinxing28/xinxing/Public/js/plugins/nestable/jquery.nestable.js"></script>
+    <script src="/xinxing/Public/js/plugins/nestable/jquery.nestable.js"></script>
 
-    <!-- <script src="/xinxing28/xinxing/Public/js/plugins/validate/jquery.validate.min.js"></script> -->
-    <script src="/xinxing28/xinxing/Public/js/uploadify/jquery.uploadify.min.js"></script>
-    <link href="/xinxing28/xinxing/Public/js/uploadify/uploadify.css" rel="stylesheet">
+    <!-- <script src="/xinxing/Public/js/plugins/validate/jquery.validate.min.js"></script> -->
+    <script src="/xinxing/Public/js/uploadify/jquery.uploadify.min.js"></script>
+    <link href="/xinxing/Public/js/uploadify/uploadify.css" rel="stylesheet">
 
-    <!-- <script src="/xinxing28/xinxing/Public/js/plugins/echarts/echarts-all.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/echarts.count.js"></script> -->
-    <script src="/xinxing28/xinxing/Public/js/ueditor.config.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/ueditor.all.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/ajaxfileupload.js"></script>
+    <!-- <script src="/xinxing/Public/js/plugins/echarts/echarts-all.js"></script>
+    <script src="/xinxing/Public/js/echarts.count.js"></script> -->
+    <script src="/xinxing/Public/js/ueditor.config.js"></script>
+    <script src="/xinxing/Public/js/ueditor.all.min.js"></script>
+    <script src="/xinxing/Public/js/ajaxfileupload.js"></script>
 
 
-    <script src="/xinxing28/xinxing/Public/js/bootbox.js"></script>
+    <script src="/xinxing/Public/js/bootbox.js"></script>
 
 
 </head>
@@ -68,7 +68,7 @@
 <div id="loading_gif" style="display:none;">
     <div style="background:#fff;opacity:0.5;position:fixed;top:0;left:0;bottom:0;right:0;z-index:9990;"></div>
     <div style="width:100%;height:100%;position:fixed;top:200px;left:50%;bottom:0;right:0;z-index:9999;">
-        <img src="/xinxing28/xinxing/Public/images/loading.gif"  width="340" alt="" style="margin-left:-170px;">
+        <img src="/xinxing/Public/images/loading.gif"  width="340" alt="" style="margin-left:-170px;">
     </div>
 </div>
 <!-- 加载图标结束 -->
@@ -80,7 +80,7 @@
                     <li class="nav-header" style="margin-bottom: 15px;">
                         <div class="dropdown profile-element">
                             <span>
-                                <img alt="image" src="/xinxing28/xinxing/Public/images/xinxinglogo1.png" width="150"/>
+                                <img alt="image" src="/xinxing/Public/images/xinxinglogo1.png" width="150"/>
                             </span>
                         </div>
                         <div class="logo-element">
@@ -98,7 +98,7 @@
                         </ul>
                     </li>
 
-                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>>
+                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther' or CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>>
                     <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
@@ -119,28 +119,21 @@
                     <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">媒体中心</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">视频广告</a></li>
                         </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">人才引进</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">招贤纳士</a></li>
                         </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Contact' or CONTROLLER_NAME == 'ContactRight'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Contact/index');?>">联系信息</a></li>
-                        </ul>
-
-                    </li>
-                    <li <?php if(CONTROLLER_NAME == 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Suggest/index');?>">投诉建议信息</a></li>
+                            <li ><a href="<?php echo U('Contact/edit');?>">联系信息</a></li>
                         </ul>
 
                     </li>

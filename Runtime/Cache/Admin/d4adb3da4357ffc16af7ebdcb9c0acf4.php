@@ -10,11 +10,11 @@
     <meta name="keywords" content="H+后台主题,后台bootstrap框架,会员中心主题,后台HTML,响应式后台">
     <meta name="description" content="H+是一个完全响应式，基于Bootstrap3最新版本开发的扁平化主题，她采用了主流的左右两栏式布局，使用了Html5+CSS3等现代技术">
 
-    <link href="/xinxing28/xinxing/Public/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
+    <link href="/xinxing/Public/css/bootstrap.min.css?v=3.4.0" rel="stylesheet">
+    <link href="/xinxing/Public/font-awesome/css/font-awesome.css?v=4.3.0" rel="stylesheet">
 
-    <link href="/xinxing28/xinxing/Public/css/animate.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/css/style.css?v=2.2.0" rel="stylesheet">
+    <link href="/xinxing/Public/css/animate.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/style.css?v=2.2.0" rel="stylesheet">
 
 </head>
 
@@ -44,8 +44,8 @@
     </div>
 
     <!-- Mainly scripts -->
-    <script src="/xinxing28/xinxing/Public/js/jquery-2.1.1.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/bootstrap.min.js?v=3.4.0"></script>
+    <script src="/xinxing/Public/js/jquery-2.1.1.min.js"></script>
+    <script src="/xinxing/Public/js/bootstrap.min.js?v=3.4.0"></script>
 
 
 </body>

@@ -52,8 +52,11 @@
                         </foreach>
                     </div>
                     <div class="text">
-                        <div class="title">Loading</div>
-                        <div class="legend">Please wait...</div>
+                        <img class="arrow-left" style="left: 250px;" width="20" src="__PUBLIC__/images/prev.png" alt="">
+                        <div class="title" style="margin: 0 auto;width: 200px;white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">Loading</div>
+                        <img class="arrow-right" src="__PUBLIC__/images/next.png"  width="20" style="margin-top: -15px;right: 250px;" alt="">
+
+                        <div class="legend" style="display: none;">Please wait...</div>
                     </div>
                 </div>
 
@@ -70,12 +73,14 @@
 <script>
 
     $(function(){
-        imf.create("imageFlow", 0.1, 1, 0.5);//div ID, size, zoom, border
+        imf.create("imageFlow", 0.3, 1, 5);//div ID, size, zoom, border
 
         // $('#ceshi').trigger('click');
         setTimeout(function(){
-            $('.diapo').css('max-height','350px');
+//            $('.diapo').css('max-height','345px');
+//            $('.diapo').css('max-width','255px');
             $('canvas').css('max-height','100px');
+//            $('canvas').css('max-width','255px');
             $('.diapo').click(function(i,e){
                 var nThisIndex = $('.diapo').index($(this));//获取点击的第几个diapo
                 var aText = $('#imageFlow .bank a').eq(nThisIndex).text();
@@ -84,7 +89,7 @@
 
 
             var num = $('#imageFlow .bank a').length;
-            var numeq =  Math.floor((num-1)/2);
+            var numeq =  Math.floor(num-4);
             $('.diapo').eq(numeq).trigger("click");//模拟执行id=a的事件
         },500);
 

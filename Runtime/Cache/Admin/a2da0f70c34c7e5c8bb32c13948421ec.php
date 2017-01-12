@@ -80,44 +80,60 @@
                     <li class="nav-header" style="margin-bottom: 15px;">
                         <div class="dropdown profile-element">
                             <span>
-                                <img alt="image" src="/xinxing/Public/images/dhlogo.png" width="150"/>
+                                <img alt="image" src="/xinxing/Public/images/xinxinglogo1.png" width="150"/>
                             </span>
                         </div>
                         <div class="logo-element">
-                            CRM
+                            CXXC
                         </div>
                     </li>
 
 
-                    <li <?php if(CONTROLLER_NAME != 'Contact' AND CONTROLLER_NAME != 'ContactRight' AND CONTROLLER_NAME != 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">内容管理</span><span class="fa arrow"></span></a>
+                    <li <?php if(CONTROLLER_NAME == 'Range' or CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">产品管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Range'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Range/index');?>">业务范围</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Goods'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Goods/index');?>">产品展示</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Category/index');?>">产品分类</a></li>
+                        </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther' or CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>>
+                    <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
+                        <li <?php if(CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageOther/index');?>">其他页轮播</a></li>
+                        <li <?php if(CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Coop/index');?>">合作伙伴管理</a></li>
+                    </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'News' or CONTROLLER_NAME == 'Honor'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">关于我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li <?php if(CONTROLLER_NAME == 'News'): ?>class="active"<?php endif; ?>><a href="<?php echo U('News/index');?>">历史沿革</a></li>
                             <li <?php if(CONTROLLER_NAME == 'News'): ?>class="active"<?php endif; ?>><a href="<?php echo U('News/editIntro');?>">公司简介</a></li>
                             <li <?php if(CONTROLLER_NAME == 'Honor'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Honor/index');?>">企业荣誉</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">媒体中心</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">人才引进</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Range'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Range/index');?>">业务范围</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Goods'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Goods/index');?>">产品展示</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageOther/index');?>">其他页轮播</a></li>
                         </ul>
+                    </li>
 
+                    <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">视频广告</a></li>
+                        </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">招贤纳士</a></li>
+                        </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Contact' or CONTROLLER_NAME == 'ContactRight'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Contact/index');?>">联系信息</a></li>
-                            <li ><a href="<?php echo U('ContactRight/edit');?>">修改右侧信息</a></li>
-
-                        </ul>
-
-                    </li>
-                    <li <?php if(CONTROLLER_NAME == 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Suggest/index');?>">投诉建议信息</a></li>
+                            <li ><a href="<?php echo U('Contact/edit');?>">联系信息</a></li>
                         </ul>
 
                     </li>
@@ -180,11 +196,20 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[0][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[0][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
                                 <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[0][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
                             </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[0][up]" id="form_0">
+                                <input type="file" id="upload_img_0" name="res" multiple />
+                                <div id="content_picts_preview_0" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
+                             </div>
                         </div>
 
                         <div class="form-group">
@@ -216,10 +241,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
-                                <!--<script id="editor_1" type="text/plain"  name="form[1][link]" style="height:600px;"></script>-->
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[1][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[1][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
+                                <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[1][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
+                            </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[1][up]" id="form_1">
+                                <input type="file" id="upload_img_1" name="res" multiple />
+                                <div id="content_picts_preview_1" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
                             </div>
                         </div>
 
@@ -252,10 +286,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
-                                <!--<script id="editor_2" type="text/plain"  name="form[2][link]" style="height:600px;"></script>-->
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[2][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[2][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
+                                <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[2][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
+                            </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[2][up]" id="form_2">
+                                <input type="file" id="upload_img_2" name="res" multiple />
+                                <div id="content_picts_preview_2" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
                             </div>
                         </div>
 
@@ -288,10 +331,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
-                                <!--<script id="editor_3" type="text/plain"  name="form[3][link]" style="height:600px;"></script>-->
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[3][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[3][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
+                                <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[3][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
+                            </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[3][up]" id="form_3">
+                                <input type="file" id="upload_img_3" name="res" multiple />
+                                <div id="content_picts_preview_3" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
                             </div>
                         </div>
 
@@ -324,10 +376,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
-                                <!--<script id="editor_4" type="text/plain"  name="form[4][link]" style="height:600px;"></script>-->
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[4][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[4][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
+                                <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[4][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
+                            </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[4][up]" id="form_4">
+                                <input type="file" id="upload_img_4" name="res" multiple />
+                                <div id="content_picts_preview_4" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
                             </div>
                         </div>
 
@@ -360,10 +421,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
-                                <!--<script id="editor_5" type="text/plain"  name="form[5][link]" style="height:600px;"></script>-->
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[5][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[5][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
+                                <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[5][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
+                            </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[5][up]" id="form_5">
+                                <input type="file" id="upload_img_5" name="res" multiple />
+                                <div id="content_picts_preview_5" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
                             </div>
                         </div>
 
@@ -396,10 +466,19 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">视频链接：</label>
-                            <div class="col-sm-9">
-                                <!--<script id="editor_6" type="text/plain"  name="form[6][link]" style="height:600px;"></script>-->
+                            <label class="col-sm-2 control-label">视频：</label>
+                            <input type="radio" name="form[6][choose]" rel="link" checked="checked" value="1" class="choose">视频链接
+                            <input type="radio" name="form[6][choose]" rel="up" value="2" class="choose">本地上传
+                            <div class="col-sm-9" style="margin-top: 10px;">
+                                <!--<script id="editor_0" type="text/plain"  name="form[0][link]" style="height:600px;"></script>-->
                                 <textarea name="form[6][link]" style="width: 100%;height: 60px;border: 1px solid #e5e6e7;" ></textarea>
+                            </div>
+                            <div class="col-sm-9" style="margin-top: 10px;display: none;">
+                                <input type="hidden" name="form[6][up]" id="form_6">
+                                <input type="file" id="upload_img_6" name="res" multiple />
+                                <div id="content_picts_preview_6" style="display: none;">
+                                    <span>上传成功</span>
+                                </div>
                             </div>
                         </div>
 
@@ -455,6 +534,534 @@
                 $('input:checkbox[value="'+thisVal+'"]').removeAttr('disabled').parent().show();//显示所有的语言复选框
             }
         });
+
+        //视频相关js
+        $(".choose").click(function(){
+            var rel = $(this).attr('rel');
+            if(rel == 'link'){
+                $(this).next().next().show();
+                $(this).next().next().next().hide();
+            }else{
+                $(this).next().next().show();
+                $(this).next().hide();
+            }
+        })
+
+        //上传视频--1
+        var str = '<?php echo ($phpsessid); ?>';
+        $('#upload_img_0').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                console.log(str);
+                $("#upload_img_0").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                console.log(info);
+                $("#form_0").val(info.videoURL);
+                $("#content_picts_preview_0").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_0").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //2
+        $('#upload_img_1').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_1").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                $("#form_1").val(info.videoURL);
+                $("#content_picts_preview_1").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_1").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        // 3
+        $('#upload_img_2').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_2").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                $("#form_2").val(info.videoURL);
+                $("#content_picts_preview_2").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_2").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        // 4
+        $('#upload_img_3').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_3").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                $("#form_3").val(info.videoURL);
+                $("#content_picts_preview_3").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_3").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //5
+        $('#upload_img_4').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_4").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                $("#form_4").val(info.videoURL);
+                $("#content_picts_preview_4").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_4").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //6
+        $('#upload_img_5').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_5").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                $("#form_5").val(info.videoURL);
+                $("#content_picts_preview_5").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_5").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+        //7
+        $('#upload_img_6').uploadify({
+            'formData' : {'str':str},
+            'width'         : 150,
+            'buttonText'    : '选择视频',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
+            'uploader'      : '<?php echo U("Video/uploadVideo");?>',
+            'auto'          : true,
+            'multi'         : true,
+            'removeCompleted':true,
+            'cancelImg'     : '__ASSET__/images/uploadify-cancel.png',
+            'fileTypeExts'  : '*.mp4',
+//            'fileSizeLimit' : '2MB',
+            'onUploadStart' : function(file) {
+                $("#upload_img_6").uploadify("settings", "formData", {'str':str });
+            },
+            'onUploadSuccess':function(file,data,response){
+                var info = jQuery.parseJSON(data);
+                $("#form_6").val(info.videoURL);
+                $("#content_picts_preview_6").text(info.videoURL + '上传成功');
+                $("#content_picts_preview_6").css('display','');
+            },
+            'onComplete' : function(event, ID, fileObj, response, data) {
+                alert(response);
+            },
+            'overrideEvents': ['onSelectError', 'onUploadError','onDialogClose'],
+            'onUploadError': function (file, errorCode, errorMsg, errorString) {
+                // 手工取消不弹出提示
+                if (errorCode == SWFUpload.UPLOAD_ERROR.FILE_CANCELLED
+                        || errorCode == SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED) {
+                    return;
+                }
+                var msgText = "上传失败\n";
+                switch (errorCode) {
+                    case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
+                        msgText += "HTTP 错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
+                        msgText += "上传文件丢失，请重新上传";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.IO_ERROR:
+                        msgText += "IO错误";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
+                        msgText += "安全性错误\n" + errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
+                        msgText += "每次最多上传 " + this.settings.uploadLimit + "个";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
+                        msgText += errorMsg;
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
+                        msgText += "找不到指定文件，请重新操作";
+                        break;
+                    case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
+                        msgText += "参数错误";
+                        break;
+                    default:
+                        msgText += "文件:" + file.name + "\n错误码:" + errorCode + "\n"
+                                + errorMsg + "\n" + errorString;
+                }
+                bootbox.alert({
+                    message: msgText,
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
+            }
+        });
+
     });
 
 
@@ -555,7 +1162,7 @@
 
         $.post('<?php echo U("Video/add");?>',postData,function(result){
 //            console.log(result);
-//            alert(result.info);
+            alert(result.info);
             location.href = result.url;
         });
     }

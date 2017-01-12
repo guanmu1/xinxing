@@ -35,7 +35,6 @@ class ContactController extends CommonController {
                 }
             }
 
-
             if (M('Contact')->addAll($insertArr)) {
                 $this->success('修改成功',U('Contact/index'));
             } else {

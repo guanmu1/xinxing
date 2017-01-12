@@ -8,57 +8,57 @@
     <meta name="keywords" content="">
     <meta name="description" content="">
 
-    <link href="/xinxing28/xinxing/Public/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/font-awesome/css/font-awesome.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/css/animate.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/xinxing/Public/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/animate.css" rel="stylesheet">
     <!-- Data Tables -->
-    <link href="/xinxing28/xinxing/Public/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
-    <link href="/xinxing28/xinxing/Public/css/style.css" rel="stylesheet">
-    <link href="/xinxing28/xinxing/Public/css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/style.css" rel="stylesheet">
+    <link href="/xinxing/Public/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <!-- 单选框的样式 -->
-    <!-- <link href="/xinxing28/xinxing/Public/css/plugins/iCheck/custom.css" rel="stylesheet"> -->
+    <!-- <link href="/xinxing/Public/css/plugins/iCheck/custom.css" rel="stylesheet"> -->
     
 
     <!-- Mainly scripts -->
-    <script src="/xinxing28/xinxing/Public/js/jquery-2.1.1.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/bootstrap.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="/xinxing/Public/js/jquery-2.1.1.min.js"></script>
+    <script src="/xinxing/Public/js/bootstrap.min.js"></script>
+    <script src="/xinxing/Public/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="/xinxing/Public/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
     <!-- Custom and plugin javascript -->
-    <script src="/xinxing28/xinxing/Public/js/hplus.js"></script>
+    <script src="/xinxing/Public/js/hplus.js"></script>
 
     <!-- jQuery UI -->
-    <script src="/xinxing28/xinxing/Public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/xinxing/Public/js/plugins/jquery-ui/jquery-ui.min.js"></script>
     <!-- 就地编辑(Edit in Place)文本信息的 jQuery 插件 
-    <script src="/xinxing28/xinxing/Public/js/plugins/jeditable/jquery.jeditable.js"></script> -->
+    <script src="/xinxing/Public/js/plugins/jeditable/jquery.jeditable.js"></script> -->
 
     <!-- Data Tables -->
-    <script src="/xinxing28/xinxing/Public/js/plugins/dataTables/jquery.dataTables.min.js"></script>
-     <script src="/xinxing28/xinxing/Public/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="/xinxing/Public/js/plugins/dataTables/jquery.dataTables.min.js"></script>
+     <script src="/xinxing/Public/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <!--提示插件-->
-    <script src="/xinxing28/xinxing/Public/js/plugins/toastr/toastr.min.js"></script>
+    <script src="/xinxing/Public/js/plugins/toastr/toastr.min.js"></script>
     <!-- Chosen  -->
-    <link href="/xinxing28/xinxing/Public/css/plugins/chosen/chosen.css" rel="stylesheet"> 
-    <script src="/xinxing28/xinxing/Public/js/plugins/chosen/chosen.jquery.js"></script>
+    <link href="/xinxing/Public/css/plugins/chosen/chosen.css" rel="stylesheet"> 
+    <script src="/xinxing/Public/js/plugins/chosen/chosen.jquery.js"></script>
 
     <!-- Nestable List 可移动的树型结构-->
-    <script src="/xinxing28/xinxing/Public/js/plugins/nestable/jquery.nestable.js"></script>
+    <script src="/xinxing/Public/js/plugins/nestable/jquery.nestable.js"></script>
 
-    <!-- <script src="/xinxing28/xinxing/Public/js/plugins/validate/jquery.validate.min.js"></script> -->
-    <script src="/xinxing28/xinxing/Public/js/uploadify/jquery.uploadify.min.js"></script>
-    <link href="/xinxing28/xinxing/Public/js/uploadify/uploadify.css" rel="stylesheet">
+    <!-- <script src="/xinxing/Public/js/plugins/validate/jquery.validate.min.js"></script> -->
+    <script src="/xinxing/Public/js/uploadify/jquery.uploadify.min.js"></script>
+    <link href="/xinxing/Public/js/uploadify/uploadify.css" rel="stylesheet">
 
-    <!-- <script src="/xinxing28/xinxing/Public/js/plugins/echarts/echarts-all.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/echarts.count.js"></script> -->
-    <script src="/xinxing28/xinxing/Public/js/ueditor.config.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/ueditor.all.min.js"></script>
-    <script src="/xinxing28/xinxing/Public/js/ajaxfileupload.js"></script>
+    <!-- <script src="/xinxing/Public/js/plugins/echarts/echarts-all.js"></script>
+    <script src="/xinxing/Public/js/echarts.count.js"></script> -->
+    <script src="/xinxing/Public/js/ueditor.config.js"></script>
+    <script src="/xinxing/Public/js/ueditor.all.min.js"></script>
+    <script src="/xinxing/Public/js/ajaxfileupload.js"></script>
 
 
-    <script src="/xinxing28/xinxing/Public/js/bootbox.js"></script>
+    <script src="/xinxing/Public/js/bootbox.js"></script>
 
 
 </head>
@@ -68,7 +68,7 @@
 <div id="loading_gif" style="display:none;">
     <div style="background:#fff;opacity:0.5;position:fixed;top:0;left:0;bottom:0;right:0;z-index:9990;"></div>
     <div style="width:100%;height:100%;position:fixed;top:200px;left:50%;bottom:0;right:0;z-index:9999;">
-        <img src="/xinxing28/xinxing/Public/images/loading.gif"  width="340" alt="" style="margin-left:-170px;">
+        <img src="/xinxing/Public/images/loading.gif"  width="340" alt="" style="margin-left:-170px;">
     </div>
 </div>
 <!-- 加载图标结束 -->
@@ -80,7 +80,7 @@
                     <li class="nav-header" style="margin-bottom: 15px;">
                         <div class="dropdown profile-element">
                             <span>
-                                <img alt="image" src="/xinxing28/xinxing/Public/images/xinxinglogo1.png" width="150"/>
+                                <img alt="image" src="/xinxing/Public/images/xinxinglogo1.png" width="150"/>
                             </span>
                         </div>
                         <div class="logo-element">
@@ -98,7 +98,7 @@
                         </ul>
                     </li>
 
-                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>>
+                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther' or CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>>
                     <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
@@ -119,28 +119,21 @@
                     <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">媒体中心</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">视频广告</a></li>
                         </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">人才引进</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">招贤纳士</a></li>
                         </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Contact' or CONTROLLER_NAME == 'ContactRight'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Contact/index');?>">联系信息</a></li>
-                        </ul>
-
-                    </li>
-                    <li <?php if(CONTROLLER_NAME == 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Suggest/index');?>">投诉建议信息</a></li>
+                            <li ><a href="<?php echo U('Contact/edit');?>">联系信息</a></li>
                         </ul>
 
                     </li>
@@ -200,10 +193,10 @@
 </style>
 
 <!--引入CSS-->
-<link rel="stylesheet" type="text/css" href="/xinxing28/xinxing/Public/css/webuploader.css">
+<link rel="stylesheet" type="text/css" href="/xinxing/Public/css/webuploader.css">
 
 <!--引入JS-->
-<script type="text/javascript" src="/xinxing28/xinxing/Public/js/webuploader.min.js"></script>
+<script type="text/javascript" src="/xinxing/Public/js/webuploader.min.js"></script>
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
@@ -256,6 +249,18 @@
                             </div>
                         </div>
 
+                        <div class="form-group" style="margin-bottom: 13px;">
+                            <label class="col-sm-2 control-label">上传首页展示图片:<br/>(仅用于首页展示)</label>
+                            <div class="col-sm-9">
+
+                                <img id="goods_image_<?php echo ($key); ?>" src="<?php echo ($item["home_img"]); ?>" alt="" width="300" height="190">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[<?php echo ($key); ?>][home_img]" value="<?php echo ($item["home_img"]); ?>">
+                                <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="goods_image_<?php echo ($key); ?>_file" onchange="uploadFile(this)"/>
+
+                            </div>
+                            建议上传图片尺寸300*190
+                        </div>
 
                         <div class="form-group">
                             <label class="col-sm-2 control-label">上传商品图片：</label>
@@ -263,7 +268,9 @@
                                 <input type="file" id="upload_img_<?php echo ($key); ?>" name="res" multiple />
                                 <div id="content_picts_preview_<?php echo ($key); ?>">
                                     <?php if(is_array($item["ad_content_urls"])): foreach($item["ad_content_urls"] as $key1=>$_ad_content_urls): if($_ad_content_urls): ?><div style="position: relative;width:200px;float: left;margin-left: 30px;">
-                                                <div class="show_<?php echo ($key); ?>" style="text-align:right;width:100%;position:absolute;top:0;float: right;height: 30px;border:1px solid red;color:red;" onclick="del_0(this)">X</div>
+                                                <div class="show_<?php echo ($key); ?>" style="text-align:right;width:100%;position:absolute;top:0;float: right;height: 30px;color:red;" onclick="del_0(this)">
+                                                    <img src="/xinxing/Public/images/close.png" alt="" width="30">
+                                                </div>
                                                 <img src="<?php echo ($_ad_content_urls); ?>" alt="" width="200" height="200" style="margin-right: 10px;margin-bottom: 10px;">
                                                 <input type="hidden" name="form[<?php echo ($key); ?>][ad_content_urls][]" value="<?php echo ($_ad_content_urls); ?>" />
                                             </div><?php endif; endforeach; endif; ?>
@@ -319,7 +326,30 @@
 </div>
 </div>
 </div>
+<script type="text/javascript">
+    function clickInputFile(_this) {
+        $(_this).nextAll('input:file').trigger('click');
+    }
 
+    function uploadFile(_this){
+        var eleId = $(_this).attr('id');
+        var imgObj = $(_this).siblings('img');
+        var inputHidden = $(_this).siblings('input:text');
+        $.ajaxFileUpload(
+                {
+                    url:'<?php echo U("Image/uploadPic");?>', //你处理上传文件的服务端
+                    secureuri:false,
+                    fileElementId:eleId,
+                    dataType: 'text',
+                    success: function (data){
+                        console.log(data);
+                        imgObj.attr('src',data);
+                        inputHidden.val(data);
+                    }
+                }
+        )
+    }
+</script>
 <script type="text/javascript">
     $(function(){
         // 第一组上传图片
@@ -328,7 +358,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -415,7 +445,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -502,7 +532,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -589,7 +619,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -676,7 +706,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -763,7 +793,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -850,7 +880,7 @@
             'formData' : {'str':str},
             'width'         : 150,
             'buttonText'    : '选择图片',
-            'swf'           : '/xinxing28/xinxing/Public/js/uploadify/uploadify.swf',
+            'swf'           : '/xinxing/Public/js/uploadify/uploadify.swf',
             'uploader'      : '<?php echo U("Goods/uploadPic");?>',
             'auto'          : true,
             'multi'         : true,
@@ -940,7 +970,7 @@
         console.log(data);
 //        var strFile = '<input type="hidden" name='+inputName+' class="'+pictsID+'" value="'+data.pictURL+'" />';
         var str = '<div style="position: relative;width:200px;float: left;margin-left: 30px;">' +
-                '<div class="'+flag_id+'" style="text-align:right;width:100%;position:absolute;top:0;float: right;height: 30px;border:1px solid red;color:red;" onclick="del_0(this)">X</div> ' +
+                '<div class="'+flag_id+'" style="text-align:right;width:100%;position:absolute;top:0;float: right;height: 30px;color:red;" onclick="del_0(this)"><img src="/xinxing/Public/images/close.png" alt="" width="30"></div> ' +
                 '<img src="'+data.pictURL+'" alt="" width="200" height="200" style="margin-right: 10px;margin-bottom: 10px;"> ' +
                 '<input type="hidden" name="'+inputName+'" value="'+data.pictURL+'" /></div>';
 //        $(previewContainer).before(strFile).append(str);
@@ -1186,7 +1216,7 @@
 //    function uploadFile(_this){
 //        var eleId = $(_this).attr('id');
 //        var imgObj = $(_this).siblings('img');
-//        var inputHidden = $(_this).siblings('input:hidden');
+//        var inputHidden = $(_this).siblings('input:text');
 //        $.ajaxFileUpload(
 //                {
 //                    url:'<?php echo U("Goods/uploadPic");?>', //你处理上传文件的服务端

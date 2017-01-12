@@ -122,7 +122,7 @@ class Uploader
             $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
         } else { //移动成功
             $this->stateInfo = $this->stateMap[0];
-            $this->imageWaterMark($this->filePath,9,'xinxinglogo.png');
+            $this->imageWaterMark($this->filePath,9,'xinxinglogo_water.png');
         }
     }
 

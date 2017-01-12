@@ -10,20 +10,30 @@
         <a><{:L('视频广告')}></a>
     </div>
 </div>
-
+<style>
+    .second-li-selected{background-color: red;}
+    .second-a-selected{color: #fff;}
+</style>
 <div id="templatemo_wrapper">
 
     <div id="templatemo_main_content">
-    	<div id="templatemo_sidebar">
+        <div id="templatemo_sidebar">
             <div class="sidebar_content_box" style="height:100px;">
-                <h3 style="text-align:center;margin:25px 0 0 0;color:red;font-weight:bold;"><{:L('业务产品')}></h3>
-                <h5 style="text-align:center;color:#35bf35;font-size: 14px">BUSINESS PRODUCT</h5>
+                <h3 style="text-align:center;margin:25px 0 0 0;color:red;font-weight:bold;"><{:L('产品展示')}></h3>
+                <h5 style="text-align:center;color:#35bf35;">BUSINESS PRODUCT</h5>
             </div>
             <div class="sidebar_content_box" style="background:#fff;padding:0;">
                 <ul  style="padding:0;">
-                    <li class="mouseover-li left-sub-menu-hover"><a class="left-sub-menu-a-hover" href="#" ><{:L('业务范围')}></a></li>
-                    <li class="mouseover-li left-sub-menu"><a class="left-sub-menu-a" href="#" ><{:L('产品展示')}></a></li>
-                    <!--<li class="mouseover-li left-sub-menu"><a class="left-sub-menu-a" href="#" >企业荣誉</a></li>-->
+                    <li class="mouseover-li left-sub-menu" style="margin: 10px auto;"><a class="left-sub-menu-a" href="<{:U('Range/index')}>" ><{:L('业务范围')}></a></li>
+                    <li style="height: 1px;background-color: #9FA0A1;"></li>
+                    <li class="mouseover-li left-sub-menu" style="margin-bottom: 10px;margin-top: 10px;"><a class="left-sub-menu-a" href="<{:U('Goods/index')}>" style="color: red;"><{:L('产品展示')}></a></li>
+
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('衣帽')}></a></li>-->
+                    <!--<li class="second-li second-li-selected"><a href="#" style="color: #fff;"><{:L('鞋靴')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('防弹产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('装具')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('警用产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('车辆及装备')}></a></li>-->
 
                     <volist name="category" id="cItem">
                         <if condition="$thisCpid eq $cItem['category_id']">
@@ -62,7 +72,7 @@
                 </div>
             </div>
 
-            <div class="news_container" style="padding: 0;">
+            <div class="" style="padding: 0;">
 
                 <div class="preview">
                     <div id="vertical" class="bigImg">
@@ -116,7 +126,7 @@
                         <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
                     </div>
                     <div style="float: left;margin-top: 30px;margin-left: 20px;width: 250px;">
-                        <p style="font-size: 20px;font-weight: bold;color:#717172;">产品介绍</p>
+                        <p style="font-size: 20px;font-weight: bold;color:#717172;"><{L('产品展示')}></p>
                         <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
                         <div style="float: left;width: 140px;height: 2px;background-color: gray;margin-top: 10px;"></div>
                         <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
@@ -131,6 +141,9 @@
 
                 </div>
                 <div style="margin-top: 20px;">
+                    <div style="width: 100%;background: url(__PUBLIC__/images/goods-top.png);height: 37px;">
+                        <p style="float: left;color:#07F900;font-size: 18px;margin-top: 8px;margin-left: 12px;"><{L('产品展示')}></p>
+                    </div>
                     <{$goodsInfo.goods_description}>
                 </div>
 

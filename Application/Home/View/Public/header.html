@@ -73,14 +73,16 @@
         .news-image{float:left;}
         .news-content{float:left;width:500px;margin-left:2px;}
         .news-title{height:35px;padding-left: 15px;}
-        .news-title-year{color:red;line-height:40px;font-size:18px;}
-        .news-title-text{color:gray;line-height:35px;font-size:18px;margin-left:30px;}
+        .news-title-year{color:red;line-height:40px;font-size:14px;}
+        .news-title-text{color:gray;line-height:35px;font-size:14px;margin-left:30px;}
         .new-line-gray{height: 1px;background-color: gray;width:400px;float: left}
         .new-line-red{height: 1px;background-color: red;width:100px;float: left;}
-        .news-content-text{height:74px;font-size:16px;word-spacing:8px; letter-spacing: 2px;text-indent:2em;line-height:24px;padding: 10px;}
+        .news-content-text{height:74px;font-size:14px;word-spacing:8px; letter-spacing: 2px;text-indent:2em;line-height:24px;padding: 10px;}
 
-        .second-li{height: 28px;padding-left: 75px;line-height: 30px;}
+        .second-li{height: 28px;padding-left: 75px;line-height: 30px; max-width: 130px; overflow: hidden;}
         .second-li a{text-decoration:none;color:#98999A;}
+
+        .maxaul>li>a {max-width: 105px;overflow: hidden;}
     </style>
 
     <script>
@@ -120,8 +122,11 @@
                 <select name="" id="select-lang">
                     <option <if condition="cookie('lang_value') == 'cn'"> selected </if> value="cn">中文</option>
                     <option <if condition="cookie('lang_value') == 'en'"> selected </if> value="en">EngLish</option>
-                    <option value="">EngLish</option>
-                    <option value="">EngLish</option>
+                    <option <if condition="cookie('lang_value') == 'fr'"> selected </if> value="fr">Français</option>
+                    <option <if condition="cookie('lang_value') == 'es'"> selected </if> value="es">Español</option>
+                    <option <if condition="cookie('lang_value') == 'pt'"> selected </if> value="pt">Português</option>
+                    <option <if condition="cookie('lang_value') == 'ru'"> selected </if> value="ru">EngLish</option>
+                    <option <if condition="cookie('lang_value') == 'ar'"> selected </if> value="ar">العربية</option>
                 </select>
             </div>
         </div>
@@ -131,7 +136,7 @@
             <img onclick="turnToHome()" src="__PUBLIC__/images/xinxinglogo.png" alt="" width="300"/>
               
             <div class="ddsmoothmenu" style="color:gray;float:right;" id="templatemo_menu">
-                <ul>
+                <ul class="maxaul">
                     <li><a href="<{:U('About/index')}>" <if condition="CONTROLLER_NAME eq 'About' "> class="selected" </if> style="padding-left: 10px;"><span></span><{:L('关于我们')}></a>
                         <ul>
                             <li><a href="<{:U('About/index')}>"><{:L('历史沿革')}></a></li>
@@ -141,7 +146,7 @@
                     </li>
 
                     <li><a href="<{:U('Video/index')}>" <if condition="CONTROLLER_NAME eq 'Video' "> class="selected" </if>  ><span class="span-dian">·</span><{:L('媒体中心')}></a></li>
-                    <li><a href="<{:U('Goods/index')}>" <if condition="CONTROLLER_NAME eq 'Goods' or CONTROLLER_NAME eq 'Range' "> class="selected" </if> ><span class="span-dian">·</span><{:L('业务产品')}></a>
+                    <li><a href="<{:U('Goods/index')}>" <if condition="CONTROLLER_NAME eq 'Goods' or CONTROLLER_NAME eq 'Range' "> class="selected" </if> ><span class="span-dian">·</span><{:L('产品展示')}></a>
                         <ul>
                             <li><a href="<{:U('Range/index')}>"><{:L('业务范围')}></a></li>
                             <li><a href="<{:U('Goods/index')}>"><{:L('产品展示')}></a></li>
@@ -161,7 +166,7 @@
             <div class="div-second-menu" id="templatemo_menu_goods">
                 <ul>
                     <volist name="category" id="cItem">
-                        <li><a href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>"><span></span><{:L($cItem['category_name'])}></a>
+                        <li><a style="max-width: 70px;overflow: hidden;" href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>"><span></span><{:L($cItem['category_name'])}></a>
 
                             <if condition="$cItem['children']">
                                 <ul>

@@ -291,9 +291,9 @@ var imf = function () {
 
                 /* ---- calculate target sizes & positions ---- */
 
-                o.w1 = Math.min(o.iw, this.wh * .5) * o.z1;
+                o.w1 = Math.min(o.iw, this.wh * .3) * o.z1;
 
-                var x0 = o.x1 = (this.wh * .5) - (o.w1 * .5);
+                var x0 = o.x1 = (this.wh * .3) - (o.w1 * .3);
 
                 var x = x0 + o.w1 + this.bdw;
 
@@ -564,7 +564,6 @@ var imf = function () {
         /* ==== diapo onclick ==== */
 
         click: function () {
-
             if (this.parent.view == this.N) {
 
                 /* ---- click on zoomed diapo ---- */

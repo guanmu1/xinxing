@@ -49,12 +49,19 @@ class GoodsController extends CommonController{
             $insertArr = array();
             $formData = $_POST['form'];
             foreach ($formData as $key => $value) {
+                if (!$value['category_pid']) {
+                    $this->error("第".($key+1)."组 一级分类不能为空");
+                }
+
+
+
                 $oneData                      = array();
                 $oneData['goods_name']        = $value['goods_name'];
                 $oneData['goods_code']        = $value['goods_code'];
                 $oneData['goods_intro']       = $value['goods_intro'];
                 $oneData['goods_weight']       = $value['goods_weight'];
                 $oneData['goods_size']       = $value['goods_size'];
+                $oneData['home_img']       = $value['home_img'];
                 $oneData['goods_description'] = $value['goods_description'];
                 $oneData['category_pid']      = $value['category_pid'];
                 //$oneData['category_id']       = $value['category_id'];
@@ -115,7 +122,7 @@ class GoodsController extends CommonController{
             //var_dump($_POST['form']);die;
             $groupId = I('post.groupId');
             //M('Goods')->where('group_id = %d',$groupId)->save(array('deleted'=>1));
-//            M('Goods')->where('group_id = %d',$groupId)->delete();
+            M('Goods')->where('group_id = %d',$groupId)->delete();
 
             $insertArr = array();
             $formData = $_POST['form'];
@@ -127,6 +134,7 @@ class GoodsController extends CommonController{
                 $oneData['goods_intro']       = $value['goods_intro'];
                 $oneData['goods_weight']       = $value['goods_weight'];
                 $oneData['goods_size']       = $value['goods_size'];
+                $oneData['home_img']       = $value['home_img'];
                 $oneData['goods_description'] = $value['goods_description'];
                 $oneData['category_pid']      = $value['category_pid'];
                 $oneData['show_home']         = $value['show_home'];
@@ -198,6 +206,7 @@ class GoodsController extends CommonController{
                         $rInfo[ $i ]['goods_code']        = $value['goods_code'];
                         $rInfo[ $i ]['goods_weight']      = $value['goods_weight'];
                         $rInfo[ $i ]['goods_size']        = $value['goods_size'];
+                        $rInfo[ $i ]['home_img']        = $value['home_img'];
                         $rInfo[ $i ]['goods_intro']       = $value['goods_intro'];
                         $rInfo[ $i ]['goods_description'] = $value['goods_description'];
                         $rInfo[ $i ]['category_pid']      = $value['category_pid'];
@@ -237,6 +246,7 @@ class GoodsController extends CommonController{
                     $rInfo[ $i ]['goods_code']        = '';
                     $rInfo[ $i ]['goods_weight']      = '';
                     $rInfo[ $i ]['goods_size']        = '';
+                    $rInfo[ $i ]['home_img']        = '';
                     $rInfo[ $i ]['goods_intro']       = '';
                     $rInfo[ $i ]['goods_description'] = '';
                     $rInfo[ $i ]['category_pid']      = '';
@@ -294,8 +304,13 @@ class GoodsController extends CommonController{
            $id = '';
         }else{
             $info = M("Category")->field('group_id')->where("category_id = %d", $category_id)->find();
-            $cateInfo = M("Category")->field('category_id')->where("group_id = %d and language = 'cn'", $info['group_id'])->find();
-            $id = $cateInfo['category_id'];
+            if ($info) {
+                $cateInfo = M("Category")->field('category_id')->where("group_id = %d and language = 'cn'", $info['group_id'])->find();
+                $id = $cateInfo['category_id'];
+            } else {
+                $id = null;
+            }
+
         }
 
         return $id;
@@ -339,7 +354,7 @@ class GoodsController extends CommonController{
 //            $image->open('./'.$info)->water('./Data/logo.png',\Think\Image::IMAGE_WATER_NORTHWEST,50)->save('./'.$info);
 //            //添加文字水印
 //            //$image->open('./'.$info)->text('姜医生','./Data/1.ttf',20,'#000000',\Think\Image::IMAGE_WATER_SOUTHEAST)->save($info);
-            $image->water('Uploads/ImagePic/logo.png', $image::IMAGE_WATER_NORTHWEST, 50)->save($path);
+            $image->water('Public/js/php/xinxinglogo_water2.png', $image::IMAGE_WATER_SOUTHEAST, 50)->save($path);
             $image->thumb(800,800,\Think\Image::IMAGE_THUMB_FILLED)->save('Public/goods/big/'.$info['Filedata']['savename']);
             $image->thumb(400,400,\Think\Image::IMAGE_THUMB_FILLED)->save('Public/goods/mid/'.$info['Filedata']['savename']);
             $image->thumb(100,100,\Think\Image::IMAGE_THUMB_FILLED)->save('Public/goods/small/'.$info['Filedata']['savename']);

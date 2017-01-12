@@ -9,8 +9,9 @@ namespace Admin\Controller;
 use Think\Controller;
 class IndexController extends Controller {
     public function index(){
+        session_start();
         if (!session('isLogin')) {
-            $this->redirect('Index/Login');
+            $this->redirect('Index/login');
         } else {
             $this->display();
         }
@@ -24,7 +25,7 @@ class IndexController extends Controller {
         $name = I('post.name');
         $password = I('post.password');
         $userInfo = M('User')->where('username = "%s" and password = "%s"',$name,md5($password))->find();
-
+        session_start();
         if ($userInfo) {
             session('isLogin',true);
             session('userName',$name);

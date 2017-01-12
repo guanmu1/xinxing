@@ -79,8 +79,10 @@
         .new-line-red{height: 1px;background-color: red;width:100px;float: left;}
         .news-content-text{height:74px;font-size:16px;word-spacing:8px; letter-spacing: 2px;text-indent:2em;line-height:24px;padding: 10px;}
 
-        .second-li{height: 28px;padding-left: 75px;line-height: 30px;}
+        .second-li{height: 28px;padding-left: 75px;line-height: 30px; max-width: 130px; overflow: hidden;}
         .second-li a{text-decoration:none;color:#98999A;}
+
+        .maxaul>li>a {max-width: 105px;overflow: hidden;}
     </style>
 
     <script>
@@ -120,18 +122,21 @@
                 <select name="" id="select-lang">
                     <option <?php if(cookie('lang_value') == 'cn'): ?>selected<?php endif; ?> value="cn">中文</option>
                     <option <?php if(cookie('lang_value') == 'en'): ?>selected<?php endif; ?> value="en">EngLish</option>
-                    <option value="">EngLish</option>
-                    <option value="">EngLish</option>
+                    <option <?php if(cookie('lang_value') == 'fr'): ?>selected<?php endif; ?> value="fr">Français</option>
+                    <option <?php if(cookie('lang_value') == 'es'): ?>selected<?php endif; ?> value="es">Español</option>
+                    <option <?php if(cookie('lang_value') == 'pt'): ?>selected<?php endif; ?> value="pt">Português</option>
+                    <option <?php if(cookie('lang_value') == 'ru'): ?>selected<?php endif; ?> value="ru">EngLish</option>
+                    <option <?php if(cookie('lang_value') == 'ar'): ?>selected<?php endif; ?> value="ar">العربية</option>
                 </select>
             </div>
         </div>
     </div>
     <div style="height:70px;min-width:1000px;background:#FFF;padding-top:10px;">
         <div style="margin:0 auto;width:980px;">
-            <img onclick="turnToHome()" src="/xinxing/Public/images/xinxinglogo.png" alt="" />
+            <img onclick="turnToHome()" src="/xinxing/Public/images/xinxinglogo.png" alt="" width="300"/>
               
             <div class="ddsmoothmenu" style="color:gray;float:right;" id="templatemo_menu">
-                <ul>
+                <ul class="maxaul">
                     <li><a href="<?php echo U('About/index');?>" <?php if(CONTROLLER_NAME == 'About' ): ?>class="selected"<?php endif; ?> style="padding-left: 10px;"><span></span><?php echo L('关于我们');?></a>
                         <ul>
                             <li><a href="<?php echo U('About/index');?>"><?php echo L('历史沿革');?></a></li>
@@ -160,7 +165,7 @@
             
             <div class="div-second-menu" id="templatemo_menu_goods">
                 <ul>
-                    <?php if(is_array($category)): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cItem): $mod = ($i % 2 );++$i;?><li><a href="<?php echo U('Goods/index',array('cpid'=>$cItem['category_id']));?>"><span></span><?php echo L($cItem['category_name']);?></a>
+                    <?php if(is_array($category)): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cItem): $mod = ($i % 2 );++$i;?><li><a style="max-width: 70px;overflow: hidden;" href="<?php echo U('Goods/index',array('cpid'=>$cItem['category_id']));?>"><span></span><?php echo L($cItem['category_name']);?></a>
 
                             <?php if($cItem['children']): ?><ul>
                                     <?php if(is_array($cItem["children"])): foreach($cItem["children"] as $key=>$ccItem): ?><li><a href="<?php echo U('Goods/index',array('cid'=>$ccItem['category_id']));?>"><?php echo ($ccItem["category_name"]); ?></a></li><?php endforeach; endif; ?>
@@ -219,56 +224,21 @@
                             <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
                                 <img src="" style="width: 100%;" height='200'>
                             </div>
-                            <?php if(is_array($imageHeader)): foreach($imageHeader as $key=>$item): ?><li class="num<?php echo ($key); ?> img">
+                            <?php if(is_array($imageOther)): foreach($imageOther as $key=>$item): ?><li class="num<?php echo ($key); ?> img">
                                     <img src="<?php echo ($item["image_link"]); ?>" alt="Clouds" title="Clouds" height='200'/>
                                 </li><?php endforeach; endif; ?>
-                            <!--<li class="num0 img">-->
-                                <!--<img src="/xinxing/Public/images/dabei1.png" alt="Clouds" title="Clouds" height='200'/>-->
-                            <!--</li>-->
-                            <!--<li class="num1 img">-->
-                                <!--<img src="/xinxing/Public/images/dabei2.png" alt="Typewriter" title="Typewriter" height='200'/>-->
-                            <!--</li>-->
-                            <!--<li class="num2 img">-->
-                                <!--<img src="/xinxing/Public/images/dabei2.png" alt="Bicycle" title="Bicycle" height='200'/>-->
-                            <!--</li>-->
-                        
                         </ul>
-      <!--                   <div class="cs_description">
-                            <label class="num0">
-                                <span class="cs_title"><span class="cs_wrapper">Clouds</span></span>
-                                
-                            </label>
-                            <label class="num1">
-                                <span class="cs_title"><span class="cs_wrapper">Typewriter</span></span>
-                                
-                            </label>
-                            <label class="num2">
-                                <span class="cs_title"><span class="cs_wrapper">Bicycle</span></span>
-                                
-                            </label>
-                        </div>
-                         -->
+
+
                         <div class="cs_arrowprev">
-                            <label class="num0" for="cs_slide1_0"></label>
-                            <label class="num1" for="cs_slide1_1"></label>
-                            <label class="num2" for="cs_slide1_2"></label>
+                            <?php if(is_array($imageOther)): foreach($imageOther as $key=>$item): ?><label class="num<?php echo ($key); ?>" for="cs_slide1_<?php echo ($key); ?>"></label><?php endforeach; endif; ?>
                         </div>
                         <div class="cs_arrownext">
-                            <label class="num0" for="cs_slide1_0"></label>
-                            <label class="num1" for="cs_slide1_1"></label>
-                            <label class="num2" for="cs_slide1_2"></label>
+                            <?php if(is_array($imageOther)): foreach($imageOther as $key=>$item): ?><label class="num<?php echo ($key); ?>" for="cs_slide1_<?php echo ($key); ?>"></label><?php endforeach; endif; ?>
                         </div>
                         
                         <div class="cs_bullets">
-                            <label class="num0" for="cs_slide1_0">
-                                <span class="cs_point"></span>
-                            </label>
-                            <label class="num1" for="cs_slide1_1">
-                                <span class="cs_point"></span>
-                            </label>
-                            <label class="num2" for="cs_slide1_2">
-                                <span class="cs_point"></span>
-                            </label>
+                            <?php if(is_array($imageOther)): foreach($imageOther as $key=>$item): ?><label class="num<?php echo ($key); ?>" for="cs_slide1_<?php echo ($key); ?>"><span class="cs_point"></span></label><?php endforeach; endif; ?>
                         </div>
                         
                     </div>
@@ -322,7 +292,7 @@
 
         <div id="templatemo_content">
 
-            <div class="sidebar_content_box" style="height:100px;">
+            <div class="sidebar_content_boxx" style="height:100px;">
                 <h3 class="h3-content"><?php echo L('业务范围');?></h3>
             </div>
             <div class="news_container" style="position: relative;overflow: hidden;">
@@ -411,14 +381,14 @@
         <div class="foot-div-row-b">
             <img  src="/xinxing/Public/images/call43.png" alt="">
             <p >
-                T: +86-10-68179694<br/>
-                F: +86-10-68217436
+                T: <?php echo ($contactInfo["phone1"]); ?><br/>
+                F: <?php echo ($contactInfo["phone2"]); ?>
             </p>
         </div>
         <div class="foot-div-row-c">
             <img  src="/xinxing/Public/images/pointer10.png" alt="">
             <p >
-                <?php echo L('北京海淀区西三环中路17号新兴宾馆');?>
+                <?php echo ($contactInfo["contact_address"]); ?>
             </p>
         </div>
     </div>
@@ -426,49 +396,49 @@
 
     <div class="foot-div-row2">
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('关于我们');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('About/index');?>" style="color:#fff;"><?php echo L('关于我们');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('历史沿革');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('公司简介');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('企业荣誉');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/index');?>" style="color:#fff;"><?php echo L('历史沿革');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/intro');?>" style="color:#fff;"><?php echo L('公司简介');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/honor');?>" style="color:#fff;"><?php echo L('企业荣誉');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('媒体中心');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Video/index');?>" style="color:#fff;"><?php echo L('媒体中心');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('视频广告');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Video/index');?>" style="color:#fff;"><?php echo L('视频广告');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('业务产品');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Goods/index');?>" style="color:#fff;"><?php echo L('业务产品');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('业务范围');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('产品展示');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Range/index');?>" style="color:#fff;"><?php echo L('业务范围');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Goods/index');?>" style="color:#fff;"><?php echo L('产品展示');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('人才引进');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Recruit/index');?>" style="color:#fff;"><?php echo L('人才引进');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('招贤纳士');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Recruit/index');?>" style="color:#fff;"><?php echo L('招贤纳士');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('联系我们');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('联系我们');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('地理位置');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('办公电话');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('邮箱');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('地理位置');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('办公电话');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('邮箱');?></a></p>
         </div>
     </div>
 </div>

@@ -29,11 +29,12 @@
                                 <div class="col-sm-9">
 
                                     <img id="course_image_<{$key+1}>" src="<{$item.img}>" alt="" width='180' height="130">
-                                    <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                    <input type="hidden" name="form[<{$key}>][img]" value="<{$item.img}>">
+                                    <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                    <input type="text" style="width: 400px;margin-top: 3px;"  name="form[<{$key}>][img]" value="<{$item.img}>">
                                     <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<{$key+1}>_file" onchange="uploadFile(this)"/>
 
                                 </div>
+                                建议上传图片尺寸180*130
                             </div>
                             
                             <div class="form-group">
@@ -95,7 +96,7 @@
     function uploadFile(_this){
         var eleId = $(_this).attr('id');
         var imgObj = $(_this).siblings('img');
-        var inputHidden = $(_this).siblings('input:hidden');
+        var inputHidden = $(_this).siblings('input:text');
         $.ajaxFileUpload(
                 {
                     url:'<{:U("Image/uploadPic")}>', //你处理上传文件的服务端

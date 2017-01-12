@@ -98,7 +98,7 @@
                         </ul>
                     </li>
 
-                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>>
+                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther' or CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>>
                     <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
@@ -119,28 +119,21 @@
                     <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">媒体中心</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">视频广告</a></li>
                         </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">人才引进</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">招贤纳士</a></li>
                         </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Contact' or CONTROLLER_NAME == 'ContactRight'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Contact/index');?>">联系信息</a></li>
-                        </ul>
-
-                    </li>
-                    <li <?php if(CONTROLLER_NAME == 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Suggest/index');?>">投诉建议信息</a></li>
+                            <li ><a href="<?php echo U('Contact/edit');?>">联系信息</a></li>
                         </ul>
 
                     </li>
@@ -213,12 +206,12 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_0" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[0][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[0][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_0_file" onchange="uploadFile(this)"/>
 
                             </div>
-                            建议上传270*50的图
+                            建议上传图片尺寸270*50
                         </div>
 
                         <div class="form-group">
@@ -253,8 +246,8 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_1" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[1][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[1][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_1_file" onchange="uploadFile(this)"/>
 
                             </div>
@@ -292,8 +285,8 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_2" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[2][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[2][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_2_file" onchange="uploadFile(this)"/>
 
                             </div>
@@ -331,8 +324,8 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_3" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[3][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[3][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_3_file" onchange="uploadFile(this)"/>
 
                             </div>
@@ -370,8 +363,8 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_4" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[4][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[4][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_4_file" onchange="uploadFile(this)"/>
 
                             </div>
@@ -409,8 +402,8 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_5" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[0][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[0][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_5_file" onchange="uploadFile(this)"/>
 
                             </div>
@@ -448,8 +441,8 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_6" src="" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[6][img]" value="">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[6][img]" value="">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_6_file" onchange="uploadFile(this)"/>
 
                             </div>
@@ -504,7 +497,7 @@
     function uploadFile(_this){
         var eleId = $(_this).attr('id');
         var imgObj = $(_this).siblings('img');
-        var inputHidden = $(_this).siblings('input:hidden');
+        var inputHidden = $(_this).siblings('input:text');
         $.ajaxFileUpload(
                 {
                     url:'<?php echo U("Image/uploadPic");?>', //你处理上传文件的服务端

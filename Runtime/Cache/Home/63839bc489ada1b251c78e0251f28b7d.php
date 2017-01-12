@@ -8,25 +8,25 @@
     <title>Universe, Website Template</title>
     <meta name="keywords" content="universe, black, website template, templatemo" />
     <meta name="description" content="Universe is free website template by templatemo.com for everyone." />
-    <link href="/xinxing28/xinxing/Public/css/bootstrap.min.home.css" rel="stylesheet" type="text/css" />
-    <link href="/xinxing28/xinxing/Public/css/templatemo_style.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/xinxing28/xinxing/Public/css/nivo-slider.css" type="text/css" media="screen" />
+    <link href="/xinxing/Public/css/bootstrap.min.home.css" rel="stylesheet" type="text/css" />
+    <link href="/xinxing/Public/css/templatemo_style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/xinxing/Public/css/nivo-slider.css" type="text/css" media="screen" />
 
-    <link rel="stylesheet" href="/xinxing28/xinxing/Public/css/lunbo.css">
+    <link rel="stylesheet" href="/xinxing/Public/css/lunbo.css">
 
 
 
-    <script type="text/javascript" src="/xinxing28/xinxing/Public/js/jquery-1.6.3.min.js" ></script>
-    <script type="text/javascript" src="/xinxing28/xinxing/Public/js/jquery-ui.min.js" ></script>
+    <script type="text/javascript" src="/xinxing/Public/js/jquery-1.6.3.min.js" ></script>
+    <script type="text/javascript" src="/xinxing/Public/js/jquery-ui.min.js" ></script>
     <script type="text/javascript">
         $(document).ready(function(){
             $("#featured > ul").tabs({fx:{opacity: "toggle"}}).tabs("rotate", 5000, true);
         });
     </script>
 
-    <link rel="stylesheet" type="text/css" href="/xinxing28/xinxing/Public/css/ddsmoothmenu.css" />
+    <link rel="stylesheet" type="text/css" href="/xinxing/Public/css/ddsmoothmenu.css" />
 
-    <script type="text/javascript" src="/xinxing28/xinxing/Public/js/ddsmoothmenu.js"></script>
+    <script type="text/javascript" src="/xinxing/Public/js/ddsmoothmenu.js"></script>
 
     <script type="text/javascript">
 
@@ -49,8 +49,8 @@
 
     </script>
 
-    <link rel="stylesheet" href="/xinxing28/xinxing/Public/css/slimbox2.css" type="text/css" media="screen" />
-    <script type="text/JavaScript" src="/xinxing28/xinxing/Public/js/slimbox2.js"></script>
+    <link rel="stylesheet" href="/xinxing/Public/css/slimbox2.css" type="text/css" media="screen" />
+    <script type="text/JavaScript" src="/xinxing/Public/js/slimbox2.js"></script>
     <style>
         .span-dian{color:red;margin: 0 10px;font-size: 16px;}
         .goods-menu-ul>li>a{color:green;font-size: 20px;}
@@ -79,8 +79,10 @@
         .new-line-red{height: 1px;background-color: red;width:100px;float: left;}
         .news-content-text{height:74px;font-size:16px;word-spacing:8px; letter-spacing: 2px;text-indent:2em;line-height:24px;padding: 10px;}
 
-        .second-li{height: 28px;padding-left: 75px;line-height: 30px;}
+        .second-li{height: 28px;padding-left: 75px;line-height: 30px; max-width: 130px; overflow: hidden;}
         .second-li a{text-decoration:none;color:#98999A;}
+
+        .maxaul>li>a {max-width: 105px;overflow: hidden;}
     </style>
 
     <script>
@@ -120,18 +122,21 @@
                 <select name="" id="select-lang">
                     <option <?php if(cookie('lang_value') == 'cn'): ?>selected<?php endif; ?> value="cn">中文</option>
                     <option <?php if(cookie('lang_value') == 'en'): ?>selected<?php endif; ?> value="en">EngLish</option>
-                    <option value="">EngLish</option>
-                    <option value="">EngLish</option>
+                    <option <?php if(cookie('lang_value') == 'fr'): ?>selected<?php endif; ?> value="fr">Français</option>
+                    <option <?php if(cookie('lang_value') == 'es'): ?>selected<?php endif; ?> value="es">Español</option>
+                    <option <?php if(cookie('lang_value') == 'pt'): ?>selected<?php endif; ?> value="pt">Português</option>
+                    <option <?php if(cookie('lang_value') == 'ru'): ?>selected<?php endif; ?> value="ru">EngLish</option>
+                    <option <?php if(cookie('lang_value') == 'ar'): ?>selected<?php endif; ?> value="ar">العربية</option>
                 </select>
             </div>
         </div>
     </div>
     <div style="height:70px;min-width:1000px;background:#FFF;padding-top:10px;">
         <div style="margin:0 auto;width:980px;">
-            <img onclick="turnToHome()" src="/xinxing28/xinxing/Public/images/xinxinglogo.png" alt="" width="300"/>
+            <img onclick="turnToHome()" src="/xinxing/Public/images/xinxinglogo.png" alt="" width="300"/>
               
             <div class="ddsmoothmenu" style="color:gray;float:right;" id="templatemo_menu">
-                <ul>
+                <ul class="maxaul">
                     <li><a href="<?php echo U('About/index');?>" <?php if(CONTROLLER_NAME == 'About' ): ?>class="selected"<?php endif; ?> style="padding-left: 10px;"><span></span><?php echo L('关于我们');?></a>
                         <ul>
                             <li><a href="<?php echo U('About/index');?>"><?php echo L('历史沿革');?></a></li>
@@ -141,7 +146,7 @@
                     </li>
 
                     <li><a href="<?php echo U('Video/index');?>" <?php if(CONTROLLER_NAME == 'Video' ): ?>class="selected"<?php endif; ?>  ><span class="span-dian">·</span><?php echo L('媒体中心');?></a></li>
-                    <li><a href="<?php echo U('Goods/index');?>" <?php if(CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Range' ): ?>class="selected"<?php endif; ?> ><span class="span-dian">·</span><?php echo L('业务产品');?></a>
+                    <li><a href="<?php echo U('Goods/index');?>" <?php if(CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Range' ): ?>class="selected"<?php endif; ?> ><span class="span-dian">·</span><?php echo L('产品展示');?></a>
                         <ul>
                             <li><a href="<?php echo U('Range/index');?>"><?php echo L('业务范围');?></a></li>
                             <li><a href="<?php echo U('Goods/index');?>"><?php echo L('产品展示');?></a></li>
@@ -155,12 +160,12 @@
 
         </div>
     </div>
-    <div style="height:66px;min-width:1000px;background-image:url(/xinxing28/xinxing/Public/images/tb1.png);">
+    <div style="height:66px;min-width:1000px;background-image:url(/xinxing/Public/images/tb1.png);">
         <div  style="width:980px;margin:0 auto;">
             
             <div class="div-second-menu" id="templatemo_menu_goods">
                 <ul>
-                    <?php if(is_array($category)): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cItem): $mod = ($i % 2 );++$i;?><li><a href="<?php echo U('Goods/index',array('cpid'=>$cItem['category_id']));?>"><span></span><?php echo L($cItem['category_name']);?></a>
+                    <?php if(is_array($category)): $i = 0; $__LIST__ = $category;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$cItem): $mod = ($i % 2 );++$i;?><li><a style="max-width: 70px;overflow: hidden;" href="<?php echo U('Goods/index',array('cpid'=>$cItem['category_id']));?>"><span></span><?php echo L($cItem['category_name']);?></a>
 
                             <?php if($cItem['children']): ?><ul>
                                     <?php if(is_array($cItem["children"])): foreach($cItem["children"] as $key=>$ccItem): ?><li><a href="<?php echo U('Goods/index',array('cid'=>$ccItem['category_id']));?>"><?php echo ($ccItem["category_name"]); ?></a></li><?php endforeach; endif; ?>
@@ -190,7 +195,7 @@
                     <!--<li><a href="contact.html"><span></span><?php echo L('车辆及装备');?></a></li>-->
                 </ul>
 
-                <img onclick="searchGoods()" style="float:right;margin-top:18px;" src="/xinxing28/xinxing/Public/images/search.png" alt="" width="30" height='30'/>
+                <img onclick="searchGoods()" style="float:right;margin-top:18px;" src="/xinxing/Public/images/search.png" alt="" width="30" height='30'/>
                 <input style="float: right;margin-top: 18px;margin-right: 20px;height: 25px;border-radius: 15px;border: none;width: 200px;padding-left:20px;" type="text" name="" id="search_input_text" placeholder="<?php echo L('请输入产品关键字');?>" value="<?php echo ($_GET['keyword']); ?>"/>
 
                 <br style="clear: left" />
@@ -206,8 +211,8 @@
             <div class="rt-container slider-container">
                 <div class="rt-grid-12 rt-alpha rt-omega" style="line-height: 9px;">
                     
-                    <!--[if IE]><link rel="stylesheet" href="/xinxing28/xinxing/Public/css/ie.css"><![endif]-->
-                    <!--[if lte IE 9]><script type="text/javascript" src="/xinxing28/xinxing/Public/js/ie.js"></script><![endif]-->
+                    <!--[if IE]><link rel="stylesheet" href="/xinxing/Public/css/ie.css"><![endif]-->
+                    <!--[if lte IE 9]><script type="text/javascript" src="/xinxing/Public/js/ie.js"></script><![endif]-->
 
                     <div class="csslider1 autoplay">
                         <input name="cs_anchor1" autocomplete="off" id="cs_slide1_0" type="radio" class="cs_anchor slide" >
@@ -264,8 +269,8 @@
     <div id="templatemo_main_content">
     	<div id="templatemo_sidebar">
             <div class="sidebar_content_box" style="height:100px;">
-                <h3 style="text-align:center;margin:25px 0 0 0;color:red;font-weight:bold;"><?php echo L('业务产品');?></h3>
-                <h5 style="text-align:center;color:#35bf35;">MEDIA CENTER</h5>
+                <h3 style="text-align:center;margin:25px 0 0 0;color:red;font-weight:bold;"><?php echo L('产品展示');?></h3>
+                <h5 style="text-align:center;color:#35bf35;">BUSINESS PRODUCT</h5>
             </div>
             <div class="sidebar_content_box" style="background:#fff;padding:0;">
                 <ul  style="padding:0;">
@@ -305,10 +310,10 @@
 
         <div id="templatemo_content" style="border:none;">
      
-            <div class="sidebar_content_box" style="height:100px;background-image: url(/xinxing28/xinxing/Public/images/goods-xiexue.png);">
+            <div class="sidebar_content_box" style="height:100px;background-image: url(/xinxing/Public/images/goods-xiexue.png);">
                 <div style="margin-top: 35px;margin-left: 50px;">
                     <div style="width: 25px;height: 25px;background-color: red;float: left;"></div>
-                    <h3 style="float: left;color: red;margin-left: 20px;"><?php echo L($_list[0]["category_pname"]);?></h3>
+                    <h3 style="float: left;color: red;margin-left: 20px;"><?php echo L($currentCategoryName);?></h3>
                 </div>
             </div>
             <!--<div class="goods_search">-->
@@ -324,7 +329,7 @@
                         <img class="goods-img" src="<?php echo ($list["goods_img0"]); ?>" alt="">
                         <div class="products-middle-image-div" style="line-height: 25px;height: 25px;"><?php echo ($list["goods_code"]); ?></div>
                         <div class="products-middle-image-div border-width" >
-                            <img class="products-middle-image-div-img"  src="/xinxing28/xinxing/Public/images/tubiao1.png" width="20" height="20" alt="">
+                            <img class="products-middle-image-div-img"  src="/xinxing/Public/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><?php echo ($list["goods_weight"]); ?></span>
                             <span class="products-middle-image-div-span2" ><?php echo ($list["goods_size"]); ?></span>
                         </div>
@@ -345,17 +350,17 @@
 </div> <!-- END of templatemo_wrapper -->
 
 <style>
-    .foot-div{height:300px;min-width:1000px;background-image: url(/xinxing28/xinxing/Public/images/tb1.png);background-size:cover;padding-top: 80px;color:#FFF;}
+    .foot-div{height:300px;min-width:1000px;background-image: url(/xinxing/Public/images/tb1.png);background-size:cover;padding-top: 80px;color:#FFF;}
     .foot-div-row{width: 980px;margin: 0 auto;}
     .foot-div-row>div{width: 300px;height: 75px;border:1px solid white;border-radius: 15px;float: left;margin-left: 20px;}
-    .foot-div-row-a{text-align: center;}
+    .foot-div-row-a{text-align: center;cursor: pointer;}
     .foot-div-row-a>p{font-size: 40px;font-weight: bold;margin-top: 20px;color:red;}
     .foot-div-row-a>h5{font-size: 10px;margin-top: 13px;letter-spacing:-1px;color:#fff;}
 
-    .foot-div-row-b{}
+    .foot-div-row-b{cursor: pointer;}
     .foot-div-row-b>img{float: left;width: 45px;height: 45px;margin-left: 55px;margin-top: 15px;}
     .foot-div-row-b>p{float: left;margin-left: 25px;margin-top: 20px;}
-    .foot-div-row-c{}
+    .foot-div-row-c{cursor: pointer;}
     .foot-div-row-c>img{float: left;width: 45px;height: 45px;margin-left: 55px;margin-top: 15px;}
     .foot-div-row-c>p{float: left;margin-left: 10px;margin-top: 20px;width: 135px;}
 
@@ -372,19 +377,19 @@
 
 <div class="foot-div">
     <div class="foot-div-row">
-        <div class="foot-div-row-a">
+        <div class="foot-div-row-a" onclick="location.href='<?php echo U('About/intro');?>'">
             <p >C X X C</p>
             <h5 >CHINA STATE OWNED MILITARY CORPORATION</h5>
         </div>
-        <div class="foot-div-row-b">
-            <img  src="/xinxing28/xinxing/Public/images/call43.png" alt="">
+        <div class="foot-div-row-b" onclick="location.href='<?php echo U('Contact/index');?>'">
+            <img  src="/xinxing/Public/images/call43.png" alt="">
             <p >
                 T: <?php echo ($contactInfo["phone1"]); ?><br/>
                 F: <?php echo ($contactInfo["phone2"]); ?>
             </p>
         </div>
-        <div class="foot-div-row-c">
-            <img  src="/xinxing28/xinxing/Public/images/pointer10.png" alt="">
+        <div class="foot-div-row-c" onclick="location.href='<?php echo U('Contact/index');?>'">
+            <img  src="/xinxing/Public/images/pointer10.png" alt="">
             <p >
                 <?php echo ($contactInfo["contact_address"]); ?>
             </p>
@@ -394,49 +399,49 @@
 
     <div class="foot-div-row2">
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('关于我们');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('About/index');?>" style="color:#fff;"><?php echo L('关于我们');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('历史沿革');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('公司简介');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('企业荣誉');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/index');?>" style="color:#fff;"><?php echo L('历史沿革');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/intro');?>" style="color:#fff;"><?php echo L('公司简介');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('About/honor');?>" style="color:#fff;"><?php echo L('企业荣誉');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('媒体中心');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Video/index');?>" style="color:#fff;"><?php echo L('媒体中心');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('视频广告');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Video/index');?>" style="color:#fff;"><?php echo L('视频广告');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('业务产品');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Goods/index');?>" style="color:#fff;"><?php echo L('产品展示');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('业务范围');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('产品展示');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Range/index');?>" style="color:#fff;"><?php echo L('业务范围');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Goods/index');?>" style="color:#fff;"><?php echo L('产品展示');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('人才引进');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Recruit/index');?>" style="color:#fff;"><?php echo L('人才引进');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('招贤纳士');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Recruit/index');?>" style="color:#fff;"><?php echo L('招贤纳士');?></a></p>
         </div>
         <div class="foot-div-row2-div">
-            <p class="font-size-16" ><?php echo L('联系我们');?></p>
+            <p class="font-size-16" ><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('联系我们');?></a></p>
             <div class="margin-top7" style="height:20px;">
                 <div class="c-line-div" ></div>
                 <div class="x-line-div" ></div>
             </div>
-            <p class="font-size-13 margin-bottom5"><?php echo L('地理位置');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('办公电话');?></p>
-            <p class="font-size-13 margin-bottom5"><?php echo L('邮箱');?></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('地理位置');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('办公电话');?></a></p>
+            <p class="font-size-13 margin-bottom5"><a href="<?php echo U('Contact/index');?>" style="color:#fff;"><?php echo L('邮箱');?></a></p>
         </div>
     </div>
 </div>

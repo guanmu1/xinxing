@@ -50,11 +50,11 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">地址图片：</label>
                             <div class="col-sm-9">
-
-                                <img id="course_image_6" src="<{$item.contact_img}>" alt="" width="100%" height="200">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[<{$key}>][img]" value="<{$item.contact_img}>">
-                                <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<{$key}>_file" onchange="uploadFile(this)"/>
+                                <script id="editor_<{$key}>_1" type="text/plain"  name="form[<{$key}>][img]" style="height:200px;"></script>
+                                <!--<img id="course_image_6" src="<{$item.contact_img}>" alt="" width="100%" height="200">-->
+                                <!--<button onclick="clickInputFile(this)" class="btn" type="button">上传</button>-->
+                                <!--<input type="hidden" name="form[<{$key}>][img]" value="<{$item.contact_img}>">-->
+                                <!--<input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<{$key}>_file" onchange="uploadFile(this)"/>-->
 
                             </div>
                         </div>
@@ -110,7 +110,7 @@
     function uploadFile(_this){
         var eleId = $(_this).attr('id');
         var imgObj = $(_this).siblings('img');
-        var inputHidden = $(_this).siblings('input:hidden');
+        var inputHidden = $(_this).siblings('input:text');
         $.ajaxFileUpload(
                 {
                     url:'<{:U("Image/uploadPic")}>', //你处理上传文件的服务端
@@ -143,6 +143,31 @@
             } else {
                 $('input:checkbox[value="'+thisVal+'"]').removeAttr('disabled').parent().show();//显示所有的语言复选框
             }
+        });
+
+        var ue_0 = UE.getEditor('editor_0_1');
+        var ue_1 = UE.getEditor('editor_1_1');
+        var ue_2 = UE.getEditor('editor_2_1');
+        var ue_3 = UE.getEditor('editor_3_1');
+        var ue_4 = UE.getEditor('editor_4_1');
+        var ue_5 = UE.getEditor('editor_5_1');
+        ue_0.ready(function() {
+            ue_0.setContent('<{$rInfo[0]["contact_img"]}>');
+        });
+        ue_1.ready(function() {
+            ue_1.setContent('<{$rInfo[1]["contact_img"]}>');
+        });
+        ue_2.ready(function() {
+            ue_2.setContent('<{$rInfo[2]["contact_img"]}>');
+        });
+        ue_3.ready(function() {
+            ue_3.setContent('<{$rInfo[3]["contact_img"]}>');
+        });
+        ue_4.ready(function() {
+            ue_4.setContent('<{$rInfo[4]["contact_img"]}>');
+        });
+        ue_5.ready(function() {
+            ue_5.setContent('<{$rInfo[5]["contact_img"]}>');
         });
     });
 
@@ -194,7 +219,6 @@
         curr--;
     }
 
-
     function editSubmit(groupId){
         var postData = '';
         var flag = false;//是否继续执行该方法的标识，如果下列循环中有一种不符合条件，则不提交后台
@@ -241,7 +265,6 @@
             location.href = window.location.href;
         });
     }
-
 </script>
 
 </body>

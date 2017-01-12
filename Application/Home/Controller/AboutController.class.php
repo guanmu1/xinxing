@@ -11,11 +11,11 @@ class AboutController extends CommonController {
     public function index(){
         $size = 8;
         $count  =  M('News')->alias('n')
-            ->where('n.deleted=0 and news_type=1 and language="%s"',cookie('lang_value'))
+            ->where('n.deleted=0 and news_type=1 and language="%s" and n.deleted = 0',cookie('lang_value'))
             ->count();
         $Page  = new \Common\Util\Page($count,'About/index',$size);// 实例化分页类
         $list  =  M('News')->alias('n')
-            ->field('n.news_id,n.news_title,n.news_content,n.img,n.create_time,n.language,n.group_id')
+            ->field('n.news_id,n.news_title,n.news_time,n.news_content,n.img,n.create_time,n.language,n.group_id')
             ->where('n.deleted=0 and news_type=1 and language="%s"',cookie('lang_value'))
             ->order('n.create_time desc')
             ->limit($Page->firstRow.','.$Page->listRows)
@@ -36,13 +36,13 @@ class AboutController extends CommonController {
     }
 
     public function intro(){
-        $info = M('News')->where('group_id = 1 and language="%s"',cookie('lang_value'))->find();
+        $info = M('News')->where('group_id = 1 and language="%s" and deleted = 0',cookie('lang_value'))->find();
         $this->assign('info',$info);
         $this->display();
     }
 
     public function honor(){
-        $info = M('Honor')->where('language="%s"',cookie('lang_value'))->select();
+        $info = M('Honor')->where('language="%s" and deleted = 0',cookie('lang_value'))->select();
         //dump($info);
         $this->assign('info',$info);
         $this->display();

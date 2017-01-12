@@ -80,44 +80,60 @@
                     <li class="nav-header" style="margin-bottom: 15px;">
                         <div class="dropdown profile-element">
                             <span>
-                                <img alt="image" src="/xinxing/Public/images/dhlogo.png" width="150"/>
+                                <img alt="image" src="/xinxing/Public/images/xinxinglogo1.png" width="150"/>
                             </span>
                         </div>
                         <div class="logo-element">
-                            CRM
+                            CXXC
                         </div>
                     </li>
 
 
-                    <li <?php if(CONTROLLER_NAME != 'Contact' AND CONTROLLER_NAME != 'ContactRight' AND CONTROLLER_NAME != 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">内容管理</span><span class="fa arrow"></span></a>
+                    <li <?php if(CONTROLLER_NAME == 'Range' or CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">产品管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Range'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Range/index');?>">业务范围</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Goods'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Goods/index');?>">产品展示</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Category/index');?>">产品分类</a></li>
+                        </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther' or CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>>
+                    <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
+                        <li <?php if(CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageOther/index');?>">其他页轮播</a></li>
+                        <li <?php if(CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Coop/index');?>">合作伙伴管理</a></li>
+                    </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'News' or CONTROLLER_NAME == 'Honor'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">关于我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li <?php if(CONTROLLER_NAME == 'News'): ?>class="active"<?php endif; ?>><a href="<?php echo U('News/index');?>">历史沿革</a></li>
                             <li <?php if(CONTROLLER_NAME == 'News'): ?>class="active"<?php endif; ?>><a href="<?php echo U('News/editIntro');?>">公司简介</a></li>
                             <li <?php if(CONTROLLER_NAME == 'Honor'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Honor/index');?>">企业荣誉</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">媒体中心</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">人才引进</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Range'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Range/index');?>">业务范围</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Goods'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Goods/index');?>">产品展示</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageOther/index');?>">其他页轮播</a></li>
                         </ul>
+                    </li>
 
+                    <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">视频广告</a></li>
+                        </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">招贤纳士</a></li>
+                        </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Contact' or CONTROLLER_NAME == 'ContactRight'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Contact/index');?>">联系信息</a></li>
-                            <li ><a href="<?php echo U('ContactRight/edit');?>">修改右侧信息</a></li>
-
-                        </ul>
-
-                    </li>
-                    <li <?php if(CONTROLLER_NAME == 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Suggest/index');?>">投诉建议信息</a></li>
+                            <li ><a href="<?php echo U('Contact/edit');?>">联系信息</a></li>
                         </ul>
 
                     </li>
@@ -184,11 +200,12 @@
                             <div class="col-sm-9">
 
                                 <img id="course_image_6" src="<?php echo ($item["image_link"]); ?>" alt="" width="100%" height="480">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[<?php echo ($key); ?>][img]" value="<?php echo ($item["image_link"]); ?>">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;"  name="form[<?php echo ($key); ?>][img]" value="<?php echo ($item["image_link"]); ?>">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<?php echo ($key); ?>_file" onchange="uploadFile(this)"/>
 
                             </div>
+                            建议上传图片尺寸1980*480
                         </div>
 
                         <div class="form-group">
@@ -233,7 +250,7 @@
     function uploadFile(_this){
         var eleId = $(_this).attr('id');
         var imgObj = $(_this).siblings('img');
-        var inputHidden = $(_this).siblings('input:hidden');
+        var inputHidden = $(_this).siblings('input:text');
         $.ajaxFileUpload(
                 {
                     url:'<?php echo U("Image/uploadPic");?>', //你处理上传文件的服务端
@@ -273,12 +290,28 @@
     function addOne(_this){
         //如果已经选择了七种语言，则不让继续添加
         if ($('input:checkbox:checked').length >= 7) {
-            alert('您已选择了7种语言');
+            bootbox.alert({
+                message: '您已选择了7种语言',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
             return;
         }
         //已经有7组处于显示状态则不让继续添加
         if (curr >= 7) {
-            alert('您已经添加了7组输入框');
+            bootbox.alert({
+                message: '您已经添加了7组输入框',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
             return;
         }
         $('.content-form').eq(curr).show();
@@ -286,7 +319,15 @@
     }
     function delOne(_this){
         if (curr <= 1) {
-            alert('只剩一组输入框，禁止删除');
+            bootbox.alert({
+                message: '只剩一组输入框，禁止删除',
+                buttons: {
+                    ok: {
+                        label: " 确 定 ",
+                        className: "btn-primary btn-sm",
+                    }
+                }
+            });
             return;
         }
         $('.content-form').eq(curr-1).hide();
@@ -301,12 +342,28 @@
             var langVal = $(e).find("input:checkbox:checked").length;//当前这个form表单选择发布语言的数量
             var titleVal = $(e).find(".input-title").val();//当前这个form表单的标题值
             if (!titleVal) {
-                alert('第'+(i+1)+'组标题为空，请填写后再提交');
+                bootbox.alert({
+                    message: '第'+(i+1)+'组标题为空，请填写后再提交',
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
                 flag = true;
                 return false;
             }
             if (langVal == 0) {
-                alert('第'+(i+1)+'组未选择语言，请选择后再提交');
+                bootbox.alert({
+                    message: '第'+(i+1)+'组未选择语言，请选择后再提交',
+                    buttons: {
+                        ok: {
+                            label: " 确 定 ",
+                            className: "btn-primary btn-sm",
+                        }
+                    }
+                });
                 flag = true;
                 return false;
             }
@@ -319,8 +376,8 @@
         postData += "&groupId="+groupId;
 
         $.post('<?php echo U("ImageHome/edit");?>',postData,function(result){
-            console.log(result);
-            alert(result.info);
+//            console.log(result);
+//            alert(result.info);
             location.href = result.url;
         });
     }

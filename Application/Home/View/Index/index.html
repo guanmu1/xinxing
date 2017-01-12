@@ -46,15 +46,15 @@
         .products-one{width: 310px;float: left;margin: 10px 0 10px 25px;}
         .products-top-name{height: 20px;width: 100%;border-bottom: 2px solid red;line-height: 23px;}
         .products-top-image{height: 80px;width: 100%;margin: 5px auto;text-align: center;background-size: contain;}
-        .products-top-image h3{color: #E22004;padding-top: 17px;margin-bottom: 5px;font-weight: bold;}
+        .products-top-image h3{color: #E22004;padding-top: 17px;margin-bottom: 5px;font-weight: bold;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
         .products-top-image h5{color: #02F901;}
         .products-middle-image{height: 220px;width: 100%;}
         .products-middle-image-red{width: 10px;background: red;height: 220px;float: left;}
         .products-middle-image-img{width: 100%;height: 190px;}
         .products-middle-image-div{background: #E1E2E3;height: 30px;margin-top: -5px;}
         .products-middle-image-div-img{float: left;margin-left: 30px;border-radius: 20px;margin-top: 5px;}
-        .products-middle-image-div-span1{float: left;margin-top: 7px;margin-left: 10px;font-size: 14px;}
-        .products-middle-image-div-span2{float: right;margin-top: 7px;margin-right: 30px;font-size: 14px;}
+        .products-middle-image-div-span1{float: left;margin-top: 7px;margin-left: 10px;font-size: 14px;color:black;}
+        .products-middle-image-div-span2{float: right;margin-top: 7px;margin-right: 30px;font-size: 14px;color:black;}
         .products-middle-image-float{float: left; margin-top: -210px;margin-left: 232px;}
         .products-bottom-image{height: 80px;width: 100%;}
         .products-bottom-image img{width: 100%;height: 100%;}
@@ -74,6 +74,9 @@
         .flex-control-paging li a.flex-active,
         .flex-control-paging li.active a {  background-position: 0 0;  }
         .flexslider .slides a img {  width: 100%;  height: 482px;  display: block;  }
+
+        .maxaul>li>a {max-width: 105px;overflow: hidden;}
+        .erji-bar>li:hover{background: red;}
     </style>
     <script>
         $(function(){
@@ -103,8 +106,11 @@
             <select name="" id="select-lang">
                 <option <if condition="cookie('lang_value') == 'cn'"> selected </if> value="cn">中文</option>
                 <option <if condition="cookie('lang_value') == 'en'"> selected </if> value="en">EngLish</option>
-                <option value="">EngLish</option>
-                <option value="">EngLish</option>
+                <option <if condition="cookie('lang_value') == 'fr'"> selected </if> value="fr">Français</option>
+                <option <if condition="cookie('lang_value') == 'es'"> selected </if> value="es">Español</option>
+                <option <if condition="cookie('lang_value') == 'pt'"> selected </if> value="pt">Português</option>
+                <option <if condition="cookie('lang_value') == 'ru'"> selected </if> value="ru">EngLish</option>
+                <option <if condition="cookie('lang_value') == 'ar'"> selected </if> value="ar">العربية</option>
             </select>
         </div>
     </div>
@@ -114,7 +120,7 @@
         <img src="__PUBLIC__/images/xinxinglogo.png" alt="" width="300"/>
 
         <div class="ddsmoothmenu" style="color:gray;float:right;" id="templatemo_menu">
-            <ul>
+            <ul class="maxaul">
                 <li><a href="<{:U('About/index')}>" <if condition="CONTROLLER_NAME eq 'About' "> class="selected" </if> style="padding-left: 10px;"><span></span><{:L('关于我们')}></a>
                     <ul>
                         <li><a href="<{:U('About/index')}>"><{:L('历史沿革')}></a></li>
@@ -124,7 +130,7 @@
                 </li>
 
                 <li><a href="<{:U('Video/index')}>" <if condition="CONTROLLER_NAME eq 'Video' "> class="selected" </if>  ><span class="span-dian">·</span><{:L('媒体中心')}></a></li>
-                <li><a href="<{:U('Goods/index')}>" <if condition="CONTROLLER_NAME eq 'Goods' or CONTROLLER_NAME eq 'Range' "> class="selected" </if> ><span class="span-dian">·</span><{:L('业务产品')}></a>
+                <li><a href="<{:U('Goods/index')}>" <if condition="CONTROLLER_NAME eq 'Goods' or CONTROLLER_NAME eq 'Range' "> class="selected" </if> ><span class="span-dian">·</span><{:L('产品展示')}></a>
                     <ul>
                         <li><a href="<{:U('Range/index')}>"><{:L('业务范围')}></a></li>
                         <li><a href="<{:U('Goods/index')}>"><{:L('产品展示')}></a></li>
@@ -144,12 +150,15 @@
         <div class="div-second-menu" id="templatemo_menu_goods">
             <ul>
                 <volist name="category" id="cItem">
-                    <li><a href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>"><span></span><{:L($cItem['category_name'])}></a>
+                    <li><a style="max-width: 70px;overflow: hidden;" href="<{:U('Goods/index',array('cpid'=>$cItem['category_id']))}>"><span></span><{:L($cItem['category_name'])}></a>
 
                         <if condition="$cItem['children']">
-                            <ul>
+                            <php>
+                                $width = ceil(count($cItem['children'])/8)*100;
+                            </php>
+                            <ul style="width: <{$width}>px;" class="erji-bar">
                                 <foreach name="cItem.children" item="ccItem">
-                                    <li><a href="<{:U('Goods/index',array('cid'=>$ccItem['category_id']))}>"><{$ccItem.category_name}></a></li>
+                                    <li style="width: 100px;float: left; display: block; "><a href="<{:U('Goods/index',array('cid'=>$ccItem['category_id']))}>"><{$ccItem.category_name}></a></li>
                                 </foreach>
                             </ul>
                         </if>
@@ -232,7 +241,7 @@
         <div class="video-div-2" ></div>
         <div class="video-div-3" >
             <img src="__PUBLIC__/images/yingpianlogo.png" alt=""  style="width: 50px;height: 46px;margin-top: -10px;">
-            <a style="color:#fff;text-decoration: none;" href="<{:U('Video/index')}>"><h5 >2016年最新宣传片</h5></a>
+            <a style="color:#fff;text-decoration: none;" href="<{:U('Video/index')}>"><h5 ><{$videoInfo.video_title}></h5></a>
         </div>
         <div class="video-div-4" ></div>
         <div class="video-div-5" ></div>
@@ -243,8 +252,9 @@
     <div id="templatemo_main_content" style="padding-bottom: 30px;">
         <div class="products-one" style="margin-left: 0;">
             <div class="products-top-name" >
-                | <span><{:L('衣帽')}> </span><span>CLOTHES AND HATS</span>
-                <span style="float: right;"> +<{:L('更多')}></span>
+                | <span><{:L('衣帽')}> </span>
+                <!--<span>CLOTHES AND HATS</span>-->
+                <span style="float: right;"><a href="<{:U('Goods/index',array('cpid'=>1))}>"> +<{:L('更多')}></a></span>
             </div>
             <div class="products-top-image" style="background-image: url(__PUBLIC__/images/b1.png);">
                 <h3 ><{:L('衣帽')}></h3>
@@ -254,7 +264,7 @@
                 <div class="products-middle-image-red" ></div>
                 <div style="width: 299px;float: left;border-top: 1px solid #9c9d9e;border-right: 1px solid #9c9d9e;">
                     <a href="<{:U('Goods/detail',array('id'=>$goodInfo[1]['goods_id']))}>">
-                        <img class="products-middle-image-img" src="<{$goodInfo[1]['goods_img0']}>" alt="">
+                        <img class="products-middle-image-img" src="<{$goodInfo[1]['home_img']}>" alt="">
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[1]['goods_weight']}></span>
@@ -271,8 +281,9 @@
 
         <div class="products-one">
             <div class="products-top-name" >
-                | <span><{:L('鞋靴')}> </span><span>SHOES AND BOOTS</span>
-                <span style="float: right;"> +<{:L('更多')}></span>
+                | <span><{:L('鞋靴')}> </span>
+                <!--<span>SHOES AND BOOTS</span>-->
+                <span style="float: right;"><a href="<{:U('Goods/index',array('cpid'=>2))}>"> +<{:L('更多')}></a></span>
             </div>
             <div class="products-top-image" style="background-image: url(__PUBLIC__/images/b2.png);">
                 <h3 ><{:L('鞋靴')}></h3>
@@ -282,7 +293,7 @@
                 <div class="products-middle-image-red" ></div>
                 <div style="width: 299px;float: left;border-top: 1px solid #9c9d9e;border-right: 1px solid #9c9d9e;">
                     <a href="<{:U('Goods/detail',array('id'=>$goodInfo[2]['goods_id']))}>">
-                        <img class="products-middle-image-img" src="<{$goodInfo[2]['goods_img0']}>" alt="">
+                        <img class="products-middle-image-img" src="<{$goodInfo[2]['home_img']}>" alt="">
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[2]['goods_weight']}></span>
@@ -299,8 +310,9 @@
 
         <div class="products-one">
             <div class="products-top-name" >
-                | <span><{:L('防弹产品')}> </span><span>BULLET PROOF PRODUCTS</span>
-                <span style="float: right;"> +<{:L('更多')}></span>
+                | <span><{:L('防弹产品')}> </span>
+                <!--<span>BULLET PROOF PRODUCTS</span>-->
+                <span style="float: right;"><a href="<{:U('Goods/index',array('cpid'=>3))}>"> +<{:L('更多')}></a></span>
             </div>
             <div class="products-top-image" style="background-image: url(__PUBLIC__/images/b3.png);">
                 <h3 ><{:L('防弹产品')}></h3>
@@ -310,7 +322,7 @@
                 <div class="products-middle-image-red" ></div>
                 <div style="width: 299px;float: left;border-top: 1px solid #9c9d9e;border-right: 1px solid #9c9d9e;">
                     <a href="<{:U('Goods/detail',array('id'=>$goodInfo[3]['goods_id']))}>">
-                        <img class="products-middle-image-img" src="<{$goodInfo[3]['goods_img0']}>" alt="">
+                        <img class="products-middle-image-img" src="<{$goodInfo[3]['home_img']}>" alt="">
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[3]['goods_weight']}></span>
@@ -327,8 +339,9 @@
 
         <div class="products-one" style="margin-left: 0;">
             <div class="products-top-name" >
-                | <span><{:L('装具')}> </span><span>ARTICLES</span>
-                <span style="float: right;"> +<{:L('更多')}></span>
+                | <span><{:L('装具')}> </span>
+                <!--<span>ARTICLES</span>-->
+                <span style="float: right;"><a href="<{:U('Goods/index',array('cpid'=>4))}>"> +<{:L('更多')}></a></span>
             </div>
             <div class="products-top-image" style="background-image: url(__PUBLIC__/images/b4.png);">
                 <h3 ><{:L('装具')}></h3>
@@ -338,7 +351,7 @@
                 <div class="products-middle-image-red" ></div>
                 <div style="width: 299px;float: left;border-top: 1px solid #9c9d9e;border-right: 1px solid #9c9d9e;">
                     <a href="<{:U('Goods/detail',array('id'=>$goodInfo[4]['goods_id']))}>">
-                        <img class="products-middle-image-img" src="<{$goodInfo[4]['goods_img0']}>" alt="">
+                        <img class="products-middle-image-img" src="<{$goodInfo[4]['home_img']}>" alt="">
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[4]['goods_weight']}></span>
@@ -355,8 +368,9 @@
 
         <div class="products-one">
             <div class="products-top-name" >
-                | <span><{:L('警用产品')}> </span><span>POLICE PRODUCT</span>
-                <a style="float: right;"> +<{:L('更多')}></a>
+                | <span><{:L('警用产品')}> </span>
+                <!--<span>POLICE PRODUCT</span>-->
+                <span style="float: right;"><a href="<{:U('Goods/index',array('cpid'=>5))}>"> +<{:L('更多')}></a></span>
             </div>
             <div class="products-top-image" style="background-image: url(__PUBLIC__/images/b5.png);">
                 <h3 ><{:L('警用产品')}></h3>
@@ -366,7 +380,7 @@
                 <div class="products-middle-image-red" ></div>
                 <div style="width: 299px;float: left;border-top: 1px solid #9c9d9e;border-right: 1px solid #9c9d9e;">
                     <a href="<{:U('Goods/detail',array('id'=>$goodInfo[5]['goods_id']))}>">
-                        <img class="products-middle-image-img" src="<{$goodInfo[5]['goods_img0']}>" alt="">
+                        <img class="products-middle-image-img" src="<{$goodInfo[5]['home_img']}>" alt="">
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[5]['goods_weight']}></span>
@@ -383,8 +397,9 @@
 
         <div class="products-one">
             <div class="products-top-name" >
-                | <span><{:L('车辆及装备')}> </span><span>VEHICLE AND EQ</span>
-                <a style="float: right;"> +<{:L('更多')}></a>
+                | <span><{:L('车辆及装备')}> </span>
+                <!--<span>VEHICLE AND EQ</span>-->
+                <span style="float: right;"><a href="<{:U('Goods/index',array('cpid'=>6))}>"> +<{:L('更多')}></a></span>
             </div>
             <div class="products-top-image" style="background-image: url(__PUBLIC__/images/b6.png);">
                 <h3 ><{:L('车辆及装备')}></h3>
@@ -394,7 +409,7 @@
                 <div class="products-middle-image-red" ></div>
                 <div style="width: 299px;float: left;border-top: 1px solid #9c9d9e;border-right: 1px solid #9c9d9e;">
                     <a href="<{:U('Goods/detail',array('id'=>$goodInfo[6]['goods_id']))}>">
-                        <img class="products-middle-image-img" src="<{$goodInfo[6]['goods_img0']}>" alt="">
+                        <img class="products-middle-image-img" src="<{$goodInfo[6]['home_img']}>" alt="">
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[6]['goods_weight']}></span>
@@ -435,7 +450,7 @@
         mainmenuid: "templatemo_menu", //menu DIV id
         orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
         classname: 'ddsmoothmenu', //class added to menu's outer DIV
-        customtheme: ["#fff", "#585859"],
+//        customtheme: ["#fff", "#f00"],
         contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
     });
 
@@ -443,7 +458,7 @@
         mainmenuid: "templatemo_menu_goods", //menu DIV id
         orientation: 'h', //Horizontal or vertical menu: Set to "h" or "v"
         classname: 'ddsmoothmenu-goods', //class added to menu's outer DIV
-        customtheme: ["", "#585859"],
+//        customtheme: ["", "#f00"],
         contentsource: "markup" //"markup" or ["container_id", "path_to_menu_file"]
     })
 
@@ -462,7 +477,7 @@
     .coop-title{text-align: center;padding-top: 40px;}
     .coop-title h2{color:#fff;}
     .coop-content{width: 950px;margin:  0 auto;padding-bottom: 30px;}
-    #focus img{width: 270px;height:50px;margin-left:  12px;margin-bottom: 10px;}
+    #focus img{width: 270px;height:50px;margin-left:  25px;margin-bottom: 10px;}
 </style>
 <div class="coop">
     <div class="coop-title">
@@ -483,22 +498,22 @@
     <div class="wrapper">
         <div class="btnBg" style="opacity: 0.5;"></div>
         <div>
-            <div class="preNext pre" style="opacity: 0.4;"></div>
+            <div class="preNext pre" style="opacity: 0.9;"></div>
         </div>
-        <div id="focus" style="width: 850px;">
+        <div id="focus" style="width: 890px;">
                 <ul>
                     <foreach name="coopInfo" item="item">
                         <li><a href=""><img width="" height="100" src="<{$item.coop_link}>" alt="<{$item.coop_title}>" /></a></li>
                     </foreach>
                     <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo2.png" alt="" /></a></li>-->
-                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>-->
-                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo1.png" alt="" /></a></li>-->
-                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo2.png" alt="" /></a></li>-->
-                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>-->
+                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>
+                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo1.png" alt="" /></a></li>
+                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo2.png" alt="" /></a></li>
+                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>
                 </ul>
         </div>
         <div style="float: right;margin-top: -90px;">
-            <div class="preNext next" style="opacity: 0.4;"></div>
+            <div class="preNext next" style="opacity: 0.9;"></div>
         </div>
     </div>
 
@@ -531,7 +546,7 @@
     #focus .btn {position:absolute;  height:10px; padding:5px 10px; right:0; bottom:0; text-align:right;}
     #focus .btn span {display:inline-block; _display:inline; _zoom:1; width:25px; height:10px; _font-size:0; margin-left:5px; cursor:pointer; background:#fff;}
     #focus .btn span.on {background:#fff;}
-    .preNext {width:68px; height:68px; cursor:pointer;}
+    .preNext {width:50px; height:50px; cursor:pointer;margin-top: 8px;}
     .pre {float:left;background:url(__PUBLIC__/images/prev.png) no-repeat;}
     .next {float:right; background:url(__PUBLIC__/images/next.png) no-repeat;}
 </style>
@@ -550,16 +565,16 @@
         $("#focus .btnBg").css("opacity",0.8);
 
         //为小按钮添加鼠标滑入事件，以显示相应的内容
-        $("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+        $("#focus .btn span").css("opacity",0.9).mouseenter(function() {
             index = $("#focus .btn span").index(this);
             showPics(index);
         }).eq(0).trigger("mouseenter");
 
         //上一页、下一页按钮透明度处理
-        $(".preNext").css("opacity",0.4).hover(function() {
+        $(".preNext").css("opacity",0.9).hover(function() {
             $(this).stop(true,false).animate({"opacity":"0.8"},300);
         },function() {
-            $(this).stop(true,false).animate({"opacity":"0.4"},300);
+            $(this).stop(true,false).animate({"opacity":"0.9"},300);
         });
 
         //上一页按钮
@@ -595,7 +610,7 @@
             var nowLeft = -index*sWidth; //根据index值计算ul元素的left值
             $("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position
             //$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
-            $("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+            $("#focus .btn span").stop(true,false).animate({"opacity":"0.9"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
         }
     });
 

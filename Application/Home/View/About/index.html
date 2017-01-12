@@ -31,7 +31,7 @@
         <div id="templatemo_content">
      
             <div class="sidebar_content_boxx" style="height:100px;">
-                <h3 class="h3-content"><{:L('历史前沿')}></h3>
+                <h3 class="h3-content"><{:L('历史沿革')}></h3>
             </div>
             <div class="news_container">
                 <foreach name="_list" item="item">
@@ -39,7 +39,7 @@
                         <img class="news-image" src="<{$item.img}>" alt="" width="180" height="130"/>
                         <div class="news-content">
                             <div class="news-title">
-                                <span class="news-title-year"><{$item.create_time|date="Y年",###}></span>
+                                <span class="news-title-year"><{$item.news_time}></span>
                                 <span class="news-title-text"><{$item.news_title}></span>
                             </div>
                             <div class="new-line-gray"></div>

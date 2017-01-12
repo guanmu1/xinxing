@@ -7,7 +7,7 @@
                     <h5>发布新闻</h5>
                 </div>
                 <volist name="rInfo" id="item" key="kkey">
-                    <form class="form-horizontal m-t content-form"  method="post" <if condition="$item.image_link eq ''">style="display:none;"</if> >
+                    <form class="form-horizontal m-t content-form"  method="post" <if condition="$item.coop_title eq ''">style="display:none;"</if> >
                     <div class="ibox-content">
                         <div class="form-group">
                             <label style="float: left;color:red;">第<{$key+1}>组</label>
@@ -15,7 +15,7 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">名称：</label>
                             <div class="col-sm-9">
-                                <input name="form[<{$key}>][title]" class="form-control input-title" type="text" value="<{$item.image_title}>">
+                                <input name="form[<{$key}>][title]" class="form-control input-title" type="text" value="<{$item.coop_title}>">
                             </div>
                         </div>
 
@@ -23,12 +23,13 @@
                             <label class="col-sm-2 control-label">图片：</label>
                             <div class="col-sm-9">
 
-                                <img id="course_image_6" src="<{$item.image_link}>" alt="" width="270" height="50">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[<{$key}>][img]" value="<{$item.image_link}>">
+                                <img id="course_image_6" src="<{$item.coop_link}>" alt="" width="270" height="50">
+                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button><br/>
+                                <input type="text" style="width: 400px;margin-top: 3px;" name="form[<{$key}>][img]" value="<{$item.coop_link}>">
                                 <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<{$key}>_file" onchange="uploadFile(this)"/>
 
                             </div>
+                            建议上传图片尺寸270*50
                         </div>
 
                         <div class="form-group">
@@ -82,7 +83,7 @@
     function uploadFile(_this){
         var eleId = $(_this).attr('id');
         var imgObj = $(_this).siblings('img');
-        var inputHidden = $(_this).siblings('input:hidden');
+        var inputHidden = $(_this).siblings('input:text');
         $.ajaxFileUpload(
                 {
                     url:'<{:U("Image/uploadPic")}>', //你处理上传文件的服务端

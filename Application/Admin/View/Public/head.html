@@ -98,7 +98,7 @@
                         </ul>
                     </li>
 
-                    <li <if condition="CONTROLLER_NAME eq 'ImageHome' or CONTROLLER_NAME eq 'ImageOther'">class="active"</if>>
+                    <li <if condition="CONTROLLER_NAME eq 'ImageHome' or CONTROLLER_NAME eq 'ImageOther' or CONTROLLER_NAME eq 'Coop'">class="active"</if>>
                     <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li <if condition="CONTROLLER_NAME eq 'ImageHome'">class="active"</if>><a href="<{:U('ImageHome/index')}>">首页轮播</a></li>
@@ -119,28 +119,21 @@
                     <li <if condition="CONTROLLER_NAME eq 'Video'">class="active"</if>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <if condition="CONTROLLER_NAME eq 'Video'">class="active"</if>><a href="<{:U('Video/index')}>">媒体中心</a></li>
+                            <li <if condition="CONTROLLER_NAME eq 'Video'">class="active"</if>><a href="<{:U('Video/index')}>">视频广告</a></li>
                         </ul>
                     </li>
 
                     <li <if condition="CONTROLLER_NAME eq 'Recruit'">class="active"</if>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li <if condition="CONTROLLER_NAME eq 'Recruit'">class="active"</if>><a href="<{:U('Recruit/index')}>">人才引进</a></li>
+                            <li <if condition="CONTROLLER_NAME eq 'Recruit'">class="active"</if>><a href="<{:U('Recruit/index')}>">招贤纳士</a></li>
                         </ul>
                     </li>
 
                     <li <if condition="CONTROLLER_NAME eq 'Contact' or CONTROLLER_NAME eq 'ContactRight'">class="active"</if>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<{:U('Contact/index')}>">联系信息</a></li>
-                        </ul>
-
-                    </li>
-                    <li <if condition="CONTROLLER_NAME eq 'Suggest'">class="active"</if>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<{:U('Suggest/index')}>">投诉建议信息</a></li>
+                            <li ><a href="<{:U('Contact/edit')}>">联系信息</a></li>
                         </ul>
 
                     </li>

@@ -15,11 +15,16 @@ class GoodsController extends CommonController {
         $cid = I('get.cid');
         if ($cid) {
             $where['n.category_id'] = $cid;
+            $categoryPid = M('Category')->where('category_id=%d',$where['n.category_id'])->getField('category_pid');
+
         } else {
             $where['n.category_pid'] = I('get.cpid') ? I('get.cpid') : 1;//默认为1
+            $categoryPid = $where['n.category_pid'];
         }
 
-
+        $currentCategoryName = M('Category')->where('category_id=%d',$categoryPid)->getField('category_name');
+        $this->assign('currentCategoryName',$currentCategoryName);
+        $this->assign('thisCpid',$categoryPid);
 
         $size = 8;
         $count  =  M('Goods')->alias('n')
@@ -27,7 +32,7 @@ class GoodsController extends CommonController {
             ->count();
         $Page  = new \Common\Util\Page($count,'Goods/index',$size);// 实例化分页类
         $list  =  M('Goods')->alias('n')
-            ->field('n.goods_id,n.goods_name,n.goods_code,n.goods_weight,n.goods_size,n.goods_img0,n.create_time,n.language,n.group_id,c1.category_name as category_pname')
+            ->field('n.goods_id,n.goods_name,n.home_img,n.goods_code,n.goods_weight,n.goods_size,n.goods_img0,n.create_time,n.language,n.group_id,c1.category_name as category_pname')
             ->join('left join trade_category c1 ON c1.category_id = n.category_pid')
             ->join('left join trade_category c2 ON c2.category_id = n.category_id')
             ->where($where)
@@ -47,7 +52,8 @@ class GoodsController extends CommonController {
         $this->assign('size',$size);// 每页分页数
         $this->assign('count',$count);
 
-        $this->assign('thisCpid',$where['n.category_pid']);
+
+
 
         $this->display();
     }
@@ -120,9 +126,10 @@ class GoodsController extends CommonController {
         }
 
         $goodsInfo['img'] = $imgArr;
-//        dump($goodsInfo);
+        //dump($goodsInfo);
 
         $this->assign('goodsInfo', $goodsInfo);
+        $this->assign('thisCpid',$goodsInfo['category_pid']);
         $this->display();
     }
 }

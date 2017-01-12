@@ -80,7 +80,6 @@ class CoopController extends CommonController {
         if (IS_POST) {
             //var_dump($_POST['form']);die;
             $groupId = I('post.groupId');
-            M('Coop')->where('group_id = %d',$groupId)->save(array('deleted'=>1));
 
             M('Coop')->where('group_id = %d',$groupId)->delete();
 
@@ -167,7 +166,7 @@ class CoopController extends CommonController {
 
             }
 
-            //dump($rInfo);
+            //dump($rInfo);die;
             $this->assign('rInfo',$rInfo);
             $this->display();
         }

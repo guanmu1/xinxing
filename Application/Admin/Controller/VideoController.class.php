@@ -38,7 +38,6 @@ class VideoController extends CommonController {
         $this->display();
     }
 
-
     public function add(){
         if (IS_POST) {
             $g = M('Video')->max('group_id');
@@ -48,7 +47,12 @@ class VideoController extends CommonController {
             foreach ($formData as $key => $value) {
                 $oneData = array();
                 $oneData['video_title'] = $value['title'];
-                $oneData['video_link'] = $value['link'];
+                if($value['choose'] == 1){
+                    $oneData['video_link'] = $value['link'];
+                }else{
+                    $oneData['video_link'] = $value['up'];
+                }
+                $oneData['video_type'] = $value['choose'];
                 $oneData['group_id'] = $gid+1;
                 $oneData['form_id'] = $key;
                 $oneData['create_time'] = time();
@@ -64,6 +68,7 @@ class VideoController extends CommonController {
                 $this->error('发布失败');
             }
         } else {
+            $this->assign('phpsessid', session_id());
             $this->display();
         }
     }
@@ -79,9 +84,14 @@ class VideoController extends CommonController {
             foreach ($formData as $key => $value) {
                 $oneData = array();
                 $oneData['video_title'] = $value['title'];
-                $oneData['video_link'] = $value['link'];
                 $oneData['group_id'] = $groupId;
                 $oneData['form_id'] = $key;
+                if($value['choose'] == 1){
+                    $oneData['video_link'] = $value['link'];
+                }else{
+                    $oneData['video_link'] = $value['up'];
+                }
+                $oneData['video_type'] = $value['choose'];
                 $oneData['create_time'] = time();
                 foreach ($value['language'] as $v) {
                     $oneData['language'] = $v;
@@ -119,6 +129,7 @@ class VideoController extends CommonController {
                     if ($value['form_id'] == $i) {
                         $rInfo[$i]['video_title'] = $value['video_title'];
                         $rInfo[$i]['video_link'] = $value['video_link'];
+                        $rInfo[$i]['choose'] =$value['video_type'];
 
                         foreach ($this->allLangArr as $k => $v) {
                             $rInfo[$i]['language'][$k]['name'] = $this->allLangToCH[$v];
@@ -141,6 +152,7 @@ class VideoController extends CommonController {
                 if ( !$rInfo[$i] ) {
                     $rInfo[$i]['video_title'] = '';
                     $rInfo[$i]['video_link'] = '';
+                    $rInfo[$i]['choose'] = '';
 
                     foreach ($this->allLangArr as $k => $v) {
                         $rInfo[$i]['language'][$k]['name'] = $this->allLangToCH[$v];
@@ -156,7 +168,9 @@ class VideoController extends CommonController {
 
             }
 
-            //dump($rInfo);
+
+//            dump($rInfo);
+            $this->assign('phpsessid', session_id());
             $this->assign('rInfo',$rInfo);
             $this->display();
         }
@@ -176,7 +190,6 @@ class VideoController extends CommonController {
         $this->success('发布成功',U('Video/index'));
     }
 
-
     public function del(){
         $groupId = I('post.group_id');
         $re = M('Video')->where('group_id=%d',$groupId)->save(array('deleted'=>1));
@@ -189,6 +202,34 @@ class VideoController extends CommonController {
             $returnResult['msg'] = "删除失败";
         }
         $this->ajaxReturn($returnResult);
+    }
+
+    //上传视频
+    public function uploadVideo(){
+        $imageName = date('YmdHis',time()).rand(1000,9999);
+        $upload = new \Think\Upload();// 实例化上传类
+//        $upload->maxSize  = 1024*1024*2 ;// 设置附件上传大小 2MB
+        $upload->exts     = array("mp4");// 设置附件上传类型
+        $upload->rootPath = 'Uploads/'; // 设置附件上传根目录
+        $upload->savePath = 'ImagePic'; // 设置附件上传（子）目录
+        $upload->saveName = $imageName;  // 防止重名
+
+        // 上传文件
+        $info   =   $upload->upload();
+        if(!$info) {// 上传错误提示错误信息
+            $this->error($upload->getError());
+        }else{// 上传成功
+            //进行图片压缩
+            foreach($info as $file){
+                $inputFile=$upload->rootPath.$file['savepath'].$file['savename'];
+            }
+
+            $data['code']=200;
+            $data['name'] = $info['Filedata']['name'];
+            $data['videoURL'] =__ROOT__. '/' . $inputFile;
+            //$data['pictURL'] ='http://' . $_SERVER['HTTP_HOST'] .__ROOT__. '/' . $inputFile;
+            $this->ajaxReturn($data);
+        }
     }
 
 

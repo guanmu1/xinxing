@@ -89,34 +89,51 @@
                     </li>
 
 
-                    <li <?php if(CONTROLLER_NAME != 'Contact' AND CONTROLLER_NAME != 'ContactRight' AND CONTROLLER_NAME != 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">内容管理</span><span class="fa arrow"></span></a>
+                    <li <?php if(CONTROLLER_NAME == 'Range' or CONTROLLER_NAME == 'Goods' or CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">产品管理</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Range'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Range/index');?>">业务范围</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Goods'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Goods/index');?>">产品展示</a></li>
+                            <li <?php if(CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Category/index');?>">产品分类</a></li>
+                        </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'ImageHome' or CONTROLLER_NAME == 'ImageOther' or CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>>
+                    <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">首页管理</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
+                        <li <?php if(CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageOther/index');?>">其他页轮播</a></li>
+                        <li <?php if(CONTROLLER_NAME == 'Coop'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Coop/index');?>">合作伙伴管理</a></li>
+                    </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'News' or CONTROLLER_NAME == 'Honor'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">关于我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li <?php if(CONTROLLER_NAME == 'News'): ?>class="active"<?php endif; ?>><a href="<?php echo U('News/index');?>">历史沿革</a></li>
                             <li <?php if(CONTROLLER_NAME == 'News'): ?>class="active"<?php endif; ?>><a href="<?php echo U('News/editIntro');?>">公司简介</a></li>
                             <li <?php if(CONTROLLER_NAME == 'Honor'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Honor/index');?>">企业荣誉</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">媒体中心</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">人才引进</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Range'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Range/index');?>">业务范围</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Goods'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Goods/index');?>">产品展示</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'ImageHome'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageHome/index');?>">首页轮播</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'ImageOther'): ?>class="active"<?php endif; ?>><a href="<?php echo U('ImageOther/index');?>">其他页轮播</a></li>
-                            <li <?php if(CONTROLLER_NAME == 'Category'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Category/index');?>">产品分类</a></li>
                         </ul>
+                    </li>
 
+                    <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">媒体中心</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Video'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Video/index');?>">视频广告</a></li>
+                        </ul>
+                    </li>
+
+                    <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>>
+                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">人才引进</span><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li <?php if(CONTROLLER_NAME == 'Recruit'): ?>class="active"<?php endif; ?>><a href="<?php echo U('Recruit/index');?>">招贤纳士</a></li>
+                        </ul>
                     </li>
 
                     <li <?php if(CONTROLLER_NAME == 'Contact' or CONTROLLER_NAME == 'ContactRight'): ?>class="active"<?php endif; ?>>
                         <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">联系我们</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Contact/index');?>">联系信息</a></li>
-                        </ul>
-
-                    </li>
-                    <li <?php if(CONTROLLER_NAME == 'Suggest'): ?>class="active"<?php endif; ?>>
-                        <a href="index.html#"><i class="fa fa-edit"></i> <span class="nav-label">投诉建议</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level">
-                            <li ><a href="<?php echo U('Suggest/index');?>">投诉建议信息</a></li>
+                            <li ><a href="<?php echo U('Contact/edit');?>">联系信息</a></li>
                         </ul>
 
                     </li>
@@ -209,11 +226,11 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">地址图片：</label>
                             <div class="col-sm-9">
-
-                                <img id="course_image_6" src="<?php echo ($item["contact_img"]); ?>" alt="" width="100%" height="200">
-                                <button onclick="clickInputFile(this)" class="btn" type="button">上传</button>
-                                <input type="hidden" name="form[<?php echo ($key); ?>][img]" value="<?php echo ($item["contact_img"]); ?>">
-                                <input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<?php echo ($key); ?>_file" onchange="uploadFile(this)"/>
+                                <script id="editor_<?php echo ($key); ?>_1" type="text/plain"  name="form[<?php echo ($key); ?>][img]" style="height:200px;"></script>
+                                <!--<img id="course_image_6" src="<?php echo ($item["contact_img"]); ?>" alt="" width="100%" height="200">-->
+                                <!--<button onclick="clickInputFile(this)" class="btn" type="button">上传</button>-->
+                                <!--<input type="hidden" name="form[<?php echo ($key); ?>][img]" value="<?php echo ($item["contact_img"]); ?>">-->
+                                <!--<input type="file" accept="image/*" style="opacity:0;margin-top:-25px;width:0px;" name="upfile" id="course_image_<?php echo ($key); ?>_file" onchange="uploadFile(this)"/>-->
 
                             </div>
                         </div>
@@ -294,6 +311,31 @@
                 $('input:checkbox[value="'+thisVal+'"]').removeAttr('disabled').parent().show();//显示所有的语言复选框
             }
         });
+
+        var ue_0 = UE.getEditor('editor_0_1');
+        var ue_1 = UE.getEditor('editor_1_1');
+        var ue_2 = UE.getEditor('editor_2_1');
+        var ue_3 = UE.getEditor('editor_3_1');
+        var ue_4 = UE.getEditor('editor_4_1');
+        var ue_5 = UE.getEditor('editor_5_1');
+        ue_0.ready(function() {
+            ue_0.setContent('<?php echo ($rInfo[0]["contact_img"]); ?>');
+        });
+        ue_1.ready(function() {
+            ue_1.setContent('<?php echo ($rInfo[1]["contact_img"]); ?>');
+        });
+        ue_2.ready(function() {
+            ue_2.setContent('<?php echo ($rInfo[2]["contact_img"]); ?>');
+        });
+        ue_3.ready(function() {
+            ue_3.setContent('<?php echo ($rInfo[3]["contact_img"]); ?>');
+        });
+        ue_4.ready(function() {
+            ue_4.setContent('<?php echo ($rInfo[4]["contact_img"]); ?>');
+        });
+        ue_5.ready(function() {
+            ue_5.setContent('<?php echo ($rInfo[5]["contact_img"]); ?>');
+        });
     });
 
     var curr = 1;
@@ -344,7 +386,6 @@
         curr--;
     }
 
-
     function editSubmit(groupId){
         var postData = '';
         var flag = false;//是否继续执行该方法的标识，如果下列循环中有一种不符合条件，则不提交后台
@@ -391,7 +432,6 @@
             location.href = window.location.href;
         });
     }
-
 </script>
 
 </body>

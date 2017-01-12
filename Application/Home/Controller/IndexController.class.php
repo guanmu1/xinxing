@@ -17,6 +17,11 @@ class IndexController extends CommonController {
         $list = null_to_string($list);
         //dump($list);die;
         $this->assign('list_imgs', $list);
+
+        $videosInfo = M('Video')->where('deleted = 0 and language="%s"',cookie('lang_value'))->order('create_time desc')->limit(1)->find();
+        $this->assign('videoInfo',$videosInfo);
+
+
         //得到每个分类下的首页展示的产品
         $goodInfo = M('Goods')
             ->where("deleted = 0 and language='%s' and show_home = 1", cookie('lang_value'))
@@ -52,9 +57,8 @@ class IndexController extends CommonController {
                 $goodsInfo[$val] = M('Goods')->where("deleted = 0 and language = '%s' and category_pid = %d", cookie('lang_value'), $val)->order("create_time desc")->find();
             }
         }
-
-
         $this->assign('goodInfo', $goodsInfo);
+
         $coopInfo = M('Coop')->where('deleted = 0 and language="%s"',cookie('lang_value'))->select();
         $this->assign('coopInfo',$coopInfo);
         $this->display();
