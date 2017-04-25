@@ -5,9 +5,15 @@
     <div>
         <a><{:L('首页')}></a>
         <span>·</span>
-        <a><{:L('媒体中心')}></a>
+        <a><{:L('产品展示')}></a>
         <span>·</span>
-        <a><{:L('视频广告')}></a>
+        <a><{:L('产品展示')}></a>
+        <span>·</span>
+        <a><{$goodsInfo.category_name}></a>
+        <span>·</span>
+        <a><{$goodsInfo.goods_name}></a>
+        <span>·</span>
+        <a><{$goodsInfo.goods_code}></a>
     </div>
 </div>
 <style>
@@ -109,8 +115,8 @@
                 </div>
 
                 <div>
-                    <div style="float: right;">
-                        <img style="float: right;margin-top: 30px;margin-right: 10px;" src="__PUBLIC__/images/goodslogo.png" alt="">
+                    <div style="float: left;">
+                        <img style="float: left;margin-top: 30px;margin-left: 15px;" src="__PUBLIC__/images/goodslogo.png" alt="">
                     </div>
 
                     <div style="float: left;margin-top: 70px;margin-left: 20px;width: 250px;">
@@ -121,31 +127,37 @@
                     </div>
                     <div style="float: left;margin-top: 40px;margin-left: 20px;width: 250px;">
                         <p style="font-size: 24px;font-weight: bold;color:#717172;"><{$goodsInfo.goods_name}></p>
-                        <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
-                        <div style="float: left;width: 140px;height: 2px;background-color: gray;margin-top: 10px;"></div>
-                        <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
+                        <if condition="$goodsInfo.goods_intro neq ''">
+                            <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
+                            <div style="float: left;width: 140px;height: 2px;background-color: gray;margin-top: 10px;"></div>
+                            <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
+                        </if>
                     </div>
-                    <div style="float: left;margin-top: 30px;margin-left: 20px;width: 250px;">
-                        <p style="font-size: 20px;font-weight: bold;color:#717172;"><{L('产品展示')}></p>
-                        <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
-                        <div style="float: left;width: 140px;height: 2px;background-color: gray;margin-top: 10px;"></div>
-                        <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
-                        <div style="margin-top: 30px;">
-                            <{$goodsInfo.goods_intro}>
-                            <!--F 型战地靴<br/>-->
-                            <!--颜色：黑色、沙漠黄、<br/>-->
-                            <!--尺码：41、41、43<br/>-->
+                    <if condition="$goodsInfo.goods_intro neq ''">
+                        <div style="float: left;margin-top: 30px;margin-left: 20px;width: 250px;">
+                            <p style="font-size: 20px;font-weight: bold;color:#717172;"><{:L('产品展示')}></p>
+                            <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
+                            <div style="float: left;width: 140px;height: 2px;background-color: gray;margin-top: 10px;"></div>
+                            <div style="float: left;width: 55px;height: 2px;background-color: red;margin-top: 10px;"></div>
+                            <div style="margin-top: 30px;height: 145px;overflow-y: auto;">
+                                <{$goodsInfo.goods_intro}>
+                            </div>
                         </div>
-                    </div>
+                    </if>
                     <div style="clear:both;"></div>
 
+
                 </div>
-                <div style="margin-top: 20px;">
-                    <div style="width: 100%;background: url(__PUBLIC__/images/goods-top.png);height: 37px;">
-                        <p style="float: left;color:#07F900;font-size: 18px;margin-top: 8px;margin-left: 12px;"><{L('产品展示')}></p>
+
+                <if condition="$goodsInfo.goods_description neq ''">
+                    <div style="margin-top: 20px;">
+                        <div style="width: 100%;background: url(__PUBLIC__/images/goods-top.png);height: 37px;">
+                            <p style="float: left;color:#07F900;font-size: 18px;margin-top: 8px;margin-left: 12px;"><{:L('产品展示')}></p>
+                        </div>
+                        <{$goodsInfo.goods_description}>
                     </div>
-                    <{$goodsInfo.goods_description}>
-                </div>
+                </if>
+
 
 
 

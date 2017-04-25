@@ -3,9 +3,9 @@
     <div>
         <a><{:L('首页')}></a>
         <span>·</span>
-        <a><{:L('媒体中心')}></a>
+        <a><{:L('产品展示')}></a>
         <span>·</span>
-        <a><{:L('视频广告')}></a>
+        <a><{:L('搜索')}></a>
     </div>
 </div>
 <style>
@@ -24,12 +24,12 @@
                     <li class="mouseover-li left-sub-menu" style="margin: 10px auto;"><a class="left-sub-menu-a" href="<{:U('Range/index')}>" ><{:L('业务范围')}></a></li>
                     <li style="height: 1px;background-color: #9FA0A1;"></li>
                     <li class="mouseover-li left-sub-menu" style="margin-bottom: 10px;margin-top: 10px;"><a class="left-sub-menu-a" href="<{:U('Goods/index')}>" ><{:L('产品展示')}></a></li>
-                    <li class="second-li"><a class="" href="#" ><{:L('衣帽')}></a></li>
-                    <li class="second-li"><a class="" href="#" ><{:L('鞋靴')}></a></li>
-                    <li class="second-li"><a class="" href="#" ><{:L('防弹产品')}></a></li>
-                    <li class="second-li"><a class="" href="#" ><{:L('装具')}></a></li>
-                    <li class="second-li"><a class="" href="#" ><{:L('警用产品')}></a></li>
-                    <li class="second-li"><a class="" href="#" ><{:L('车辆及装备')}></a></li>
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('衣帽')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('鞋靴')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('防弹产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('装具')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('警用产品')}></a></li>-->
+                    <!--<li class="second-li"><a class="" href="#" ><{:L('车辆及装备')}></a></li>-->
 
                     <li style="height: 1px;background-color: #9FA0A1;"></li>
                     <li class="mouseover-li left-sub-menu-hover" style="margin-bottom: 10px;margin-top: 10px;"><a class="left-sub-menu-a-hover" href="<{:U('Goods/index')}>" ><{:L('搜索')}></a></li>
@@ -57,14 +57,14 @@
         <div id="templatemo_content" style="border:none;">
      
             <div class="sidebar_content_box" style="height:100px;">
-                <h3 class="h3-content"><{:L('产品展示')}></h3>
+                <h3 class="h3-content"><{:L('搜索')}></h3>
             </div>
-            <div class="goods_search">
-                <input id="search_search_input" type="text" style="width: 540px;height: 30px;float: left;padding-left: 10px;" placeholder="请输入产品关键字" value="<{$Think.get.keyword}>">
-                <button class="search-botton" onclick="searchSearchGoods()" ><{:L('搜索')}></button>
-                <div style="clear: both;"></div>
-                <h4 style=" font-size: 14px;color: gray;margin-left: 35px;">搜索到与 "<{$Think.get.keyword}>" 相关的产品有 <{$count}> 个</h4>
-            </div>
+            <!--<div class="goods_search">-->
+                <!--<input id="search_search_input" type="text" style="width: 540px;height: 30px;float: left;padding-left: 10px;" placeholder="请输入产品关键字" value="<{$Think.get.keyword}>">-->
+                <!--<button class="search-botton" onclick="searchSearchGoods()" ><{:L('搜索')}></button>-->
+                <!--<div style="clear: both;"></div>-->
+                <h4 style=" font-size: 14px;color: gray;margin-left: 20px;margin-top: 20px;">搜索到与 "<{$Think.get.keyword}>" 相关的产品有 <{$count}> 个</h4>
+            <!--</div>-->
             <div class="news_container" style="padding: 0;">
 
                 <volist name="_list" id="list">
@@ -74,7 +74,7 @@
                         <div class="products-middle-image-div border-width" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$list.goods_weight}></span>
-                            <span class="products-middle-image-div-span2" ><{$list.goods_size}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$list.goods_size}></span>-->
                         </div>
                     </div>
                 </volist>

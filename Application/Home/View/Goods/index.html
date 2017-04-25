@@ -3,9 +3,9 @@
     <div>
         <a><{:L('首页')}></a>
         <span>·</span>
-        <a><{:L('媒体中心')}></a>
+        <a><{:L('产品展示')}></a>
         <span>·</span>
-        <a><{:L('视频广告')}></a>
+        <a><{:L('产品展示')}></a>
     </div>
 </div>
 <style>
@@ -80,11 +80,11 @@
                     <div class="goods-container">
                         <a href="<{:U('Goods/detail',array('id'=>$list['goods_id']))}>">
                         <img class="goods-img" src="<{$list.goods_img0}>" alt="">
-                        <div class="products-middle-image-div" style="line-height: 25px;height: 25px;"><{$list.goods_code}></div>
+                        <div class="products-middle-image-div" style="line-height: 25px;height: 25px;">&nbsp;&nbsp;<{$list.goods_code}></div>
                         <div class="products-middle-image-div border-width" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$list.goods_weight}></span>
-                            <span class="products-middle-image-div-span2" ><{$list.goods_size}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$list.goods_size}></span>-->
                         </div>
                         </a>
                     </div>

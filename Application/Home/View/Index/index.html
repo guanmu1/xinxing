@@ -28,7 +28,7 @@
 
         .first-div{height:30px;background:#9c9d9e;min-width: 1000px;}
         .first-div-container{width: 980px;margin: 0 auto;}
-        .first-div-left>a{float:left;margin:6px 0 0 6px;text-decoration: none;color:#F29871;font-size: 12px;}
+        .first-div-left>a{float:left;margin:6px 0 0 6px;text-decoration: none;color:#fff;font-size: 12px;}
         .first-div-right{float:right;}
         .first-div-right>a{line-height: 30px;margin-right: 8px;}
         .first-div-right>select{margin-left: 8px;}
@@ -76,7 +76,13 @@
         .flexslider .slides a img {  width: 100%;  height: 482px;  display: block;  }
 
         .maxaul>li>a {max-width: 105px;overflow: hidden;}
-        .erji-bar>li:hover{background: red;}
+        .maxaul>li{height: 80px;}
+        .maxaul>li>a{height: 80px;margin-top: 24px;}
+        .maxaul>li:hover{height: 80px;background: gray;}
+        .erji-bar>li{overflow: hidden;}
+        .erji-bar>li:hover{background: red;overflow: visible;}
+        .yiji-bar{width: 100px;}
+        .yiji-bar>li:hover{background: red;}
     </style>
     <script>
         $(function(){
@@ -89,6 +95,8 @@
                     location.reload();
                 })
             });
+
+            $('.second-menu-div').show();
         });
     </script>
 </head>
@@ -96,7 +104,7 @@
 <div class="first-div">
     <div class="first-div-container">
         <div class="first-div-left">
-            <img style="margin-top:6px;float:left;" src="http://l.b2b168.com/2010/03/15/07/20100315074652393812.gif" height="18" alt="" />
+            <img style="margin-top:6px;float:left;" src="__PUBLIC__/images/guoqi.png" height="18" alt="" />
             <a>CHINA STATE OWNED MILITARY CORPORATION</a>
         </div>
         <div class="first-div-right">
@@ -105,35 +113,35 @@
 
             <select name="" id="select-lang">
                 <option <if condition="cookie('lang_value') == 'cn'"> selected </if> value="cn">中文</option>
-                <option <if condition="cookie('lang_value') == 'en'"> selected </if> value="en">EngLish</option>
-                <option <if condition="cookie('lang_value') == 'fr'"> selected </if> value="fr">Français</option>
-                <option <if condition="cookie('lang_value') == 'es'"> selected </if> value="es">Español</option>
-                <option <if condition="cookie('lang_value') == 'pt'"> selected </if> value="pt">Português</option>
-                <option <if condition="cookie('lang_value') == 'ru'"> selected </if> value="ru">EngLish</option>
-                <option <if condition="cookie('lang_value') == 'ar'"> selected </if> value="ar">العربية</option>
+                <!--<option <if condition="cookie('lang_value') == 'en'"> selected </if> value="en">EngLish</option>-->
+                <!--<option <if condition="cookie('lang_value') == 'fr'"> selected </if> value="fr">Français</option>-->
+                <!--<option <if condition="cookie('lang_value') == 'es'"> selected </if> value="es">Español</option>-->
+                <!--<option <if condition="cookie('lang_value') == 'pt'"> selected </if> value="pt">Português</option>-->
+                <!--<option <if condition="cookie('lang_value') == 'ru'"> selected </if> value="ru">русский</option>-->
+                <!--<option <if condition="cookie('lang_value') == 'ar'"> selected </if> value="ar">العربية</option>-->
             </select>
         </div>
     </div>
 </div>
-<div style="height:70px;min-width:1000px;background:#FFF;padding-top:10px;">
+<div style="height:80px;min-width:1000px;background:#FFF;">
     <div style="margin:0 auto;width:980px;">
-        <img src="__PUBLIC__/images/xinxinglogo.png" alt="" width="300"/>
+        <img style="margin-top: 10px;" src="__PUBLIC__/images/xinxinglogo.png" alt="" width="300"/>
 
         <div class="ddsmoothmenu" style="color:gray;float:right;" id="templatemo_menu">
-            <ul class="maxaul">
-                <li><a href="<{:U('About/index')}>" <if condition="CONTROLLER_NAME eq 'About' "> class="selected" </if> style="padding-left: 10px;"><span></span><{:L('关于我们')}></a>
-                    <ul>
-                        <li><a href="<{:U('About/index')}>"><{:L('历史沿革')}></a></li>
+            <ul class="maxaul" style="padding:0;">
+                <li><a href="<{:U('About/index')}>" <if condition="CONTROLLER_NAME eq 'About' "> class="selected" </if> ><span class="span-dian">·</span><{:L('关于我们')}></a>
+                    <ul class="yiji-bar" style="width: 100px;">
+                        <li style="margin-top: 5px;"><a href="<{:U('About/index')}>"><{:L('历史沿革')}></a></li>
                         <li><a href="<{:U('About/intro')}>"><{:L('公司简介')}></a></li>
-                        <li><a href="<{:U('About/honor')}>"><{:L('企业荣誉')}></a></li>
+                        <li style="margin-bottom: 5px;"><a href="<{:U('About/honor')}>"><{:L('企业荣誉')}></a></li>
                     </ul>
                 </li>
 
                 <li><a href="<{:U('Video/index')}>" <if condition="CONTROLLER_NAME eq 'Video' "> class="selected" </if>  ><span class="span-dian">·</span><{:L('媒体中心')}></a></li>
                 <li><a href="<{:U('Goods/index')}>" <if condition="CONTROLLER_NAME eq 'Goods' or CONTROLLER_NAME eq 'Range' "> class="selected" </if> ><span class="span-dian">·</span><{:L('产品展示')}></a>
-                    <ul>
-                        <li><a href="<{:U('Range/index')}>"><{:L('业务范围')}></a></li>
-                        <li><a href="<{:U('Goods/index')}>"><{:L('产品展示')}></a></li>
+                    <ul class="yiji-bar" style="width: 100px;">
+                        <li style="margin-top: 5px;"><a href="<{:U('Range/index')}>"><{:L('业务范围')}></a></li>
+                        <li style="margin-bottom: 5px;"><a href="<{:U('Goods/index')}>"><{:L('产品展示')}></a></li>
                     </ul>
                 </li>
                 <li><a href="<{:U('Recruit/index')}>" <if condition="CONTROLLER_NAME eq 'Recruit' "> class="selected" </if> ><span class="span-dian">·</span><{:L('人才引进')}></a></li>
@@ -144,7 +152,7 @@
 
     </div>
 </div>
-<div style="height:66px;min-width:1000px;background-image:url(__PUBLIC__/images/tb1.png);">
+<div class="second-menu-div" style="display:none;height:66px;min-width:1000px;background-image:url(__PUBLIC__/images/tb1.png);">
     <div  style="width:980px;margin:0 auto;">
 
         <div class="div-second-menu" id="templatemo_menu_goods">
@@ -154,42 +162,22 @@
 
                         <if condition="$cItem['children']">
                             <php>
-                                $width = ceil(count($cItem['children'])/8)*100;
+                                $width = ceil(count($cItem['children'])/8)*90;
                             </php>
                             <ul style="width: <{$width}>px;" class="erji-bar">
                                 <foreach name="cItem.children" item="ccItem">
-                                    <li style="width: 100px;float: left; display: block; "><a href="<{:U('Goods/index',array('cid'=>$ccItem['category_id']))}>"><{$ccItem.category_name}></a></li>
+                                    <li style="width: 90px;float: left; display: block; ">
+                                        <a href="<{:U('Goods/index',array('cid'=>$ccItem['category_id']))}>" style="padding:4px 8px;width: 200px;"><{$ccItem.category_name}></a>
+                                    </li>
                                 </foreach>
                             </ul>
                         </if>
                     </li>
                 </volist>
-                <!--<li><a href="index.html" class="selected"><span></span><{:L('衣帽')}></a></li>-->
-                <!--<li><a href="blog.html"><span></span>鞋靴<{:L('产品展示')}></a>-->
-                    <!--<ul>-->
-                        <!--<li><a href="blog.html">Category One</a></li>-->
-                        <!--<li><a href="blog.html">Category Two</a></li>-->
-                        <!--<li><a href="blog.html">Category Three</a></li>-->
-                        <!--<li><a href="blog.html">Category Four</a></li>-->
-                        <!--<li><a href="blog.html">Category Five</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li><a href="gallery.html"><span></span><{:L('防弹产品')}></a>-->
-                    <!--<ul>-->
-                        <!--<li><a href="gallery.html">Page One</a></li>-->
-                        <!--<li><a href="gallery.html">Page Two</a></li>-->
-                        <!--<li><a href="gallery.html">Page Three</a></li>-->
-                        <!--<li><a href="gallery.html">Page Four</a></li>-->
-                        <!--<li><a href="gallery.html">Page Five</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li><a href="about.html"><span></span><{:L('装具')}></a></li>-->
-                <!--<li><a href="contact.html"><span></span><{:L('警用产品')}></a></li>-->
-                <!--<li><a href="contact.html"><span></span><{:L('车辆及装备')}></a></li>-->
             </ul>
 
             <img onclick="searchGoods()" style="float:right;margin-top:18px;" src="__PUBLIC__/images/search.png" alt="" width="30" height='30'/>
-            <input style="float: right;margin-top: 18px;margin-right: 20px;height: 25px;border-radius: 15px;border: none;width: 200px;padding-left:20px;" type="text" name="" placeholder="<{:L('请输入产品关键字')}>" />
+            <input style="float: right;margin-top: 18px;margin-right: 20px;height: 25px;border-radius: 3px;border: none;width: 200px;padding-left:20px;" type="text" id="search_input_text" name="" placeholder="<{:L('请输入产品关键字')}>" />
 
             <br style="clear: left" />
         </div>
@@ -207,22 +195,6 @@
                 </a>
             </li>
         </foreach>
-
-        <!--<li>-->
-            <!--<a title="" target="_blank" href="#">-->
-                <!--<img width="1920" height="480" alt="" style="background: url(__PUBLIC__/images/chaodabei1.png) no-repeat center;" src="__PUBLIC__/images/alpha.png">-->
-            <!--</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a title="" href="#">-->
-                <!--<img width="1920" height="480" alt="" style="background: url(__PUBLIC__/images/chaodabei1.png) no-repeat center;" src="__PUBLIC__/images/alpha.png">-->
-            <!--</a>-->
-        <!--</li>-->
-        <!--<li>-->
-            <!--<a title="" href="#">-->
-                <!--<img width="1920" height="480" alt="" style="background: url(__PUBLIC__/images/chaodabei1.png) no-repeat center;" src="__PUBLIC__/images/alpha.png">-->
-            <!--</a>-->
-        <!--</li>-->
     </ul>
     <ul class="flex-direction-nav">
         <li><a class="flex-prev" href="javascript:;">Previous</a></li>
@@ -268,7 +240,7 @@
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[1]['goods_weight']}></span>
-                            <span class="products-middle-image-div-span2" ><{$goodInfo[1]['goods_size']}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$goodInfo[1]['goods_size']}></span>-->
                         </div>
                     </a>
                 </div>
@@ -297,7 +269,7 @@
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[2]['goods_weight']}></span>
-                            <span class="products-middle-image-div-span2" ><{$goodInfo[2]['goods_size']}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$goodInfo[2]['goods_size']}></span>-->
                         </div>
                     </a>
                 </div>
@@ -326,7 +298,7 @@
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[3]['goods_weight']}></span>
-                            <span class="products-middle-image-div-span2" ><{$goodInfo[3]['goods_size']}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$goodInfo[3]['goods_size']}></span>-->
                         </div>
                     </a>
                 </div>
@@ -355,7 +327,7 @@
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[4]['goods_weight']}></span>
-                            <span class="products-middle-image-div-span2" ><{$goodInfo[4]['goods_size']}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$goodInfo[4]['goods_size']}></span>-->
                         </div>
                     </a>
                 </div>
@@ -384,7 +356,7 @@
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[5]['goods_weight']}></span>
-                            <span class="products-middle-image-div-span2" ><{$goodInfo[5]['goods_size']}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$goodInfo[5]['goods_size']}></span>-->
                         </div>
                     </a>
                 </div>
@@ -413,7 +385,7 @@
                         <div class="products-middle-image-div" >
                             <img class="products-middle-image-div-img"  src="__PUBLIC__/images/tubiao1.png" width="20" height="20" alt="">
                             <span class="products-middle-image-div-span1" ><{$goodInfo[6]['goods_weight']}></span>
-                            <span class="products-middle-image-div-span2" ><{$goodInfo[6]['goods_size']}></span>
+                            <!--<span class="products-middle-image-div-span2" ><{$goodInfo[6]['goods_size']}></span>-->
                         </div>
                     </a>
                 </div>
@@ -469,11 +441,13 @@
 
 
     function searchGoods(){
-        location.href = "<{:U('Goods/search')}>";
+        var url = "<{:U('Goods/search')}>";
+        var keyword = $('#search_input_text').val();
+        location.href = url+"?keyword="+keyword;
     }
 </script>
 <style>
-    .coop{border-bottom: 3px solid #07F900;background-image: url(__PUBLIC__/images/jianbian.png);background-size: cover;}
+    .coop{border-bottom: 1px solid #07F900;background-image: url(__PUBLIC__/images/jianbian.png);background-size: cover;}
     .coop-title{text-align: center;padding-top: 40px;}
     .coop-title h2{color:#fff;}
     .coop-content{width: 950px;margin:  0 auto;padding-bottom: 30px;}
@@ -503,13 +477,13 @@
         <div id="focus" style="width: 890px;">
                 <ul>
                     <foreach name="coopInfo" item="item">
-                        <li><a href=""><img width="" height="100" src="<{$item.coop_link}>" alt="<{$item.coop_title}>" /></a></li>
+                        <li><a href="<{$item.coop_redirect}>"><img width="" height="100" src="<{$item.coop_link}>" alt="<{$item.coop_title}>" /></a></li>
                     </foreach>
                     <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo2.png" alt="" /></a></li>-->
-                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>
-                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo1.png" alt="" /></a></li>
-                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo2.png" alt="" /></a></li>
-                    <li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>
+                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>-->
+                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo1.png" alt="" /></a></li>-->
+                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo2.png" alt="" /></a></li>-->
+                    <!--<li><a href=""><img width="" height="100" src="__PUBLIC__/images/hezuo3.png" alt="" /></a></li>-->
                 </ul>
         </div>
         <div style="float: right;margin-top: -90px;">
